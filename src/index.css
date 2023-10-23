@@ -2,6 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+.debug-screens::before {
+    -webkit-box-shadow: 0 0 0 1px #fff;
+    box-shadow: 0 0 0 1px #fff;
+    content: 'screen: _';
+    @apply fixed left-0 top-0 z-[2147483647] bg-black px-[0.5em] py-[calc(1em/3em)] font-sans text-[12px] leading-[1] text-white;
+}
+
+@screen mobile-portrait {
+    .debug-screens::before {
+        content: 'screen: mobile-portrait';
+    }
+}
+
+@screen mobile-landscape {
+    .debug-screens::before {
+        content: 'screen: mobile-landscape';
+    }
+}
+
+@screen tablet {
+    .debug-screens::before {
+        content: 'screen: tablet';
+    }
+}
+
+@screen desktop {
+    .debug-screens::before {
+        content: 'screen: desktop';
+    }
+}
+
+@screen desktop-larger {
+    .debug-screens::before {
+        content: 'screen: desktop-larger';
+    }
+}
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',

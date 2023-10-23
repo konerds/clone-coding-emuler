@@ -8,10 +8,11 @@ module.exports = {
     theme: {
         screens: {
             ...defaultTheme.screens,
-            xxs: '0px',
-            xs: '420px',
-            lg: '1024px',
-            xl: '1200px',
+            'mobile-portrait': '0px',
+            'mobile-landscape': '478px',
+            tablet: '767px',
+            desktop: '991px',
+            'desktop-larger': '1280px',
         },
         extend: {
             colors: {
