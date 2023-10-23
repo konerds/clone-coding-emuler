@@ -120,3 +120,9 @@ body {
     #6248ff 100%
   );
 }
+
+.bg-gradient-image-process-work {
+  background: -o-linear-gradient(333deg, black, rgba(255, 255, 255, 0) 73%);
+  background: linear-gradient(117deg, black, rgba(255, 255, 255, 0) 73%);
+  background-position: 50% 50%;
+}
