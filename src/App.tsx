@@ -9,7 +9,7 @@ const App = () => {
       style={{ backgroundImage: `url(${ImgBgGrainLatest})` }}
       className={`${
         process.env.NODE_ENV !== 'production' ? 'debug-screens ' : ''
-      }bg-[#d8d5d1] px-[5%]`}
+      }bg-[#d8d5d1]`}
     >
       <CmpLayoutHeader />
       <CmpLayoutMain />
