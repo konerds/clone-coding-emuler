@@ -1,7 +1,7 @@
 import CmpLayoutFooter from './components/footer/CmpLayoutFooter';
 import CmpLayoutHeader from './components/header/CmpLayoutHeader';
 import CmpLayoutMain from './components/main/CmpLayoutMain';
-import ImgBgGrainLatest from './assets/image/bg-grain-latest.png';
+import ImgBgGrainLatest from './assets/image/img-bg-grain-latest.png';
 
 const App = () => {
   return (

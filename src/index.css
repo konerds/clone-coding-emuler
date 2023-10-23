@@ -75,54 +75,45 @@ body {
   -webkit-text-stroke: 0.45px rgba(0, 0, 0, 0.1);
 }
 
-.bg-gradient-main-top {
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    color-stop(13.84%, #ff7448),
-    color-stop(57.82%, #ff4848),
-    to(#6248ff)
-  );
-  background: -o-linear-gradient(
-    top,
-    #ff7448 13.84%,
-    #ff4848 57.82%,
-    #6248ff 100%
-  );
-  background: linear-gradient(
-    180deg,
-    #ff7448 13.84%,
-    #ff4848 57.82%,
-    #6248ff 100%
-  );
+.bg-blur-circle-top-left {
+  background: -o-linear-gradient(165deg, #ff7448 29%, #ff4848 58%, #6248ff 80%);
+  background: linear-gradient(285deg, #ff7448 29%, #ff4848 58%, #6248ff 80%);
+  @apply absolute -left-[5%] -right-[20%] -top-[10%] bottom-auto h-[280px] w-[280px] rounded-full opacity-[97%] blur-[68px];
 }
 
-.bg-gradient-main-bottom {
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    color-stop(13.84%, #ff7448),
-    color-stop(57.82%, #ff4848),
-    to(#6248ff)
-  );
-  background: -o-linear-gradient(
-    top,
-    #ff7448 13.84%,
-    #ff4848 57.82%,
-    #6248ff 100%
-  );
-  background: linear-gradient(
-    180deg,
-    #ff7448 13.84%,
-    #ff4848 57.82%,
-    #6248ff 100%
-  );
+.bg-blur-circle-top-left-2 {
+  background: -o-linear-gradient(165deg, #ff7448 29%, #ff4848 58%, #6248ff 80%);
+  background: linear-gradient(285deg, #ff7448 29%, #ff4848 58%, #6248ff 80%);
+  @apply absolute -left-[5%] -right-[20%] -top-[10%] bottom-auto h-[280px] w-[280px] rounded-full opacity-[90%] blur-[64px];
 }
 
-.bg-gradient-image-process-work {
+.bg-blur-circle-top-right {
+  background: -o-linear-gradient(165deg, #ff7448 29%, #ff4848 58%, #6248ff 80%);
+  background: linear-gradient(285deg, #ff7448 29%, #ff4848 58%, #6248ff 80%);
+  @apply absolute -right-[20%] bottom-auto left-auto top-[2%] h-[280px] w-[280px] rounded-full opacity-[90%] blur-[64px];
+}
+
+.bg-blur-circle-middle-left {
+  background: -o-linear-gradient(31deg, #ff7448 27%, #ff4848 50%, #6248ff 75%);
+  background: linear-gradient(59deg, #ff7448 27%, #ff4848 50%, #6248ff 75%);
+  @apply absolute bottom-auto left-[5%] right-auto top-[20%] h-[280px] w-[280px] rounded-full opacity-[90%] blur-[64px];
+}
+
+.bg-blur-circle-bottom-left {
+  background: -o-linear-gradient(318deg, #ff7448 26%, #ff4848 51%, #6248ff 75%);
+  background: linear-gradient(132deg, #ff7448 29%, #ff4848 52%, #6248ff 75%);
+  @apply absolute -bottom-[10%] -left-[20%] right-auto top-auto h-[280px] w-[280px] rounded-full opacity-[90%] blur-[64px];
+}
+
+.bg-blur-circle-bottom-right {
+  background: -o-linear-gradient(318deg, #ff7448 26%, #ff4848 51%, #6248ff 75%);
+  background: linear-gradient(132deg, #ff7448 26%, #ff4848 51%, #6248ff 75%);
+  @apply absolute bottom-0 left-auto right-0 top-auto h-[280px] w-[280px] rounded-full opacity-[90%] blur-[64px];
+}
+
+.bg-blur-image-process-work {
   background: -o-linear-gradient(333deg, black, rgba(255, 255, 255, 0) 73%);
   background: linear-gradient(117deg, black, rgba(255, 255, 255, 0) 73%);
   background-position: 50% 50%;
+  @apply rounded-[12px] bg-cover;
 }

@@ -1,4 +1,4 @@
-import { FC, createElement } from 'react';
+import { FC, createElement, useState } from 'react';
 import { ReactComponent as IconArrowDownNatural } from '../../assets/image/icon/icon-arrow-down-natural.svg';
 import { ReactComponent as IconCMSUserFriendly } from '../../assets/image/icon/icon-cms-user-friendly.svg';
 import { ReactComponent as IconProcessWork1 } from '../../assets/image/icon/icon-step1-visual-design.svg';
@@ -6,7 +6,8 @@ import { ReactComponent as IconProcessWork2 } from '../../assets/image/icon/icon
 import { ReactComponent as IconProcessWork3 } from '../../assets/image/icon/icon-step3-feedback.svg';
 import { ReactComponent as IconProcessWork4 } from '../../assets/image/icon/icon-step4-onboarding.svg';
 import { ReactComponent as IconProcessWork5 } from '../../assets/image/icon/icon-step5-launch.svg';
-import ImgBgProcessWork from '../../assets/image/bg-image-process-work.png';
+import ImgBgProcessWork from '../../assets/image/img-bg-process-work.png';
+import ImgWithRelumeMobile from '../../assets/image/img-with-relume-mobile.png';
 
 const CmpLayoutMain: FC = () => {
   const listObjBenefit = [
@@ -62,9 +63,10 @@ const CmpLayoutMain: FC = () => {
         'Once the website has been put through final testing, we will transfer the website to your own Webflow account and domain and launch the website on your desired date.',
     },
   ];
+  const [isWithRelume, setIsWithRelume] = useState(true);
   return (
     <main>
-      <div className="bg-gradient-main-top absolute -left-[70px] -top-[41px] h-[280px] w-[280px] rotate-[165deg] rounded-full opacity-80 blur-3xl"></div>
+      <div className="bg-blur-circle-top-left-2"></div>
       <section className="relative z-[10] px-[5%] pb-[64px] pt-[40px]">
         <div className="text-center text-[40px] leading-[48px] tracking-tight">
           Your designer's favourite web developer
@@ -101,7 +103,7 @@ const CmpLayoutMain: FC = () => {
             </div>
           );
         })}
-        <div className="bg-gradient-main-top absolute -right-[48.71px] bottom-[30px] h-[280px] w-[280px] -rotate-[30deg] rounded-full opacity-80 blur-3xl"></div>
+        <div className="bg-blur-circle-bottom-right"></div>
       </section>
       <section className="relative z-[10] bg-[#0a0a0a] px-[5%] py-[64px] text-white">
         <div className="text-center">
@@ -125,7 +127,7 @@ const CmpLayoutMain: FC = () => {
                 </div>
                 <div
                   style={{ backgroundImage: `url(${ImgBgProcessWork})` }}
-                  className="bg-gradient-image-process-work flex w-full items-center justify-center rounded-3xl bg-cover"
+                  className="bg-blur-image-process-work flex w-full items-center justify-center"
                 >
                   {createElement(objProcess.image, {
                     className: 'w-[240px] h-[240px]',
@@ -147,17 +149,113 @@ const CmpLayoutMain: FC = () => {
           })}
         </div>
       </section>
-      <section className="px-[5%] py-[64px]">
-        <div className="mb-[48px] text-center">
-          <div className="mb-[24px] mt-[16px] text-[36px] leading-[44px] tracking-tight">
+      <section className="relative px-[5%] py-[64px]">
+        <div className="bg-blur-circle-middle-left"></div>
+        <div className="relative z-[10] mb-[48px] text-center">
+          <div className="mb-[24px] mt-[16px] text-[36px] font-medium leading-[44px] tracking-tight">
             Don't compromise your design with average web development
           </div>
-          <div className="mb-[10px] text-[18px] leading-[1.5] tracking-tight">
+          <div className="mb-[10px] inline-block text-[18px] leading-[1.5] tracking-tight">
             You've gone to all this effort to create your beautiful design -
             don't compromise with average development. We guarantee pixel
             perfect design and smooth interactions that delight your users.
           </div>
         </div>
+        <div className="relative z-[10] mb-[48px] flex items-center justify-evenly border-black text-[14px] font-bold leading-[20px] text-[#0a0a0a]">
+          <button
+            type="button"
+            className={`mr-[32px] py-[8px]${
+              isWithRelume
+                ? ' border-b-[2px]'
+                : ' border-b-[2px] border-transparent'
+            }`}
+            onClick={() => {
+              setIsWithRelume(true);
+            }}
+          >
+            WITH RELUME
+          </button>
+          <button
+            type="button"
+            className={`py-[8px]${
+              !isWithRelume
+                ? ' border-b-[2px]'
+                : ' border-b-[2px] border-transparent'
+            }`}
+            onClick={() => {
+              setIsWithRelume(false);
+            }}
+          >
+            WITHOUT RELUME
+          </button>
+        </div>
+        <img src={ImgWithRelumeMobile} alt="with relume" />
+      </section>
+      <section className="relative px-[5%] py-[64px] text-center">
+        <div className="bg-blur-circle-top-right"></div>
+        <div className="relative z-[10] mb-[48px]">
+          <div className="mb-[24px] mt-[16px] text-[36px] font-medium leading-[44px]">
+            Websites we've
+            <br />
+            built to spec
+          </div>
+          <div className="mb-[10px] inline-block text-[18px] leading-[1.5]">
+            See for yourself, compare the
+            <br />
+            design and development.
+          </div>
+        </div>
+        {[1, 2].map((e, idx) => {
+          return (
+            <div
+              key={idx}
+              className="relative z-[10] mb-[40px] rounded-[16px] border-[2px] bg-white p-[16px]"
+            >
+              <div>DUMMY</div>
+              <div>DUMMY</div>
+              <div>DUMMY</div>
+              <div>DUMMY</div>
+              <div>DUMMY</div>
+            </div>
+          );
+        })}
+      </section>
+      <section className="relative px-[5%] py-[64px] text-center">
+        <div className="bg-blur-circle-top-left"></div>
+        <div className="relative z-[10]">
+          <div className="mb-[48px]">
+            <div className="mb-[24px] mt-[16px] text-[36px] font-medium leading-[44px]">
+              Pricing
+            </div>
+            <div className="mb-[10px] inline-block text-[18px] leading-[1.5]">
+              Here's what it will cost in per-page
+              <br />
+              to convert your design to Webflow.
+            </div>
+          </div>
+          <div className="min-h-[1000px] rounded-[16px] bg-[#161616] px-[16px] py-[24px]"></div>
+        </div>
+        <div className="bg-blur-circle-bottom-right"></div>
+      </section>
+      <section className="relative px-[5%] py-[64px] text-center">
+        <div className="min-h-[1000px]"></div>
+        <div className="bg-blur-circle-bottom-left"></div>
+      </section>
+      <section className="relative px-[5%] py-[64px] text-center">
+        <div className="min-h-[1000px]"></div>
+        <div className="bg-blur-circle-bottom-right"></div>
+      </section>
+      <section className="relative bg-[#0a0a0a] py-[64px] text-center">
+        <div className="mb-[40px] px-[5%] text-white">
+          <div className="mb-[16px] mt-[16px] text-[36px] font-medium leading-[44px]">
+            Get started
+          </div>
+          <div className="mb-[10px] inline-block text-[18px] leading-[1.5]">
+            It only takes a few minutes to kick off a project. Fill in the
+            details below and we'll be in touch.
+          </div>
+        </div>
+        <div className="min-h-[600px]"></div>
       </section>
     </main>
   );

@@ -3,7 +3,7 @@ import { ReactComponent as IconFooterLogo } from '../../assets/image/icon/icon-l
 
 const CmpLayoutFooter: FC = () => {
   return (
-    <footer className="bg-[#0a0a0a] text-center text-white">
+    <footer className="relative z-[10] bg-[#0a0a0a] text-center text-white">
       <div className="px-[5%] py-[40px]">
         <div className="flex items-center justify-between">
           <IconFooterLogo />
