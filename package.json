@@ -25,7 +25,7 @@
     "eject": "react-scripts eject",
     "deploy": "npm run build && gh-pages -d build"
   },
-  "homepage": "https://konerds.github.io/relume-clone-coding",
+  "homepage": "https://konerds.github.io/clone-coding-emuler",
   "eslintConfig": {
     "extends": [
       "react-app",
