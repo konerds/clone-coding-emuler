@@ -12,7 +12,7 @@ const CmpContentBenefit: FC<TPropsCmpContentBenefit> = ({ listObjBenefit }) => {
       <div className="relative z-[10] grid grid-cols-1 gap-x-[40px] gap-y-[56px] px-[5%] pb-[64px] pt-[40px]">
         {listObjBenefit.map((objBenefit, idxObjBenefit) => {
           return (
-            <div key={idxObjBenefit} className="tracking-tighter">
+            <div key={idxObjBenefit}>
               <div className="mb-[16px] flex items-center">
                 <IconCMSUserFriendly className="mr-[16px] h-[32px] w-[32px]" />
                 <span className="text-[24px] font-medium leading-[32px] -tracking-[0.64px]">

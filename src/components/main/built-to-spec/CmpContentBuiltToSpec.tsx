@@ -51,6 +51,7 @@ const CmpContentBuiltToSpec: FC<TPropsCmpContentBuiltToSpec> = ({
                 {[true, false].map((flagBtn, idxBtn) => {
                   return (
                     <button
+                      key={idxBtn}
                       type="button"
                       className={`flex items-center justify-center py-[8px]${
                         flagBtn === isTypeFigma

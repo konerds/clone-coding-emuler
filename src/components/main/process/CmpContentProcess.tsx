@@ -1,5 +1,5 @@
 import { FC, createElement } from 'react';
-import ImgBgProcessWork from '../../../assets/image/img-bg-process-work.png';
+import ImgBgGradientAngle from '../../../assets/image/img-bg-gradient-angle.png';
 import { IObjProcessWork } from '../../../interface';
 
 type TPropsCmpContentProcess = {
@@ -13,10 +13,10 @@ const CmpContentProcess: FC<TPropsCmpContentProcess> = ({
     <section className="relative">
       <div className="z-[10] bg-[#0a0a0a] px-[5%] py-[64px] text-white">
         <div className="text-center">
-          <div className="text-[36px] leading-[44px] tracking-tight">
+          <div className="text-[36px] leading-[44px] -tracking-[1.92px]">
             How it works
           </div>
-          <div className="mt-[24px] text-[18px] leading-[33px] tracking-tight">
+          <div className="mt-[24px] text-[18px] leading-[33px] -tracking-[0.4px]">
             As highly experienced Webflow experts, Relume will carefully
             translate your designs to code using Webflow best practices.
           </div>
@@ -32,7 +32,7 @@ const CmpContentProcess: FC<TPropsCmpContentProcess> = ({
                   {idxObjProcess + 1}
                 </div>
                 <div
-                  style={{ backgroundImage: `url(${ImgBgProcessWork})` }}
+                  style={{ backgroundImage: `url(${ImgBgGradientAngle})` }}
                   className="bg-blur-image-process-work flex w-full items-center justify-center"
                 >
                   {createElement(objProcess.image, {
@@ -40,13 +40,13 @@ const CmpContentProcess: FC<TPropsCmpContentProcess> = ({
                   })}
                 </div>
                 <div className="mt-[24px] pb-[10px] pt-[8px]">
-                  <div className="text-[24px] leading-[32px] tracking-tight">
+                  <div className="text-[24px] leading-[32px] -tracking-[0.64px]">
                     {objProcess.title}
                   </div>
-                  <div className="mt-[8px] text-[18px] leading-[1.5] tracking-tight">
+                  <div className="mt-[8px] text-[18px] leading-[1.5] -tracking-[0.4px]">
                     {objProcess.descSentence}
                   </div>
-                  <div className="mt-[16px] text-[16px] leading-[1.5] tracking-tight text-[#ffffffd9]">
+                  <div className="mt-[16px] text-[16px] leading-[1.5] -tracking-[0.32px] text-[#ffffffd9]">
                     {objProcess.descParagraph}
                   </div>
                 </div>

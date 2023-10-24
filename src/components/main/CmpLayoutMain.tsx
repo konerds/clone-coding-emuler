@@ -4,6 +4,14 @@ import { ReactComponent as IconProcessWork2 } from '../../assets/image/icon/icon
 import { ReactComponent as IconProcessWork3 } from '../../assets/image/icon/icon-step3-feedback.svg';
 import { ReactComponent as IconProcessWork4 } from '../../assets/image/icon/icon-step4-onboarding.svg';
 import { ReactComponent as IconProcessWork5 } from '../../assets/image/icon/icon-step5-launch.svg';
+import ImgProfileDan from '../../assets/image/img-profile-dan.png';
+import { ReactComponent as ImgArrowDan } from '../../assets/image/img-arrow-dan.svg';
+import ImgProfileAdam from '../../assets/image/img-profile-adam.png';
+import { ReactComponent as ImgArrowAdam } from '../../assets/image/img-arrow-adam.svg';
+import ImgPerson1Roster from '../../assets/image/img-person1-roster.png';
+import ImgPerson2Roster from '../../assets/image/img-person2-roster.png';
+import ImgPerson3Roster from '../../assets/image/img-person3-roster.png';
+import ImgPerson4Roster from '../../assets/image/img-person4-roster.png';
 import CmpContentHero from './hero/CmpContentHero';
 import CmpContentBenefit from './benefit/CmpContentBenefit';
 import CmpContentProcess from './process/CmpContentProcess';
@@ -12,6 +20,7 @@ import CmpContentBuiltToSpec from './built-to-spec/CmpContentBuiltToSpec';
 import {
   IObjBenefit,
   IObjExBuiltToSpec,
+  IObjPricing,
   IObjProcessWork,
 } from '../../interface';
 import CmpContentPricing from './pricing/CmpContentPricing';
@@ -103,7 +112,118 @@ const CmpLayoutMain: FC = () => {
       linkWeb: 'https://www.yolomedia.com.au',
     },
   ];
-
+  const listObjPricing: IObjPricing[] = [
+    {
+      type: 'basic',
+      priceUSD: 1000,
+      unit: 'page',
+      listSupport: [
+        { type: 'design-complexity', support: 'low' },
+        { type: 'responsive-development', support: true },
+        { type: 'seo-setup', support: true },
+        { type: 'content-population', support: true },
+        { type: 'cms-implementation', support: true },
+        { type: 'advanced-animations', support: false },
+      ],
+    },
+    {
+      type: 'advanced',
+      priceUSD: 2500,
+      unit: 'page',
+      listSupport: [
+        { type: 'design-complexity', support: 'medium' },
+        { type: 'responsive-development', support: true },
+        { type: 'seo-setup', support: true },
+        { type: 'content-population', support: true },
+        { type: 'cms-implementation', support: true },
+        { type: 'advanced-animations', support: true },
+      ],
+    },
+    {
+      type: 'professional',
+      priceUSD: 4000,
+      unit: 'page',
+      listSupport: [
+        { type: 'design-complexity', support: 'high' },
+        { type: 'responsive-development', support: true },
+        { type: 'seo-setup', support: true },
+        { type: 'content-population', support: true },
+        { type: 'cms-implementation', support: true },
+        { type: 'advanced-animations', support: true },
+      ],
+    },
+  ];
+  const listObjTeam = [
+    {
+      introduce:
+        'Dan takes care of day to day business operations, ensures projects run smoothly and finds the best Webflow talent to help execute projects.',
+      imageProfile: ImgProfileDan,
+      iconArrow: ImgArrowDan,
+      classNameIconArrow: 'absolute top-[40px] left-[24px] w-[56px]',
+    },
+    {
+      introduce:
+        'Adam provides creative direction for the business and ensures all projects ensures your website will be built on Webflow, pixel perfect.',
+      imageProfile: ImgProfileAdam,
+      iconArrow: ImgArrowAdam,
+      classNameIconArrow: 'absolute top-[40px] right-[24px] w-[56px]',
+    },
+  ];
+  const listObjRoster = [
+    {
+      name: '1',
+      imagePerson: ImgPerson1Roster,
+    },
+    {
+      name: '2',
+      imagePerson: ImgPerson2Roster,
+    },
+    {
+      name: '3',
+      imagePerson: ImgPerson3Roster,
+    },
+    {
+      name: '4',
+      imagePerson: ImgPerson4Roster,
+    },
+  ];
+  const listObjQNA = [
+    {
+      question: 'Do my designs need to be in Figma, Adobe or Sketch?',
+      answer:
+        'No, we also accept other forms of designs including video files and images.',
+    },
+    {
+      question: 'Do my designs need to be in Figma, Adobe or Sketch?',
+      answer:
+        'No, we also accept other forms of designs including video files and images.',
+    },
+    {
+      question: 'Do my designs need to be in Figma, Adobe or Sketch?',
+      answer:
+        'No, we also accept other forms of designs including video files and images.',
+    },
+    {
+      question: 'Do my designs need to be in Figma, Adobe or Sketch?',
+      answer:
+        'No, we also accept other forms of designs including video files and images.',
+    },
+    {
+      question: 'Do my designs need to be in Figma, Adobe or Sketch?',
+      answer:
+        'No, we also accept other forms of designs including video files and images.',
+    },
+    {
+      question: 'Do my designs need to be in Figma, Adobe or Sketch?',
+      answer:
+        'No, we also accept other forms of designs including video files and images.',
+    },
+    {
+      question: 'Do my designs need to be in Figma, Adobe or Sketch?',
+      answer:
+        'No, we also accept other forms of designs including video files and images.',
+    },
+  ];
   return (
     <main className="text-[#161616]">
       <CmpContentHero />
@@ -111,9 +231,9 @@ const CmpLayoutMain: FC = () => {
       <CmpContentProcess listObjProcessWork={listObjProcessWork} />
       <CmpContentComparison />
       <CmpContentBuiltToSpec listObjExBuiltToSpec={listObjExBuiltToSpec} />
-      <CmpContentPricing />
-      <CmpContentTeam />
-      <CmpContentQNA />
+      <CmpContentPricing listObjPricing={listObjPricing} />
+      <CmpContentTeam listObjTeam={listObjTeam} listObjRoster={listObjRoster} />
+      <CmpContentQNA listObjQNA={listObjQNA} />
       <CmpContentContact />
     </main>
   );
