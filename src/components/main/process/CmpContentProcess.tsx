@@ -1,16 +1,6 @@
 import { FC, createElement } from 'react';
 import ImgBgProcessWork from '../../../assets/image/img-bg-process-work.png';
-
-interface IObjProcessWork {
-  image: React.FunctionComponent<
-    React.SVGProps<SVGSVGElement> & {
-      title?: string | undefined;
-    }
-  >;
-  title: string;
-  descSentence: string;
-  descParagraph: string;
-}
+import { IObjProcessWork } from '../../../interface';
 
 type TPropsCmpContentProcess = {
   listObjProcessWork: IObjProcessWork[];

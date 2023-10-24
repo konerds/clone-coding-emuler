@@ -9,9 +9,18 @@ import CmpContentBenefit from './benefit/CmpContentBenefit';
 import CmpContentProcess from './process/CmpContentProcess';
 import CmpContentComparison from './comparison/CmpContentComparison';
 import CmpContentBuiltToSpec from './built-to-spec/CmpContentBuiltToSpec';
+import {
+  IObjBenefit,
+  IObjExBuiltToSpec,
+  IObjProcessWork,
+} from '../../interface';
+import CmpContentPricing from './pricing/CmpContentPricing';
+import CmpContentTeam from './team/CmpContentTeam';
+import CmpContentQNA from './qna/CmpContentQNA';
+import CmpContentContact from './contact/CmpContentContact';
 
 const CmpLayoutMain: FC = () => {
-  const listObjBenefit = [
+  const listObjBenefit: IObjBenefit[] = [
     {
       title: 'Attention to detail',
       desc: 'Many developers cringe at the thought of pixel perfection. Not us, we live and breath pixels and understand the effort it takes to make a website beautiful.',
@@ -29,7 +38,7 @@ const CmpLayoutMain: FC = () => {
       desc: `Just as important as our code quality, we care about design details, communication, timelines and project management.`,
     },
   ];
-  const listObjProcessWork = [
+  const listObjProcessWork: IObjProcessWork[] = [
     {
       image: IconProcessWork1,
       title: 'Share your designs',
@@ -64,31 +73,34 @@ const CmpLayoutMain: FC = () => {
         'Once the website has been put through final testing, we will transfer the website to your own Webflow account and domain and launch the website on your desired date.',
     },
   ];
-  const listObjExBuiltToSpec = [
+  const listObjExBuiltToSpec: IObjExBuiltToSpec[] = [
     {
       name: 'Goodhousing.com.au',
       type: 'CONSTRUCTION COMPANY',
+      colorBadgeType: '#d4eff0',
       quoteClient:
         '"They have a strong work ethic and really care about the end product, which made the whole process feel seamless." - Lily',
       linkFigma:
         'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F76D0zWGXi4FJydVnMuzumL%2FWebsite-Design%3Fnode-id%3D1%253A488',
-      linkWebflow: '',
+      linkWeb: 'https://goodhousing.com.au',
     },
     {
       name: 'Lauraavery.com.au',
       type: 'SKIN CARE STUDIO',
+      colorBadgeType: '#e9e5dd',
       quoteClient: `"You can tell there is a lot of thought put behind every detail. I don't think they could have done a better job!" - Laura`,
       linkFigma:
         'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F76D0zWGXi4FJydVnMuzumL%2FWebsite-Design%3Fnode-id%3D1%253A10',
-      linkWebflow: '',
+      linkWeb: 'https://lauraavery.com.au',
     },
     {
       name: 'Yolomedia.com.au',
       type: 'CREATIVE AGENCY',
+      colorBadgeType: '#deeffa',
       quoteClient: `"Props to them, they manage to always get the design spot on, it's quite impressive." - Tristan`,
       linkFigma:
         'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F76D0zWGXi4FJydVnMuzumL%2FWebsite-Design%3Fnode-id%3D148%253A1749',
-      linkWebflow: '',
+      linkWeb: 'https://www.yolomedia.com.au',
     },
   ];
 
@@ -99,43 +111,10 @@ const CmpLayoutMain: FC = () => {
       <CmpContentProcess listObjProcessWork={listObjProcessWork} />
       <CmpContentComparison />
       <CmpContentBuiltToSpec listObjExBuiltToSpec={listObjExBuiltToSpec} />
-      <section className="relative px-[5%] py-[64px] text-center">
-        <div className="bg-blur-circle-top-left"></div>
-        <div className="relative z-[10]">
-          <div className="mb-[48px]">
-            <div className="mb-[24px] mt-[16px] text-[36px] font-medium leading-[44px]">
-              Pricing
-            </div>
-            <div className="mb-[10px] inline-block text-[18px] leading-[1.5]">
-              Here's what it will cost in per-page
-              <br />
-              to convert your design to Webflow.
-            </div>
-          </div>
-          <div className="min-h-[1000px] rounded-[16px] bg-[#161616] px-[16px] py-[24px]"></div>
-        </div>
-        <div className="bg-blur-circle-bottom-right"></div>
-      </section>
-      <section className="relative px-[5%] py-[64px] text-center">
-        <div className="min-h-[1000px]"></div>
-        <div className="bg-blur-circle-bottom-left"></div>
-      </section>
-      <section className="relative px-[5%] py-[64px] text-center">
-        <div className="min-h-[1000px]"></div>
-        <div className="bg-blur-circle-bottom-right"></div>
-      </section>
-      <section className="relative bg-[#0a0a0a] py-[64px] text-center">
-        <div className="mb-[40px] px-[5%] text-white">
-          <div className="mb-[16px] mt-[16px] text-[36px] font-medium leading-[44px]">
-            Get started
-          </div>
-          <div className="mb-[10px] inline-block text-[18px] leading-[1.5]">
-            It only takes a few minutes to kick off a project. Fill in the
-            details below and we'll be in touch.
-          </div>
-        </div>
-        <div className="min-h-[600px]"></div>
-      </section>
+      <CmpContentPricing />
+      <CmpContentTeam />
+      <CmpContentQNA />
+      <CmpContentContact />
     </main>
   );
 };

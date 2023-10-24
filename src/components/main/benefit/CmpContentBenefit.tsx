@@ -1,10 +1,6 @@
 import { FC } from 'react';
 import { ReactComponent as IconCMSUserFriendly } from '../../../assets/image/icon/icon-cms-user-friendly.svg';
-
-interface IObjBenefit {
-  title: string;
-  desc: string;
-}
+import { IObjBenefit } from '../../../interface';
 
 type TPropsCmpContentBenefit = {
   listObjBenefit: IObjBenefit[];
