@@ -10,8 +10,8 @@ const CmpContentProcess: FC<TPropsCmpContentProcess> = ({
   listObjProcessWork,
 }) => {
   return (
-    <section className="bg-[#0a0a0a] px-[5%] py-[64px] text-white">
-      <div className="relative z-[10]">
+    <section className="relative">
+      <div className="z-[10] bg-[#0a0a0a] px-[5%] py-[64px] text-white">
         <div className="text-center">
           <div className="text-[36px] leading-[44px] tracking-tight">
             How it works

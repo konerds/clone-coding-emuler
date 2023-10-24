@@ -8,18 +8,18 @@ type TPropsCmpContentBenefit = {
 
 const CmpContentBenefit: FC<TPropsCmpContentBenefit> = ({ listObjBenefit }) => {
   return (
-    <section className="relative px-[5%] pb-[64px] pt-[40px]">
-      <div className="relative z-[10] grid grid-cols-1 gap-y-[56px]">
+    <section className="relative">
+      <div className="relative z-[10] grid grid-cols-1 gap-x-[40px] gap-y-[56px] px-[5%] pb-[64px] pt-[40px]">
         {listObjBenefit.map((objBenefit, idxObjBenefit) => {
           return (
             <div key={idxObjBenefit} className="tracking-tighter">
-              <div className="flex items-center">
+              <div className="mb-[16px] flex items-center">
                 <IconCMSUserFriendly className="mr-[16px] h-[32px] w-[32px]" />
-                <span className="text-[24px] leading-[32px] tracking-tighter">
+                <span className="text-[24px] font-medium leading-[32px] -tracking-[0.64px]">
                   {objBenefit.title}
                 </span>
               </div>
-              <div className="mt-[16px] text-[16px] leading-[26px] tracking-tighter">
+              <div className="mb-[10px] text-[16px] leading-[1.5] -tracking-[0.32px]">
                 {objBenefit.desc}
               </div>
             </div>

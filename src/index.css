@@ -40,15 +40,17 @@
 }
 
 @font-face {
-  font-family: 'pretendard-medium';
-  src: url('./assets/font/pretendard-medium.eot');
-  src:
-    url('./assets/font/pretendard-medium.eot?#iefix')
-      format('embedded-opentype'),
-    url('./assets/font/pretendard-medium.woff2') format('woff2'),
-    url('./assets/font/pretendard-medium.woff') format('woff'),
-    url('./assets/font/pretendard-medium.ttf') format('truetype');
+  font-family: 'pretendard-variable';
+  font-weight: 45 920;
+  font-style: normal;
   font-display: block;
+  src: url('./assets/font/pretendard-variable.eot');
+  src:
+    url('./assets/font/pretendard-variable.eot?#iefix')
+      format('embedded-opentype'),
+    url('./assets/font/pretendard-variable.woff2') format('woff2-variations'),
+    url('./assets/font/pretendard-variable.woff') format('woff'),
+    url('./assets/font/pretendard-variable.ttf') format('truetype');
 }
 
 html,
@@ -73,47 +75,52 @@ body {
   -o-user-drag: none;
   word-break: keep-all;
   letter-spacing: 0;
-  font-family: pretendard-medium;
+  font-family: pretendard-variable;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-stroke: 0.45px;
   -webkit-text-stroke: 0.45px rgba(0, 0, 0, 0.1);
 }
 
+.box-shadow-btn-ctx {
+  -webkit-box-shadow: 2px 0px 6px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 0px 6px 0px rgba(0, 0, 0, 0.1);
+}
+
 .bg-blur-circle-top-left {
   background: -o-linear-gradient(165deg, #ff7448 29%, #ff4848 58%, #6248ff 80%);
   background: linear-gradient(285deg, #ff7448 29%, #ff4848 58%, #6248ff 80%);
-  @apply absolute -left-[5%] -right-[20%] -top-[10%] bottom-auto h-[280px] w-[280px] rounded-full opacity-[97%] blur-[68px];
+  @apply absolute -left-[5%] -right-[20%] -top-[10%] bottom-auto h-[280px] w-[280px] opacity-[97%] blur-[68px];
 }
 
 .bg-blur-circle-top-left-2 {
   background: -o-linear-gradient(165deg, #ff7448 29%, #ff4848 58%, #6248ff 80%);
   background: linear-gradient(285deg, #ff7448 29%, #ff4848 58%, #6248ff 80%);
-  @apply absolute -left-[5%] -right-[20%] -top-[10%] bottom-auto h-[280px] w-[280px] rounded-full opacity-[90%] blur-[64px];
+  @apply absolute -left-[5%] -right-[20%] -top-[10%] bottom-auto h-[280px] w-[280px] opacity-[90%] blur-[64px];
 }
 
 .bg-blur-circle-top-right {
   background: -o-linear-gradient(165deg, #ff7448 29%, #ff4848 58%, #6248ff 80%);
   background: linear-gradient(285deg, #ff7448 29%, #ff4848 58%, #6248ff 80%);
-  @apply absolute -right-[20%] bottom-auto left-auto top-[2%] h-[280px] w-[280px] rounded-full opacity-[90%] blur-[64px];
+  @apply absolute -right-[20%] bottom-auto left-auto top-[2%] h-[280px] w-[280px] opacity-[90%] blur-[64px];
 }
 
 .bg-blur-circle-middle-left {
   background: -o-linear-gradient(31deg, #ff7448 27%, #ff4848 50%, #6248ff 75%);
   background: linear-gradient(59deg, #ff7448 27%, #ff4848 50%, #6248ff 75%);
-  @apply absolute bottom-auto left-[5%] right-auto top-[20%] h-[280px] w-[280px] rounded-full opacity-[90%] blur-[64px];
+  @apply absolute bottom-auto left-[5%] right-auto top-[20%] h-[280px] w-[280px] opacity-[90%] blur-[64px];
 }
 
 .bg-blur-circle-bottom-left {
   background: -o-linear-gradient(318deg, #ff7448 26%, #ff4848 51%, #6248ff 75%);
   background: linear-gradient(132deg, #ff7448 29%, #ff4848 52%, #6248ff 75%);
-  @apply absolute -bottom-[10%] -left-[20%] right-auto top-auto h-[280px] w-[280px] rounded-full opacity-[90%] blur-[64px];
+  @apply absolute -bottom-[10%] -left-[20%] right-auto top-auto h-[280px] w-[280px] opacity-[90%] blur-[64px];
 }
 
 .bg-blur-circle-bottom-right {
   background: -o-linear-gradient(318deg, #ff7448 26%, #ff4848 51%, #6248ff 75%);
   background: linear-gradient(132deg, #ff7448 26%, #ff4848 51%, #6248ff 75%);
-  @apply absolute bottom-0 left-auto right-0 top-auto h-[280px] w-[280px] rounded-full opacity-[90%] blur-[64px];
+  @apply absolute bottom-0 left-auto right-0 top-auto h-[280px] w-[280px] opacity-[90%] blur-[64px];
 }
 
 .bg-blur-image-process-work {
@@ -128,6 +135,8 @@ body {
 }
 .transition-fade-wait-leave.transition-fade-wait-leave-active {
   opacity: 0;
+  -webkit-transition: opacity 0.4s ease-in;
+  -o-transition: opacity 0.4s ease-in;
   transition: opacity 0.4s ease-in;
 }
 
@@ -136,5 +145,7 @@ body {
 }
 .transition-fade-wait-enter.transition-fade-wait-enter-active {
   opacity: 1;
+  -webkit-transition: opacity 0.4s ease-in 0.6s;
+  -o-transition: opacity 0.4s ease-in 0.6s;
   transition: opacity 0.4s ease-in 0.6s;
 }

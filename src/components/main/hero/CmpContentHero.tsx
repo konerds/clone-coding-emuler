@@ -1,21 +1,20 @@
 import { FC } from 'react';
-import { ReactComponent as IconArrowDownNatural } from '../../../assets/image/icon/icon-arrow-down-natural.svg';
+import { ReactComponent as ImgQuoteHeroMobile } from '../../../assets/image/img-quote-hero-mobile.svg';
 
 const CmpContentHero: FC = () => {
   return (
-    <section className="relative px-[5%] pb-[64px] pt-[40px]">
+    <section className="relative">
       <div className="bg-blur-circle-top-left-2"></div>
-      <div className="relative z-[10]">
-        <div className="text-center text-[40px] leading-[48px] tracking-tight">
+      <div className="relative z-[10] flex flex-col items-center px-[5%] pb-[64px] pt-[40px]">
+        <div className="mb-[16px] mt-[8px] text-center text-[40px] font-medium leading-[48px] -tracking-[2.4px]">
           Your designer's favourite web developer
         </div>
-        <div className="mt-[24px] text-center text-[16px] leading-[26px] tracking-tight">
+        <div className="max-w-[560px] text-center text-[18px] leading-[1.5] -tracking-[0.4px]">
           Relume can build your Figma, Sketch or Adobe XD website design pixel
           perfect on Webflow.
         </div>
-        <div className="mt-[42.61px] flex flex-col items-center">
-          <div className="text-[11px] font-semibold">SEE FOR YOURSELF</div>
-          <IconArrowDownNatural className="mt-[15.89px]" />
+        <div className="mt-[40px] flex items-start justify-center">
+          <ImgQuoteHeroMobile className="w-[128px]" />
         </div>
         <iframe
           className="mt-[56px] rounded-lg border-[2px] border-black"

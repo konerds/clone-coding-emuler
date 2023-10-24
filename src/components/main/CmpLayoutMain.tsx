@@ -105,7 +105,7 @@ const CmpLayoutMain: FC = () => {
   ];
 
   return (
-    <main>
+    <main className="text-[#161616]">
       <CmpContentHero />
       <CmpContentBenefit listObjBenefit={listObjBenefit} />
       <CmpContentProcess listObjProcessWork={listObjProcessWork} />
