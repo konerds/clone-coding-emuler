@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import CmpContentHero from './hero/CmpContentHero';
-import CmpContentBenefit from './benefit/CmpContentBenefit';
+import CmpLayoutBenefit from './benefit/CmpLayoutBenefit';
 import CmpContentProcess from './process/CmpContentProcess';
 import CmpContentComparison from './comparison/CmpContentComparison';
 import CmpContentBuiltToSpec from './built-to-spec/CmpContentBuiltToSpec';
@@ -22,7 +22,7 @@ const CmpLayoutMain: FC = () => {
   return (
     <>
       <CmpContentHero />
-      <CmpContentBenefit listObjBenefit={listObjBenefit} />
+      <CmpLayoutBenefit listObjBenefit={listObjBenefit} />
       <CmpContentProcess listObjProcessWork={listObjProcessWork} />
       <CmpContentComparison />
       <CmpContentBuiltToSpec listObjExBuiltToSpec={listObjExBuiltToSpec} />
