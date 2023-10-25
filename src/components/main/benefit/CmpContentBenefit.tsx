@@ -13,7 +13,7 @@ const customRPSectionWrapper = customRP({
   backgroundImage: `url(${ImgBgGrainLatest})`,
 });
 const SectionWrapper = tw.section`
-relative
+relative bg-[size:300px_300px] bg-[position:0px_0px] pb-[120px] pt-[40px] max-desktop:pb-[104px] max-tablet:pb-[64px]
 `;
 
 const CmpContentBenefit: FC<TPropsCmpContentBenefit> = ({ listObjBenefit }) => {

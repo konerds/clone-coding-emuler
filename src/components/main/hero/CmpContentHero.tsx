@@ -10,7 +10,7 @@ const customRPSectionWrapper = customRP({
   backgroundImage: `url(${ImgBgGrainLatest})`,
 });
 const SectionWrapper = tw.section`
-relative bg-[size:300px_300px] bg-[position:0px_0px] pb-[64px] pt-[120px] tablet:pb-[104px] tablet:pt-[120px] desktop:pb-[120px] desktop:pt-[140px]
+relative bg-[size:300px_300px] bg-[position:0px_0px] pb-[120px] pt-[140px] max-desktop:pb-[104px] max-desktop:pt-[120px] max-tablet:pb-[64px]
 `;
 
 const DivContainer = tw.div`
@@ -44,7 +44,7 @@ const ParagraphContentHero = tw.p`
 mb-[40px] max-w-[560px] text-[20px] -tracking-[0.4px] max-desktop:mb-0 max-desktop:text-[18px]
 `;
 
-const BtnGetStarted = tw.button`
+const ButtonGetStarted = tw.button`
 inline-block cursor-pointer rounded-[8px] border-[2px] border-black bg-black px-[32px] py-[16px] text-[16px] font-bold uppercase leading-[inherit] tracking-[0.8px] text-white transition-all ease-[ease] [text-decoration:none] max-desktop:hidden max-tablet:py-[14px] max-tablet:text-[15px]
 `;
 
@@ -87,7 +87,7 @@ const CmpContentHero: FC = () => {
               Relume can build your Figma, Sketch or Adobe XD website design
               pixel perfect on Webflow.
             </ParagraphContentHero>
-            <BtnGetStarted>get started</BtnGetStarted>
+            <ButtonGetStarted>get started</ButtonGetStarted>
             <ImageQuoteHeroMobile
               loading="lazy"
               src={ImgQuoteHeroMobile}

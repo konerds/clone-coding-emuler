@@ -1,16 +1,21 @@
 import { FC, createElement } from 'react';
 import ImgBgGradientAngle from '../../../assets/image/img-bg-gradient-angle.png';
 import { IObjProcessWork } from '../../../interface';
+import tw from 'tailwind-styled-components';
 
 type TPropsCmpContentProcess = {
   listObjProcessWork: IObjProcessWork[];
 };
 
+const SectionWrapper = tw.section`
+relative bg-[#0a0a0a] pb-[120px] pt-[120px] max-desktop:py-[104px] max-tablet:py-[64px]
+`;
+
 const CmpContentProcess: FC<TPropsCmpContentProcess> = ({
   listObjProcessWork,
 }) => {
   return (
-    <section className="relative">
+    <SectionWrapper>
       <div className="z-[10] bg-[#0a0a0a] px-[5%] py-[64px] text-white">
         <div className="text-center">
           <div className="text-[36px] leading-[44px] -tracking-[1.92px]">
@@ -55,7 +60,7 @@ const CmpContentProcess: FC<TPropsCmpContentProcess> = ({
           })}
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 };
 

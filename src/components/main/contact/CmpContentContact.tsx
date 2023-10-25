@@ -1,8 +1,13 @@
 import { FC } from 'react';
+import tw from 'tailwind-styled-components';
+
+const SectionWrapper = tw.section`
+relative bg-[#0a0a0a] py-[120px] max-desktop:py-[104px] max-tablet:py-[64px]
+`;
 
 const CmpContentContact: FC = () => {
   return (
-    <section className="relative">
+    <SectionWrapper>
       <div className="bg-[#0a0a0a] py-[64px] text-center">
         <div className="mb-[40px] px-[5%] text-white">
           <div className="mb-[16px] mt-[16px] text-[36px] font-medium leading-[44px] -tracking-[1.92px]">
@@ -15,7 +20,7 @@ const CmpContentContact: FC = () => {
         </div>
         <div className="min-h-[600px]"></div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 };
 

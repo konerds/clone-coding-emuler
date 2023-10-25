@@ -10,7 +10,7 @@ const customRPSectionWrapper = customRP({
   backgroundImage: `url(${ImgBgGrainLatest})`,
 });
 const SectionWrapper = tw.section`
-relative
+relative bg-[size:300px_300px] bg-[position:0px_0px] py-[120px] max-desktop:py-[104px] max-tablet:py-[64px]
 `;
 
 const CmpContentComparison: FC = () => {

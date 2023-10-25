@@ -1,9 +1,14 @@
 import { FC } from 'react';
+import tw from 'tailwind-styled-components';
 import { ReactComponent as IconFooterLogo } from '../../assets/image/icon/icon-logo-footer.svg';
+
+const FooterWrapper = tw.section`
+relative z-0 bg-[#0a0a0a] py-[40px]
+`;
 
 const CmpLayoutFooter: FC = () => {
   return (
-    <footer className="relative">
+    <FooterWrapper>
       <div className="relative z-[10] bg-[#0a0a0a] text-center text-white">
         <div className="px-[5%] py-[40px]">
           <div className="flex items-center justify-between">
@@ -19,19 +24,8 @@ const CmpLayoutFooter: FC = () => {
             </div>
           </div>
         </div>
-        <div className="bg-[#1d1c1e] px-[5%] pb-[4rem] pt-[2rem] text-white">
-          <div className="text-[14px] leading-[20px]">
-            This cloneable was built in under 1.5 hours using the Relume Library
-          </div>
-          <button
-            type="button"
-            className="mt-[1.5rem] rounded-3xl border-[1px] border-white px-[1.5rem] py-[0.75rem] text-[0.875rem] leading-[20px]"
-          >
-            View Relume Library
-          </button>
-        </div>
       </div>
-    </footer>
+    </FooterWrapper>
   );
 };
 

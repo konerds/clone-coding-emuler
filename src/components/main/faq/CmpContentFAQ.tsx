@@ -3,18 +3,18 @@ import tw from 'tailwind-styled-components';
 import { customRP } from '../../../utils';
 import ImgBgGrainLatest from '../../../assets/image/img-bg-grain-latest.png';
 
-type TPropsCmpContentQNA = {
-  listObjQNA: { question: string; answer: string }[];
+type TPropsCmpContentFAQ = {
+  listObjFAQ: { question: string; answer: string }[];
 };
 
 const customRPSectionWrapper = customRP({
   backgroundImage: `url(${ImgBgGrainLatest})`,
 });
 const SectionWrapper = tw.section`
-relative
+relative bg-[size:300px_300px] bg-[position:0px_0px] py-[120px] max-desktop:py-[104px] max-tablet:py-[64px]
 `;
 
-const CmpContentQNA: FC<TPropsCmpContentQNA> = ({ listObjQNA }) => {
+const CmpContentFAQ: FC<TPropsCmpContentFAQ> = ({ listObjFAQ }) => {
   return (
     <SectionWrapper style={customRPSectionWrapper}>
       <div className="relative z-[10] px-[5%] py-[64px] text-center">
@@ -24,17 +24,17 @@ const CmpContentQNA: FC<TPropsCmpContentQNA> = ({ listObjQNA }) => {
           </div>
         </div>
         <div className="mb-[48px] max-w-[720px] [&>div:last-of-type]:border-b-[2px]">
-          {listObjQNA.map((objQNA, idxObjQNA) => {
+          {listObjFAQ.map((objFAQ, idxObjFAQ) => {
             return (
               <div
-                key={idxObjQNA}
+                key={idxObjFAQ}
                 className="-mb-[2px] border-t-[2px] border-[#161616] px-0 py-[24px]"
               >
                 <div className="text-[24px] font-medium leading-[32px] -tracking-[0.48px]">
-                  {objQNA.question}
+                  {objFAQ.question}
                 </div>
                 <div className="mb-[10px] mt-[24px] inline-block text-[16px] leading-[1.5] -tracking-[0.32px]">
-                  {objQNA.answer}
+                  {objFAQ.answer}
                 </div>
               </div>
             );
@@ -58,4 +58,4 @@ const CmpContentQNA: FC<TPropsCmpContentQNA> = ({ listObjQNA }) => {
   );
 };
 
-export default CmpContentQNA;
+export default CmpContentFAQ;

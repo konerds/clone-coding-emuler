@@ -176,7 +176,7 @@ export const listObjRoster = [
     imagePerson: ImgPerson4Roster,
   },
 ];
-export const listObjQNA = [
+export const listObjFAQ = [
   {
     question: 'Do my designs need to be in Figma, Adobe or Sketch?',
     answer:
