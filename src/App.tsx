@@ -7,13 +7,12 @@ import ImgBgGrainLatest from './assets/image/img-bg-grain-latest.png';
 import CmpContainerCTAFixed from './components/fixed/CmpContainerFixedCTA';
 
 const DivApp = tw.div`
-bg-inherit
 ${(_) => (process.env.NODE_ENV !== 'production' ? 'debug-screens' : '')}
+bg-inherit
 `;
 
 const DivWrapperPage = tw.div`
-overflow-hidden
-[transform:translate(0px,0px)]
+overflow-hidden [transform:translate(0px,0px)]
 `;
 
 const App = () => {
