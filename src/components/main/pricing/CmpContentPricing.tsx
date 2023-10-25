@@ -35,7 +35,7 @@ const CmpContentPricing: FC<TPropsCmpContentPricing> = ({ listObjPricing }) => {
             Webflow.
           </div>
         </div>
-        <div className="rounded-[16px] bg-[#161616] px-[16px] py-[24px] text-white">
+        <div className="rounded-[16px] bg-[color:#161616] px-[16px] py-[24px] text-white">
           <div className="grid grid-cols-3 gap-[16px] pb-[40px]">
             {listObjPricing.map((objPricing, idxObjPricing) => {
               return (

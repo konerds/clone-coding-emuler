@@ -56,7 +56,7 @@ const CmpContentTeam: FC<TPropsCmpContentTeam> = ({
                 key={idxObjTeam}
                 className="flex flex-col items-stretch rounded-[16px] border-[2px] border-[#161616] bg-white p-[16px]"
               >
-                <div className="relative mb-[24px] flex items-center justify-center rounded-[12px] bg-[#d8d5d1]">
+                <div className="relative mb-[24px] flex items-center justify-center rounded-[12px] bg-[color:#d8d5d1]">
                   <img
                     className="-ml-[8px] mt-[48px] w-[90%] max-w-[400px]"
                     src={objTeam.imageProfile}
@@ -82,7 +82,7 @@ const CmpContentTeam: FC<TPropsCmpContentTeam> = ({
             );
           })}
         </div>
-        <div className="rounded-[16px] bg-[#161616] p-[16px]">
+        <div className="rounded-[16px] bg-[color:#161616] p-[16px]">
           <div
             style={{ backgroundImage: `url(${ImgBgGradientAngle})` }}
             className="bg-blur-image-process-work mb-[24px] flex h-[192px] min-h-[192px] w-full min-w-[192px] flex-col items-center overflow-hidden px-[18px]"
@@ -138,7 +138,7 @@ const CmpContentTeam: FC<TPropsCmpContentTeam> = ({
                 return (
                   <div
                     key={idxBadgeCapability}
-                    className="mb-[8px] mr-[8px] flex w-fit items-center justify-center rounded-[8px] bg-[#ffffff26] px-[8px] py-[6px] text-[14px] leading-[20px]"
+                    className="mb-[8px] mr-[8px] flex w-fit items-center justify-center rounded-[8px] bg-[color:#ffffff26] px-[8px] py-[6px] text-[14px] leading-[20px]"
                   >
                     <span className="text-[12px] font-bold leading-[12px] text-white">
                       {badgeCapability}

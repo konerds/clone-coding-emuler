@@ -81,7 +81,7 @@
   }
 
   body {
-    @apply m-0 bg-[#d8d5d1] text-[14px] font-normal leading-[20px] text-[#161616];
+    @apply m-0 bg-[color:#d8d5d1] text-[14px] font-normal leading-[20px] text-[#161616];
   }
 
   h1 {
@@ -118,27 +118,27 @@
 }
 
 .bg-blur-circle-top-left {
-  @apply absolute -left-[5%] -right-[20%] -top-[10%] bottom-auto h-[280px] w-[280px] bg-[linear-gradient(285deg,#ff7448_29%,#ff4848_58%,#6248ff_80%)] opacity-[97%] blur-[68px];
+  @apply absolute -left-[5%] -right-[20%] -top-[10%] bottom-auto h-[280px] w-[280px] bg-[image:linear-gradient(285deg,#ff7448_29%,#ff4848_58%,#6248ff_80%)] opacity-[97%] blur-[68px];
 }
 
 .bg-blur-circle-top-right {
-  @apply absolute -right-[20%] bottom-auto left-auto top-[2%] h-[280px] w-[280px] bg-[linear-gradient(285deg,#ff7448_29%,#ff4848_58%,#6248ff_80%)] opacity-[90%] blur-[64px];
+  @apply absolute -right-[20%] bottom-auto left-auto top-[2%] h-[280px] w-[280px] bg-[image:linear-gradient(285deg,#ff7448_29%,#ff4848_58%,#6248ff_80%)] opacity-[90%] blur-[64px];
 }
 
 .bg-blur-circle-middle-left {
-  @apply absolute bottom-auto left-[5%] right-auto top-[20%] h-[280px] w-[280px] bg-[linear-gradient(59deg,#ff7448_27%,#ff4848_50%,#6248ff_75%)] opacity-[90%] blur-[64px];
+  @apply absolute bottom-auto left-[5%] right-auto top-[20%] h-[280px] w-[280px] bg-[image:linear-gradient(59deg,#ff7448_27%,#ff4848_50%,#6248ff_75%)] opacity-[90%] blur-[64px];
 }
 
 .bg-blur-circle-bottom-left {
-  @apply absolute -bottom-[10%] -left-[20%] right-auto top-auto h-[280px] w-[280px] bg-[linear-gradient(132deg,#ff7448_29%,#ff4848_52%,#6248ff_75%)] opacity-[90%] blur-[64px];
+  @apply absolute -bottom-[10%] -left-[20%] right-auto top-auto h-[280px] w-[280px] bg-[image:linear-gradient(132deg,#ff7448_29%,#ff4848_52%,#6248ff_75%)] opacity-[90%] blur-[64px];
 }
 
 .bg-blur-circle-bottom-right {
-  @apply absolute bottom-0 left-auto right-0 top-auto h-[280px] w-[280px] bg-[linear-gradient(132deg,#ff7448_26%,#ff4848_51%,#6248ff_75%)] opacity-[90%] blur-[64px];
+  @apply absolute bottom-0 left-auto right-0 top-auto h-[280px] w-[280px] bg-[image:linear-gradient(132deg,#ff7448_26%,#ff4848_51%,#6248ff_75%)] opacity-[90%] blur-[64px];
 }
 
 .bg-blur-image-process-work {
-  @apply rounded-[12px] bg-[linear-gradient(117deg,black,rgba(255,255,255,0)_73%)] bg-cover bg-[position:50%_50%];
+  @apply rounded-[12px] bg-[image:linear-gradient(117deg,black,rgba(255,255,255,0)_73%)] bg-cover bg-[position:50%_50%];
 }
 
 .transition-fade-wait-leave {

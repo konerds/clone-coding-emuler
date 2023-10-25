@@ -2,7 +2,7 @@ import { FC } from 'react';
 import tw from 'tailwind-styled-components';
 
 const DivContainer = tw.div`
-flex w-full items-center justify-center bg-[#1d1c1e] px-[5%] py-[2rem] max-tablet:flex-col max-tablet:pb-[4rem] max-tablet:text-center
+flex w-full items-center justify-center bg-[color:#1d1c1e] px-[5%] py-[2rem] max-tablet:flex-col max-tablet:pb-[4rem] max-tablet:text-center
 `;
 
 const DivWrapperText = tw.div`

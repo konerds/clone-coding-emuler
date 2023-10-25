@@ -2,6 +2,10 @@ import { IObjPricing, IObjSupport, TPricing } from '../interface';
 
 export const customRP = (obj: React.CSSProperties) => obj;
 
+export const queryIsMobile = () => {
+  return { maxWidth: 767 };
+};
+
 export const capitalizeLetterFirst = (strInput: string) => {
   return strInput.charAt(0).toUpperCase() + strInput.slice(1);
 };

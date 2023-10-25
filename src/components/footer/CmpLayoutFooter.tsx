@@ -3,13 +3,13 @@ import tw from 'tailwind-styled-components';
 import { ReactComponent as IconFooterLogo } from '../../assets/image/icon/icon-logo-footer.svg';
 
 const FooterWrapper = tw.section`
-relative z-0 bg-[#0a0a0a] py-[40px]
+relative z-0 bg-[color:#0a0a0a] py-[40px]
 `;
 
 const CmpLayoutFooter: FC = () => {
   return (
     <FooterWrapper>
-      <div className="relative z-[10] bg-[#0a0a0a] text-center text-white">
+      <div className="relative z-[10] bg-[color:#0a0a0a] text-center text-white">
         <div className="px-[5%] py-[40px]">
           <div className="flex items-center justify-between">
             <IconFooterLogo />

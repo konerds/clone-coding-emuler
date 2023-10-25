@@ -4,11 +4,8 @@ export interface IObjBenefit {
 }
 
 export interface IObjProcessWork {
-  image: React.FunctionComponent<
-    React.SVGProps<SVGSVGElement> & {
-      title?: string | undefined;
-    }
-  >;
+  iconStep: string;
+  image: string;
   title: string;
   descSentence: string;
   descParagraph: string;

@@ -4,11 +4,16 @@ import {
   IObjPricing,
   IObjProcessWork,
 } from '../interface';
-import { ReactComponent as IconProcessWork1 } from '../assets/image/icon/icon-step1-visual-design.svg';
-import { ReactComponent as IconProcessWork2 } from '../assets/image/icon/icon-step2-webflow-dev.svg';
-import { ReactComponent as IconProcessWork3 } from '../assets/image/icon/icon-step3-feedback.svg';
-import { ReactComponent as IconProcessWork4 } from '../assets/image/icon/icon-step4-onboarding.svg';
-import { ReactComponent as IconProcessWork5 } from '../assets/image/icon/icon-step5-launch.svg';
+import IconCircleStep1 from '../assets/image/icon/icon-circle-step1.svg';
+import IconCircleStep2 from '../assets/image/icon/icon-circle-step2.svg';
+import IconCircleStep3 from '../assets/image/icon/icon-circle-step3.svg';
+import IconCircleStep4 from '../assets/image/icon/icon-circle-step4.svg';
+import IconCircleStep5 from '../assets/image/icon/icon-circle-step5.svg';
+import IconProcessWork1 from '../assets/image/icon/icon-step1-visual-design.svg';
+import IconProcessWork2 from '../assets/image/icon/icon-step2-webflow-dev.svg';
+import IconProcessWork3 from '../assets/image/icon/icon-step3-feedback.svg';
+import IconProcessWork4 from '../assets/image/icon/icon-step4-onboarding.svg';
+import IconProcessWork5 from '../assets/image/icon/icon-step5-launch.svg';
 import ImgProfileDan from '../assets/image/img-profile-dan.png';
 import { ReactComponent as ImgArrowDan } from '../assets/image/img-arrow-dan.svg';
 import ImgProfileAdam from '../assets/image/img-profile-adam.png';
@@ -38,6 +43,7 @@ export const listObjBenefit: IObjBenefit[] = [
 ];
 export const listObjProcessWork: IObjProcessWork[] = [
   {
+    iconStep: IconCircleStep1,
     image: IconProcessWork1,
     title: 'Share your designs',
     descSentence: 'Determine costs and timeline...',
@@ -45,18 +51,21 @@ export const listObjProcessWork: IObjProcessWork[] = [
       'We review your designs in detail and provide you with a fixed-price-breakdown for each page and a timeline for the project.',
   },
   {
+    iconStep: IconCircleStep2,
     image: IconProcessWork2,
     title: 'Begin development',
     descSentence: 'Begin building on Webflow...',
     descParagraph: `If you're happy with the price, we'll start the work right away, by building each page across mobile, tablet and desktop.`,
   },
   {
+    iconStep: IconCircleStep3,
     image: IconProcessWork3,
     title: 'Provide feedback',
     descSentence: 'Add the final polish...',
     descParagraph: `Once we're 80% of the way through to completion, we will share a link for you to review the website on a staging site and provide feedback.`,
   },
   {
+    iconStep: IconCircleStep4,
     image: IconProcessWork4,
     title: 'Webflow training & support',
     descSentence: 'Learn how to use Webflow...',
@@ -64,6 +73,7 @@ export const listObjProcessWork: IObjProcessWork[] = [
       'We provide you with post-30 day launch support and a library of personalised tutorials on how to use your new website so that you are well equiped to take control of the website.',
   },
   {
+    iconStep: IconCircleStep5,
     image: IconProcessWork5,
     title: 'Launch new website',
     descSentence: 'Release it to the world...',
