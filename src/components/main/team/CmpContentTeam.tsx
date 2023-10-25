@@ -1,4 +1,7 @@
 import { FC, createElement } from 'react';
+import tw from 'tailwind-styled-components';
+import { customRP } from '../../../utils';
+import ImgBgGrainLatest from '../../../assets/image/img-bg-grain-latest.png';
 import ImgBgGradientAngle from '../../../assets/image/img-bg-gradient-angle.png';
 import { ReactComponent as IconLock } from '../../../assets/image/icon/icon-lock.svg';
 
@@ -19,12 +22,19 @@ type TPropsCmpContentTeam = {
   }[];
 };
 
+const customRPSectionWrapper = customRP({
+  backgroundImage: `url(${ImgBgGrainLatest})`,
+});
+const SectionWrapper = tw.section`
+relative
+`;
+
 const CmpContentTeam: FC<TPropsCmpContentTeam> = ({
   listObjTeam,
   listObjRoster,
 }) => {
   return (
-    <section className="relative">
+    <SectionWrapper style={customRPSectionWrapper}>
       <div className="relative z-[10] px-[5%] py-[64px]">
         <div className="mx-auto mb-[48px] flex flex-col text-center">
           <div className="mb-[24px] mt-[16px] text-[36px] font-medium leading-[44px]">
@@ -141,7 +151,7 @@ const CmpContentTeam: FC<TPropsCmpContentTeam> = ({
         </div>
       </div>
       <div className="bg-blur-circle-bottom-left"></div>
-    </section>
+    </SectionWrapper>
   );
 };
 

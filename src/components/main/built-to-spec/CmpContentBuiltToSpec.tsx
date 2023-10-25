@@ -1,4 +1,7 @@
 import { FC, useState, createElement } from 'react';
+import tw from 'tailwind-styled-components';
+import { customRP } from '../../../utils';
+import ImgBgGrainLatest from '../../../assets/image/img-bg-grain-latest.png';
 import { ReactComponent as IconFigma } from '../../../assets/image/icon/icon-figma.svg';
 import { ReactComponent as IconWebflow } from '../../../assets/image/icon/icon-webflow.svg';
 import { IObjExBuiltToSpec } from '../../../interface';
@@ -7,12 +10,19 @@ type TPropsCmpContentBuiltToSpec = {
   listObjExBuiltToSpec: IObjExBuiltToSpec[];
 };
 
+const customRPSectionWrapper = customRP({
+  backgroundImage: `url(${ImgBgGrainLatest})`,
+});
+const SectionWrapper = tw.section`
+relative
+`;
+
 const CmpContentBuiltToSpec: FC<TPropsCmpContentBuiltToSpec> = ({
   listObjExBuiltToSpec,
 }) => {
   const [isTypeFigma, setIsTypeFigma] = useState(true);
   return (
-    <section className="relative">
+    <SectionWrapper style={customRPSectionWrapper}>
       <div className="bg-blur-circle-top-right"></div>
       <div className="relative z-[10] px-[5%] py-[64px]">
         <div className="mb-[48px] text-center">
@@ -72,17 +82,17 @@ const CmpContentBuiltToSpec: FC<TPropsCmpContentBuiltToSpec> = ({
                   );
                 })}
               </div>
-              <iframe
+              {/* <iframe
                 width="100%"
                 height="390.29px"
                 src={isTypeFigma ? objEx.linkFigma : objEx.linkWeb}
                 allowFullScreen
-              ></iframe>
+              ></iframe> */}
             </div>
           );
         })}
       </div>
-    </section>
+    </SectionWrapper>
   );
 };
 

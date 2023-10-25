@@ -1,5 +1,7 @@
 import { IObjPricing, IObjSupport, TPricing } from '../interface';
 
+export const customRP = (obj: React.CSSProperties) => obj;
+
 export const capitalizeLetterFirst = (strInput: string) => {
   return strInput.charAt(0).toUpperCase() + strInput.slice(1);
 };

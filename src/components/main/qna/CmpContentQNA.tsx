@@ -1,12 +1,22 @@
 import { FC } from 'react';
+import tw from 'tailwind-styled-components';
+import { customRP } from '../../../utils';
+import ImgBgGrainLatest from '../../../assets/image/img-bg-grain-latest.png';
 
 type TPropsCmpContentQNA = {
   listObjQNA: { question: string; answer: string }[];
 };
 
+const customRPSectionWrapper = customRP({
+  backgroundImage: `url(${ImgBgGrainLatest})`,
+});
+const SectionWrapper = tw.section`
+relative
+`;
+
 const CmpContentQNA: FC<TPropsCmpContentQNA> = ({ listObjQNA }) => {
   return (
-    <section className="relative">
+    <SectionWrapper style={customRPSectionWrapper}>
       <div className="relative z-[10] px-[5%] py-[64px] text-center">
         <div className="mx-auto mb-[64px] flex flex-col items-center justify-center">
           <div className="mb-[24px] mt-[16px] text-[36px] font-medium leading-[44px] -tracking-[1.92px]">
@@ -44,7 +54,7 @@ const CmpContentQNA: FC<TPropsCmpContentQNA> = ({ listObjQNA }) => {
         </button>
       </div>
       <div className="bg-blur-circle-bottom-right"></div>
-    </section>
+    </SectionWrapper>
   );
 };
 

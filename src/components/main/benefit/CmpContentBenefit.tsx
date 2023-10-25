@@ -1,4 +1,7 @@
 import { FC } from 'react';
+import tw from 'tailwind-styled-components';
+import { customRP } from '../../../utils';
+import ImgBgGrainLatest from '../../../assets/image/img-bg-grain-latest.png';
 import { ReactComponent as IconCMSUserFriendly } from '../../../assets/image/icon/icon-cms-user-friendly.svg';
 import { IObjBenefit } from '../../../interface';
 
@@ -6,9 +9,16 @@ type TPropsCmpContentBenefit = {
   listObjBenefit: IObjBenefit[];
 };
 
+const customRPSectionWrapper = customRP({
+  backgroundImage: `url(${ImgBgGrainLatest})`,
+});
+const SectionWrapper = tw.section`
+relative
+`;
+
 const CmpContentBenefit: FC<TPropsCmpContentBenefit> = ({ listObjBenefit }) => {
   return (
-    <section className="relative">
+    <SectionWrapper style={customRPSectionWrapper}>
       <div className="relative z-[10] grid grid-cols-1 gap-x-[40px] gap-y-[56px] px-[5%] pb-[64px] pt-[40px]">
         {listObjBenefit.map((objBenefit, idxObjBenefit) => {
           return (
@@ -27,7 +37,7 @@ const CmpContentBenefit: FC<TPropsCmpContentBenefit> = ({ listObjBenefit }) => {
         })}
       </div>
       <div className="bg-blur-circle-bottom-right"></div>
-    </section>
+    </SectionWrapper>
   );
 };
 

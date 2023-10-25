@@ -1,12 +1,22 @@
 import { FC, useState } from 'react';
+import tw from 'tailwind-styled-components';
+import { customRP } from '../../../utils';
+import ImgBgGrainLatest from '../../../assets/image/img-bg-grain-latest.png';
 import ReactCSSTransitionReplace from 'react-css-transition-replace';
 import ImgWithRelumeMobile from '../../../assets/image/img-with-relume-mobile.png';
 import ImgWithoutRelumeMobile from '../../../assets/image/img-without-relume-mobile.png';
 
+const customRPSectionWrapper = customRP({
+  backgroundImage: `url(${ImgBgGrainLatest})`,
+});
+const SectionWrapper = tw.section`
+relative
+`;
+
 const CmpContentComparison: FC = () => {
   const [isWithRelume, setIsWithRelume] = useState(true);
   return (
-    <section className="relative">
+    <SectionWrapper style={customRPSectionWrapper}>
       <div className="bg-blur-circle-middle-left"></div>
       <div className="relative z-[10] px-[5%] py-[64px]">
         <div className="mb-[48px] text-center">
@@ -53,7 +63,7 @@ const CmpContentComparison: FC = () => {
           />
         </ReactCSSTransitionReplace>
       </div>
-    </section>
+    </SectionWrapper>
   );
 };
 

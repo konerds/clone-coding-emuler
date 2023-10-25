@@ -1,4 +1,7 @@
 import { FC } from 'react';
+import tw from 'tailwind-styled-components';
+import { customRP } from '../../../utils';
+import ImgBgGrainLatest from '../../../assets/image/img-bg-grain-latest.png';
 import { ReactComponent as IconTick } from '../../../assets/image/icon/icon-tick.svg';
 import { IObjPricing } from '../../../interface';
 import {
@@ -11,9 +14,16 @@ type TPropsCmpContentPricing = {
   listObjPricing: IObjPricing[];
 };
 
+const customRPSectionWrapper = customRP({
+  backgroundImage: `url(${ImgBgGrainLatest})`,
+});
+const SectionWrapper = tw.section`
+relative
+`;
+
 const CmpContentPricing: FC<TPropsCmpContentPricing> = ({ listObjPricing }) => {
   return (
-    <section className="relative">
+    <SectionWrapper style={customRPSectionWrapper}>
       <div className="bg-blur-circle-top-left"></div>
       <div className="relative z-[10] px-[5%] py-[64px] text-center">
         <div className="mb-[48px]">
@@ -84,7 +94,7 @@ const CmpContentPricing: FC<TPropsCmpContentPricing> = ({ listObjPricing }) => {
         </div>
       </div>
       <div className="bg-blur-circle-bottom-right"></div>
-    </section>
+    </SectionWrapper>
   );
 };
 
