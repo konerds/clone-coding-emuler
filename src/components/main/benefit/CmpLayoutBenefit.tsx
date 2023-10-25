@@ -24,6 +24,10 @@ const DivLayoutGrid = tw.div`
 grid gap-[40px] [grid-auto-columns:1fr] [grid-template-columns:1fr_1fr_1fr_1fr] [grid-template-rows:auto] max-desktop:gap-y-[56px] max-desktop:[grid-template-columns:1fr_1fr] max-mobile-landscape:[grid-template-columns:1fr]
 `;
 
+const DivBlurCircle = tw.div`
+absolute inset-[auto_0%_-15%_auto] -z-[1] flex h-[440px] w-[440px] items-center justify-center rounded-[500px] bg-[linear-gradient(132deg,#ff7448_26%,#ff4848_51%,#6248ff_75%)] opacity-[0.97] [filter:blur(64px)_blur(64px)] max-desktop:h-[320px] max-desktop:w-[320px] max-desktop:[filter:blur(68px)] max-tablet:bottom-[5%] max-tablet:h-[280px] max-tablet:w-[280px] max-tablet:[filter:blur(64px)]
+`;
+
 const CmpLayoutBenefit: FC<TPropsCmpLayoutBenefit> = ({ listObjBenefit }) => {
   return (
     <SectionWrapper style={customRPSectionWrapper}>
@@ -34,7 +38,7 @@ const CmpLayoutBenefit: FC<TPropsCmpLayoutBenefit> = ({ listObjBenefit }) => {
           })}
         </DivLayoutGrid>
       </DivContainer>
-      <div className="bg-blur-circle-bottom-right"></div>
+      <DivBlurCircle></DivBlurCircle>
     </SectionWrapper>
   );
 };
