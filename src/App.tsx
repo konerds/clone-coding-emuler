@@ -11,7 +11,7 @@ ${(_) => (process.env.NODE_ENV !== 'production' ? 'debug-screens' : '')}
 bg-inherit
 `;
 
-const DivWrapperPage = tw.div`
+const MainWrapperPage = tw.main`
 overflow-hidden [transform:translate(0px,0px)]
 `;
 
@@ -23,11 +23,11 @@ const App = () => {
       }}
     >
       <CmpContainerCTAFixed />
-      <DivWrapperPage>
+      <MainWrapperPage>
         <CmpLayoutHeader />
         <CmpLayoutMain />
         <CmpLayoutFooter />
-      </DivWrapperPage>
+      </MainWrapperPage>
     </DivApp>
   );
 };

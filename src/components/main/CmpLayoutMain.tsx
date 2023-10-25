@@ -20,7 +20,7 @@ import {
 
 const CmpLayoutMain: FC = () => {
   return (
-    <main className="text-[#161616]">
+    <>
       <CmpContentHero />
       <CmpContentBenefit listObjBenefit={listObjBenefit} />
       <CmpContentProcess listObjProcessWork={listObjProcessWork} />
@@ -30,7 +30,7 @@ const CmpLayoutMain: FC = () => {
       <CmpContentTeam listObjTeam={listObjTeam} listObjRoster={listObjRoster} />
       <CmpContentQNA listObjQNA={listObjQNA} />
       <CmpContentContact />
-    </main>
+    </>
   );
 };
 
