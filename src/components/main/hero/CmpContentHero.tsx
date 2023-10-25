@@ -1,14 +1,23 @@
 import { FC } from 'react';
+import tw from 'tailwind-styled-components';
 import { ReactComponent as ImgQuoteHeroMobile } from '../../../assets/image/img-quote-hero-mobile.svg';
+
+const H1HeroHeading = tw.h1`
+mb-[16px]
+mt-[8px]
+text-center
+text-[40px]
+font-medium
+leading-[48px]
+-tracking-[2.4px]
+`;
 
 const CmpContentHero: FC = () => {
   return (
     <section className="relative">
       <div className="bg-blur-circle-top-left-2"></div>
       <div className="relative z-[10] flex flex-col items-center px-[5%] pb-[64px] pt-[40px]">
-        <div className="mb-[16px] mt-[8px] text-center text-[40px] font-medium leading-[48px] -tracking-[2.4px]">
-          Your designer's favourite web developer
-        </div>
+        <H1HeroHeading>Your designer's favourite web developer</H1HeroHeading>
         <div className="max-w-[560px] text-center text-[18px] leading-[1.5] -tracking-[0.4px]">
           Relume can build your Figma, Sketch or Adobe XD website design pixel
           perfect on Webflow.

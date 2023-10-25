@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-// import ReactCSSTransitionReplace from 'react-css-transition-replace';
+import ReactCSSTransitionReplace from 'react-css-transition-replace';
 import ImgWithRelumeMobile from '../../../assets/image/img-with-relume-mobile.png';
 import ImgWithoutRelumeMobile from '../../../assets/image/img-without-relume-mobile.png';
 
@@ -41,7 +41,7 @@ const CmpContentComparison: FC = () => {
             );
           })}
         </div>
-        {/* <ReactCSSTransitionReplace
+        <ReactCSSTransitionReplace
           transitionName="transition-fade-wait"
           transitionEnterTimeout={1000}
           transitionLeaveTimeout={500}
@@ -51,12 +51,7 @@ const CmpContentComparison: FC = () => {
             src={isWithRelume ? ImgWithRelumeMobile : ImgWithoutRelumeMobile}
             alt={isWithRelume ? 'with relume' : 'without relume'}
           />
-        </ReactCSSTransitionReplace> */}
-        <img
-          key={isWithRelume ? 'with' : 'without'}
-          src={isWithRelume ? ImgWithRelumeMobile : ImgWithoutRelumeMobile}
-          alt={isWithRelume ? 'with relume' : 'without relume'}
-        />
+        </ReactCSSTransitionReplace>
       </div>
     </section>
   );
