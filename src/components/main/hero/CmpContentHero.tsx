@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import tw from 'tailwind-styled-components';
 import { customRP } from '../../../utils';
 import ImgBgGrainLatest from '../../../assets/image/img-bg-grain-latest.png';
@@ -61,11 +61,22 @@ h-full w-full
 before:table before:[content:"_"] before:[grid-column-end:2] before:[grid-column-start:1] before:[grid-row-end:2] before:[grid-row-start:1]
 `;
 
+const IframeFigma = tw.iframe`
+[border:0px_solid_#0000001a]
+`;
+
+const ButtonShowEmbed = tw.button`
+absolute bottom-0 left-0 right-0 top-0 bg-[#d4eff0] text-[16px]
+`;
+
 const DivBlurCircle = tw.div`
 max-desktop:[-top-[10%]] max-desktop:[-right-[5%]] absolute inset-[-5%_auto_auto_-5%] -z-[1] block h-[440px] w-[440px] rounded-[500px] bg-[image:linear-gradient(132deg,#ff7448_27%,#ff4848_50%,#6248ff_79%)] opacity-[0.97] [filter:blur(64px)_blur(64px)] max-desktop:h-[400px] max-desktop:w-[400px] max-desktop:bg-[image:linear-gradient(285deg,#ff7448_29%,#ff4848_58%,#6248ff_80%)] max-desktop:opacity-[0.7] max-desktop:[filter:blur(68px)] max-tablet:h-[320px] max-tablet:w-[320px] max-tablet:opacity-[0.9] max-tablet:[filter:blur(64px)] max-mobile-landscape:-right-[20%] max-mobile-landscape:h-[280px] max-mobile-landscape:w-[280px]
 `;
 
 const CmpContentHero: FC = () => {
+  const linkEmbedFigma =
+    'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FQ5dHDQBsXPO21b03SHuq6Z%2FRelume-Website-Design%3Fnode-id%3D0%253A1';
+  const [isVisibleEmbed, setIsVisibleEmbed] = useState(false);
   return (
     <SectionWrapper style={customRPSectionWrapper}>
       <DivContainer>
@@ -96,13 +107,23 @@ const CmpContentHero: FC = () => {
           </DivWrapperContentHero>
           <DivWrapperEmbedFigma>
             <DivEmbedFigma>
-              {/* <iframe
-                className="[border:0px_solid_#0000001a]"
-                width="100%"
-                height="100%"
-                src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FQ5dHDQBsXPO21b03SHuq6Z%2FRelume-Website-Design%3Fnode-id%3D0%253A1"
-                allowFullScreen
-              ></iframe> */}
+              {isVisibleEmbed ? (
+                <IframeFigma
+                  src={linkEmbedFigma}
+                  width="100%"
+                  height="100%"
+                  allowFullScreen
+                ></IframeFigma>
+              ) : (
+                <ButtonShowEmbed
+                  type="button"
+                  onClick={(_) => {
+                    setIsVisibleEmbed(true);
+                  }}
+                >
+                  Click to view
+                </ButtonShowEmbed>
+              )}
             </DivEmbedFigma>
           </DivWrapperEmbedFigma>
         </DivLayoutGrid>

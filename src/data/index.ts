@@ -84,31 +84,48 @@ export const listObjProcessWork: IObjProcessWork[] = [
 export const listObjExBuiltToSpec: IObjExBuiltToSpec[] = [
   {
     name: 'Goodhousing.com.au',
-    type: 'export constRUCTION COMPANY',
+    type: 'CONSTRUCTION COMPANY',
     colorBadgeType: '#d4eff0',
-    quoteClient:
-      '"They have a strong work ethic and really care about the end product, which made the whole process feel seamless." - Lily',
-    linkFigma:
-      'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F76D0zWGXi4FJydVnMuzumL%2FWebsite-Design%3Fnode-id%3D1%253A488',
-    linkWeb: 'https://goodhousing.com.au',
+    quoteClient: {
+      content:
+        'They have a strong work ethic and really care about the end product, which made the whole process feel seamless.',
+      author: 'Lily',
+    },
+    link: {
+      figma:
+        'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F76D0zWGXi4FJydVnMuzumL%2FWebsite-Design%3Fnode-id%3D1%253A488',
+      web: 'https://goodhousing.com.au',
+    },
   },
   {
     name: 'Lauraavery.com.au',
     type: 'SKIN CARE STUDIO',
     colorBadgeType: '#e9e5dd',
-    quoteClient: `"You can tell there is a lot of thought put behind every detail. I don't think they could have done a better job!" - Laura`,
-    linkFigma:
-      'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F76D0zWGXi4FJydVnMuzumL%2FWebsite-Design%3Fnode-id%3D1%253A10',
-    linkWeb: 'https://lauraavery.com.au',
+    quoteClient: {
+      content:
+        "You can tell there is a lot of thought put behind every detail. I don't think they could have done a better job!",
+      author: 'Laura',
+    },
+    link: {
+      figma:
+        'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F76D0zWGXi4FJydVnMuzumL%2FWebsite-Design%3Fnode-id%3D1%253A10',
+      web: 'https://lauraavery.com.au',
+    },
   },
   {
     name: 'Yolomedia.com.au',
     type: 'CREATIVE AGENCY',
     colorBadgeType: '#deeffa',
-    quoteClient: `"Props to them, they manage to always get the design spot on, it's quite impressive." - Tristan`,
-    linkFigma:
-      'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F76D0zWGXi4FJydVnMuzumL%2FWebsite-Design%3Fnode-id%3D148%253A1749',
-    linkWeb: 'https://www.yolomedia.com.au',
+    quoteClient: {
+      content:
+        "Props to them, they manage to always get the design spot on, it's quite impressive.",
+      author: 'Tristan',
+    },
+    link: {
+      figma:
+        'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F76D0zWGXi4FJydVnMuzumL%2FWebsite-Design%3Fnode-id%3D148%253A1749',
+      web: 'https://www.yolomedia.com.au',
+    },
   },
 ];
 export const listObjPricing: IObjPricing[] = [
@@ -188,38 +205,35 @@ export const listObjRoster = [
 ];
 export const listObjFAQ = [
   {
-    question: 'Do my designs need to be in Figma, Adobe or Sketch?',
-    answer:
-      'No, we also accept other forms of designs including video files and images.',
+    question: `Do my designs need to be in Figma, Adobe or Sketch?`,
+    answer: `No, we also accept other forms of designs including video files and images.`,
   },
   {
-    question: 'Do my designs need to be in Figma, Adobe or Sketch?',
-    answer:
-      'No, we also accept other forms of designs including video files and images.',
+    question: `How long will it take to build my website on Webflow?`,
+    answer: `Most website builds take 2-4 weeks to complete. Some websites may take longer depending on the size of the website and the responsiveness of clients.`,
   },
   {
-    question: 'Do my designs need to be in Figma, Adobe or Sketch?',
-    answer:
-      'No, we also accept other forms of designs including video files and images.',
+    question: `Why do I need Relume, can’t I build the Webflow website myself?`,
+    answer: `A platform and CMS like Webflow is only as good as it's implementation. That's why it's important to hire an expert, like Relume, to help build the core of your Webflow website, so that if you choose to be hands on, you can build upon a strong foundation.`,
   },
   {
-    question: 'Do my designs need to be in Figma, Adobe or Sketch?',
-    answer:
-      'No, we also accept other forms of designs including video files and images.',
+    question: `Can I host my Webflow website anywhere?`,
+    answer: `We highly recommend that you host your website through Webflow's AWS system if you wish to gain access to all the powerful CMS and hosting features that Webflow has to offer. All hosting plans include automatic backups, version control, SEO management, new features as they are released, and security updates. Hosting your website on Webflow removes the requirement for monthly maintenance retainers that are usually associated with platforms such as Wordpress.`,
   },
   {
-    question: 'Do my designs need to be in Figma, Adobe or Sketch?',
-    answer:
-      'No, we also accept other forms of designs including video files and images.',
+    question: `Can you help improve my design?`,
+    answer: `Yes, we're more than happy to discuss custom options if you want us to make any adjustments to your current design.`,
   },
   {
-    question: 'Do my designs need to be in Figma, Adobe or Sketch?',
-    answer:
-      'No, we also accept other forms of designs including video files and images.',
+    question: `Do I need to provide you with mobile and tablet designs?`,
+    answer: `No, we're able to design for mobile and tablet based off your desktop design. However, if you wish to provide your own designs for mobile and tablet then that's fine too.`,
   },
   {
-    question: 'Do my designs need to be in Figma, Adobe or Sketch?',
-    answer:
-      'No, we also accept other forms of designs including video files and images.',
+    question: `Do you offer any support?`,
+    answer: `Yes. We offer support for the duration of 30 days post launch, so that if you have any questions, we're there to help.`,
+  },
+  {
+    question: `Do you offer Webflow training?`,
+    answer: `Yes. We provide our clients with a library of personalised tutorials on how to use your new website so that you are well equipped to take full control and ownership of your website. `,
   },
 ];

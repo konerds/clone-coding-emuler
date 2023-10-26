@@ -15,9 +15,14 @@ export interface IObjExBuiltToSpec {
   name: string;
   type: string;
   colorBadgeType: string;
-  quoteClient: string;
-  linkFigma: string;
-  linkWeb: string;
+  quoteClient: {
+    content: string;
+    author: string;
+  };
+  link: {
+    figma: string;
+    web: string;
+  };
 }
 
 export type TPricing = 'basic' | 'advanced' | 'professional';

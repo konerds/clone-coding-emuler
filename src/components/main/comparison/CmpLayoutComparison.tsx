@@ -2,6 +2,7 @@ import { FC, useState } from 'react';
 import tw from 'tailwind-styled-components';
 import { customRP } from '../../../utils';
 import ImgBgGrainLatest from '../../../assets/image/img-bg-grain-latest.png';
+import IconUnderline from '../../../assets/image/icon/icon-underline.svg';
 import CmpElContentTab from './CmpElContentTab';
 import CmpElMenuTab from './CmpElMenuTab';
 
@@ -22,6 +23,13 @@ mx-auto mb-[56px] flex max-w-[800px] flex-col items-center justify-center text-c
 
 const H2Title = tw.h2`
 text-[56px] leading-[64px] max-tablet:text-[40px] max-tablet:leading-[48px] max-mobile-landscape:text-[36px] max-mobile-landscape:leading-[44px]
+`;
+
+const customRPSpanWithUnderline = customRP({
+  backgroundImage: `url(${IconUnderline})`,
+});
+const SpanWithUnderline = tw.span`
+inline-block bg-contain bg-[position:50%_115%] bg-no-repeat px-[2px] pb-[8px] pt-[4px] max-desktop:pb-[4px] max-desktop:pt-[2px] max-tablet:bg-[position:50%_110%]
 `;
 
 const ParagraphDesc = tw.p`
@@ -51,8 +59,11 @@ const CmpLayoutComparison: FC = () => {
       <DivContainer>
         <DivWrapperIntroduce>
           <H2Title>
-            Don’t compromise your design with <span>average</span> web
-            development
+            Don’t compromise your design with{' '}
+            <SpanWithUnderline style={customRPSpanWithUnderline}>
+              average
+            </SpanWithUnderline>{' '}
+            web development
           </H2Title>
           <ParagraphDesc>
             You've gone to all this effort to create your beautiful design -
