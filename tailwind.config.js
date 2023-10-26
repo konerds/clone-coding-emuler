@@ -3,6 +3,8 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
@@ -34,5 +36,26 @@ module.exports = {
   future: {
     hoverOnlyWhenSupported: true,
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addUtilities }) => {
+      addUtilities({
+        '.antialiased-stroke': {
+          '-webkit-text-stroke': ['0.45px', '0.45px rgba(0, 0, 0, 0.1)'],
+        },
+        '.drag-none': {
+          '-webkit-user-drag': 'none',
+          '-khtml-user-drag': 'none',
+          '-moz-user-drag': 'none',
+          '-o-user-drag': 'none',
+        },
+        '.scroll-none': {
+          '-ms-overflow-style': 'none',
+          'scrollbar-width': 'none',
+        },
+        '.scroll-none::-webkit-scrollbar': {
+          display: 'none',
+        },
+      });
+    }),
+  ],
 };

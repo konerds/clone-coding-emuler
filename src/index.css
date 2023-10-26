@@ -18,61 +18,46 @@
 
 @layer utilities {
   .debug-screens::before {
-    -webkit-box-shadow: 0 0 0 1px white;
-    box-shadow: 0 0 0 1px white;
-    content: 'screen: _';
-    @apply fixed left-0 top-0 z-[2147483647] bg-black px-[0.5em] py-[calc((1/3)*1em)] font-sans text-[12px] leading-[1] text-white;
+    @apply fixed left-0 top-0 z-[2147483647] bg-black px-[0.5em] py-[calc((1/3)*1em)] font-sans text-[12px] leading-[1] text-white shadow-[0_0_0_1px_white] content-['screen:_\_'];
   }
 
   @screen mobile-portrait {
     .debug-screens::before {
-      content: 'screen: mobile-portrait';
+      @apply content-['screen:_mobile-portrait'];
     }
   }
 
   @screen mobile-landscape {
     .debug-screens::before {
-      content: 'screen: mobile-landscape';
+      @apply content-['screen:_mobile-landscape'];
     }
   }
 
   @screen tablet {
     .debug-screens::before {
-      content: 'screen: tablet';
+      @apply content-['screen:_tablet'];
     }
   }
 
   @screen desktop {
     .debug-screens::before {
-      content: 'screen: desktop';
+      @apply content-['screen:_desktop'];
     }
   }
 
   @screen desktop-larger {
     .debug-screens::before {
-      content: 'screen: desktop-larger';
+      @apply content-['screen:_desktop-larger'];
     }
   }
 }
 
 @layer base {
   *,
+  html,
   body {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
     font-family: pretendard-variable;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-text-stroke: 0.45px;
-    -webkit-text-stroke: 0.45px rgba(0, 0, 0, 0.1);
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+    @apply antialiased-stroke drag-none scroll-none box-border select-none antialiased;
   }
 
   html,

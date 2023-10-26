@@ -6,8 +6,11 @@ import CmpLayoutMain from './components/main/CmpLayoutMain';
 import CmpGetStartedCTAFixed from './components/cta/CmpGetStartedCTAFixed';
 import CmpLibraryCTA from './components/cta/CmpLibraryCTA';
 
-const DivApp = tw.div`
-${(_) => (process.env.NODE_ENV !== 'production' ? 'debug-screens' : '')}
+type TPropsDivApp = {
+  $isDev: boolean;
+};
+const DivApp = tw.div<TPropsDivApp>`
+${(p) => (p.$isDev ? 'debug-screens' : '')}
 bg-inherit
 `;
 
@@ -17,7 +20,7 @@ overflow-hidden [transform:translate(0px,0px)]
 
 const App = () => {
   return (
-    <DivApp>
+    <DivApp $isDev={process.env.NODE_ENV !== 'production'}>
       <CmpGetStartedCTAFixed />
       <MainWrapperPage>
         <CmpLayoutHeader />
