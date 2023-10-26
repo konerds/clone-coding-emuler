@@ -1,18 +1,22 @@
 {
   "files": {
-    "main.css": "/clone-coding-emuler/static/css/main.338a84e9.css",
-    "main.js": "/clone-coding-emuler/static/js/main.a04e691a.js",
+    "main.css": "/clone-coding-emuler/static/css/main.2d93232f.css",
+    "main.js": "/clone-coding-emuler/static/js/main.cb1d8e9f.js",
     "static/media/pretendard-variable.ttf": "/clone-coding-emuler/static/media/pretendard-variable.4ab1a55a486870ed0174.ttf",
     "static/media/pretendard-variable.eot": "/clone-coding-emuler/static/media/pretendard-variable.2bea04855e4051c7822a.eot",
     "static/media/pretendard-variable.woff2": "/clone-coding-emuler/static/media/pretendard-variable.154ce88f9118a30d9d0e.woff2",
     "static/media/pretendard-variable.woff": "/clone-coding-emuler/static/media/pretendard-variable.01fcc368111282963d35.woff",
     "static/media/img-profile-dan.png": "/clone-coding-emuler/static/media/img-profile-dan.e111daa50f2fdce9d04a.png",
     "static/media/img-profile-adam.png": "/clone-coding-emuler/static/media/img-profile-adam.4fa5984e4bd8cae289ea.png",
+    "static/media/img-with-relume-1.png": "/clone-coding-emuler/static/media/img-with-relume-1.fb214c4b37df9f513a19.png",
     "static/media/img-bg-gradient-angle-mobile.png": "/clone-coding-emuler/static/media/img-bg-gradient-angle-mobile.52225d272b85e09ee130.png",
+    "static/media/img-without-relume.png": "/clone-coding-emuler/static/media/img-without-relume.eec1468afb643340f5ab.png",
     "static/media/img-with-relume-mobile.png": "/clone-coding-emuler/static/media/img-with-relume-mobile.a08132a32a3445f42fb1.png",
     "static/media/img-without-relume-mobile.png": "/clone-coding-emuler/static/media/img-without-relume-mobile.44ab19ec1dc054cd70bd.png",
     "static/media/img-bg-gradient-angle.png": "/clone-coding-emuler/static/media/img-bg-gradient-angle.9b24137b635eddcc5abf.png",
     "static/media/img-bg-grain-latest.png": "/clone-coding-emuler/static/media/img-bg-grain-latest.3b8d42cf99d3e6c17676.png",
+    "static/media/img-with-relume-2.png": "/clone-coding-emuler/static/media/img-with-relume-2.3b723076f032af58cc80.png",
+    "static/media/img-with-relume-3.png": "/clone-coding-emuler/static/media/img-with-relume-3.feab17cbc7f203ed107e.png",
     "static/media/img-quote-hero.svg": "/clone-coding-emuler/static/media/img-quote-hero.d5982dfde76d297b2aa9f501bd8b407c.svg",
     "static/media/img-quote-hero-mobile.svg": "/clone-coding-emuler/static/media/img-quote-hero-mobile.a4e2064671a26289ae4ff2c010508bc4.svg",
     "static/media/icon-cms-user-friendly.svg": "/clone-coding-emuler/static/media/icon-cms-user-friendly.53b0d5a118d47db302840d582093c2eb.svg",
@@ -27,21 +31,22 @@
     "static/media/icon-step1-visual-design.svg": "/clone-coding-emuler/static/media/icon-step1-visual-design.8e5d3c34f3fdcb3594362aa52e80bd16.svg",
     "static/media/icon-circle-step3.svg": "/clone-coding-emuler/static/media/icon-circle-step3.43f8133dd93f1ed42e4c435d9a0d2534.svg",
     "static/media/icon-circle-step5.svg": "/clone-coding-emuler/static/media/icon-circle-step5.a3e99e56fbcd4685122cea3ec26021a8.svg",
-    "static/media/icon-figma.svg": "/clone-coding-emuler/static/media/icon-figma.f55a64e7d7a254138e273e8b9ceec36b.svg",
+    "static/media/icon-figma.svg": "/clone-coding-emuler/static/media/icon-figma.00350e4cd655610ffd2a36448af5ffbf.svg",
     "static/media/icon-circle-step2.svg": "/clone-coding-emuler/static/media/icon-circle-step2.9a1bee4123a722760571802042c0a84a.svg",
     "index.html": "/clone-coding-emuler/index.html",
     "static/media/icon-circle-step4.svg": "/clone-coding-emuler/static/media/icon-circle-step4.ee4a5f3a5572f81ab9f2d1fd6916a748.svg",
     "static/media/icon-circle-step1.svg": "/clone-coding-emuler/static/media/icon-circle-step1.071622e5be0c82987db5a07091ff12ca.svg",
-    "static/media/icon-webflow.svg": "/clone-coding-emuler/static/media/icon-webflow.832c89787e8316cbbf5af2cfbb448dfa.svg",
+    "static/media/icon-webflow.svg": "/clone-coding-emuler/static/media/icon-webflow.7e1d352450d779b1ca15ee14823a3681.svg",
     "static/media/icon-lock.svg": "/clone-coding-emuler/static/media/icon-lock.59cd395c1b73698db8d65a7b823c8df5.svg",
     "static/media/icon-underline-long.svg": "/clone-coding-emuler/static/media/icon-underline-long.b901ff2c90a6f29a03dcaf5d097c672c.svg",
+    "static/media/icon-underline.svg": "/clone-coding-emuler/static/media/icon-underline.1950dc373ac7b9aeee1065b79225c1ee.svg",
     "static/media/icon-logo-header-secondary.svg": "/clone-coding-emuler/static/media/icon-logo-header-secondary.0c2465d06334156139c8683d496574af.svg",
     "static/media/icon-tick.svg": "/clone-coding-emuler/static/media/icon-tick.99df0f037be2630b0961367303afb3f1.svg",
-    "main.338a84e9.css.map": "/clone-coding-emuler/static/css/main.338a84e9.css.map",
-    "main.a04e691a.js.map": "/clone-coding-emuler/static/js/main.a04e691a.js.map"
+    "main.2d93232f.css.map": "/clone-coding-emuler/static/css/main.2d93232f.css.map",
+    "main.cb1d8e9f.js.map": "/clone-coding-emuler/static/js/main.cb1d8e9f.js.map"
   },
   "entrypoints": [
-    "static/css/main.338a84e9.css",
-    "static/js/main.a04e691a.js"
+    "static/css/main.2d93232f.css",
+    "static/js/main.cb1d8e9f.js"
   ]
 }
