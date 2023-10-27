@@ -1,8 +1,8 @@
-import { FC } from 'react';
+import { FC, Fragment } from 'react';
 import tw from 'tailwind-styled-components';
 import { customRP } from '../../../utils';
 import ImgBgGrainLatest from '../../../assets/image/img-bg-grain-latest.png';
-import { ReactComponent as IconTick } from '../../../assets/image/icon/icon-tick.svg';
+import IconTick from '../../../assets/image/icon/icon-tick.svg';
 import { IObjPricing } from '../../../interface';
 import {
   capitalizeLetterFirst,
@@ -21,79 +21,164 @@ const SectionWrapper = tw.section`
 relative bg-[size:300px_300px] bg-[position:0px_0px] py-[120px] max-desktop:py-[104px] max-tablet:py-[64px]
 `;
 
+const DivContainer = tw.div`
+relative z-[2] mx-auto flex w-[90%] max-w-[1360px] flex-col items-stretch justify-center
+`;
+
+const DivWrapperIntroduce = tw.div`
+mx-auto mb-[56px] flex flex-col items-center justify-center text-center max-tablet:mb-[48px]
+`;
+
+const H2Title = tw.h2`
+text-[56px] leading-[64px] max-tablet:text-[40px] max-tablet:leading-[48px] max-mobile-landscape:text-[36px] max-mobile-landscape:leading-[44px]
+`;
+
+const ParagraphDesc = tw.p`
+text-[20px] -tracking-[0.4px] max-desktop:text-[18px]
+`;
+
+const DivWrapperTable = tw.div`
+rounded-[16px] bg-[#161616] p-[40px] max-tablet:px-[24px] max-tablet:py-[32px] max-mobile-landscape:px-[16px] max-mobile-landscape:py-[24px]
+`;
+
+const DivHeaderTablePricing = tw.div`
+grid gap-[16px] border-none pb-[40px] pt-0 [grid-auto-columns:1fr] [grid-template-columns:0.5fr_1.25fr] [grid-template-rows:auto] max-tablet:[grid-template-columns:1.25fr]
+[&>div:nth-last-child(2)]:mb-[24px]
+`;
+
+const DivSpacerRow = tw.div`
+h-[24px] max-tablet:hidden
+`;
+
+const DivDataTablePricing = tw.div`
+grid gap-[16px] [grid-auto-columns:1fr] [grid-template-rows:auto] [grid-template-columns:1fr_1fr_1fr]
+`;
+
+const DivWrapperTitleHeaderTablePricing = tw.div`
+relative
+`;
+
+const H5TextTypePage = tw.h5`
+mt-0 text-center text-white max-desktop:leading-[28px] max-tablet:text-[20px] max-tablet:leading-[24px] max-mobile-landscape:text-[18px]
+`;
+
+const H4TextPrice = tw.h4`
+mb-0 text-center text-white max-tablet:text-[22px] max-tablet:leading-[28px] max-mobile-landscape:text-[20px]
+`;
+
+const SpanTextFromPricing = tw.span`
+mb-0 text-center text-[16px] leading-[24px] text-white max-mobile-landscape:text-[14px]
+`;
+
+const SpanTextUnitPricing = tw.span`
+text-[14px] leading-[22px] max-mobile-landscape:text-[12px]
+`;
+
+const DivTextDataTablePricing = tw.div`
+mb-0 text-center text-[16px] leading-[24px] text-white max-mobile-landscape:text-[14px]
+`;
+
+const DivRowTablePricing = tw.div`
+grid gap-[16px] py-[16px] [grid-auto-columns:1fr] [grid-template-columns:0.5fr_1.25fr] [grid-template-rows:auto] [border-bottom:1px_none_#ffffff26] [border-top:1px_solid_#ffffff26] max-tablet:[grid-template-columns:1.25fr]
+`;
+
+const H6TextFeature = tw.h6`
+text-white max-tablet:justify-self-center max-tablet:text-[14px] max-tablet:leading-[22px]
+`;
+
+const ImgIconTick = tw.img`
+justify-self-center
+`;
+
+const DivCaptionPricing = tw.div`
+mb-0 text-right text-[14px] leading-[24px] text-[#ffffffcc] max-tablet:text-center
+`;
+
+const DivBlurCircleBR = tw.div`
+absolute inset-[auto_0%_-15%_auto] -z-[1] flex h-[440px] w-[440px] items-center justify-center rounded-[500px] bg-[image:linear-gradient(132deg,#ff7448_26%,#ff4848_51%,#6248ff_75%)] opacity-[0.97] [filter:blur(64px)_blur(64px)] max-desktop:bottom-[0%] max-desktop:h-[320px] max-desktop:w-[320px] max-desktop:opacity-[0.7] max-desktop:[filter:blur(68px)] max-tablet:h-[280px] max-tablet:w-[280px] max-tablet:opacity-[0.9] max-tablet:[filter:blur(64px)]
+`;
+
+const DivBlurCircleTL = tw.div`
+absolute inset-[-5%_auto_auto_-5%] -z-[1] block h-[440px] w-[440px] rounded-[500px] bg-[image:linear-gradient(132deg,#ff7448_35%,#ff4848_54%,#6248ff_80%)] opacity-[0.97] [filter:blur(64px)_blur(64px)] max-desktop:-right-[5%] max-desktop:-top-[10%] max-desktop:h-[400px] max-desktop:w-[400px] max-desktop:bg-[image:linear-gradient(285deg,#ff7448_29%,#ff4848_58%,#6248ff_80%)] max-desktop:[filter:blur(68px)] max-tablet:h-[320px] max-tablet:w-[320px] max-mobile-landscape:-right-[20%] max-mobile-landscape:h-[280px] max-mobile-landscape:w-[280px]
+`;
+
 const CmpContentPricing: FC<TPropsCmpContentPricing> = ({ listObjPricing }) => {
   return (
     <SectionWrapper style={customRPSectionWrapper}>
-      <div className="bg-blur-circle-top-left"></div>
-      <div className="relative z-[10] px-[5%] py-[64px] text-center">
-        <div className="mb-[48px]">
-          <div className="mb-[24px] mt-[16px] text-[36px] font-medium leading-[44px] -tracking-[1.92px]">
-            Pricing
-          </div>
-          <div className="-trackint-[0.4px] mb-[10px] inline-block text-[18px] leading-[1.5]">
-            Here's what it will cost in per-page to convert your design to
+      <DivContainer>
+        <DivWrapperIntroduce>
+          <H2Title>Pricing</H2Title>
+          <ParagraphDesc>
+            Here’s what it will cost in per-page to convert your design to
             Webflow.
-          </div>
-        </div>
-        <div className="rounded-[16px] bg-[color:#161616] px-[16px] py-[24px] text-white">
-          <div className="grid grid-cols-3 gap-[16px] pb-[40px]">
-            {listObjPricing.map((objPricing, idxObjPricing) => {
-              return (
-                <div key={idxObjPricing} className="break-words text-center">
-                  <div className="mb-[16px] text-[20px] font-medium leading-[24px] -tracking-[0.48px]">
-                    {getTypeConvertedPricingToPublic(objPricing.type) +
-                      ' ' +
-                      objPricing.unit}
-                  </div>
-                  <div className="text-[22px] font-medium leading-[28px] -tracking-[0.64px]">
-                    <span className="text-[16px] leading-[24px]">{`from `}</span>
-                    {'$' + objPricing.priceUSD.toLocaleString()}
-                    <span className="text-[14px] leading-[22px]">{' USD'}</span>
-                  </div>
-                  <div className="text-[16px] leading-[24px]">
-                    {'Per ' + objPricing.unit}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          </ParagraphDesc>
+        </DivWrapperIntroduce>
+        <DivWrapperTable>
+          <DivHeaderTablePricing>
+            <DivSpacerRow></DivSpacerRow>
+            <DivDataTablePricing>
+              {listObjPricing.map((objPricing, idxObjPricing) => {
+                return (
+                  <DivWrapperTitleHeaderTablePricing key={idxObjPricing}>
+                    <H5TextTypePage>
+                      {getTypeConvertedPricingToPublic(objPricing.type) +
+                        ' ' +
+                        objPricing.unit}
+                    </H5TextTypePage>
+                    <H4TextPrice>
+                      <SpanTextFromPricing>{'from '}</SpanTextFromPricing>
+                      {' $' + objPricing.priceUSD.toLocaleString() + ' '}
+                      <SpanTextUnitPricing>{'USD'}</SpanTextUnitPricing>
+                    </H4TextPrice>
+                    <DivTextDataTablePricing>
+                      {'Per ' + objPricing.unit}
+                    </DivTextDataTablePricing>
+                  </DivWrapperTitleHeaderTablePricing>
+                );
+              })}
+            </DivDataTablePricing>
+          </DivHeaderTablePricing>
           {getListObjConvertedByTypeSupport(listObjPricing).map(
             (objRow, idxObjRow) => {
               return (
-                <div
-                  key={idxObjRow}
-                  className="grid grid-flow-row grid-rows-[1.25fr_1fr] gap-[16px] border-t-[1px] border-[#ffffff26] py-[16px]"
-                >
-                  <div className="my-[8px] text-[14px] font-bold leading-[22px] tracking-[0.8px]">
-                    {objRow.typeSupport.toUpperCase().replaceAll('-', ' ')}
-                  </div>
-                  <div className="grid grid-flow-row grid-cols-3 items-center gap-[16px]">
+                <DivRowTablePricing key={idxObjRow}>
+                  <H6TextFeature>
+                    {objRow.typeSupport.replaceAll('-', ' ')}
+                  </H6TextFeature>
+                  <DivDataTablePricing>
                     {objRow.listSupport.map((objSupport, idxObjSupport) => {
                       const typeofSupport = typeof objSupport.support;
                       return (
-                        <div
-                          key={idxObjSupport}
-                          className="flex items-center justify-center"
-                        >
+                        <Fragment key={idxObjSupport}>
                           {typeofSupport === 'string' ? (
-                            capitalizeLetterFirst(objSupport.support as string)
+                            <DivTextDataTablePricing>
+                              {capitalizeLetterFirst(
+                                objSupport.support as string,
+                              )}
+                            </DivTextDataTablePricing>
                           ) : typeofSupport === 'boolean' &&
                             objSupport.support ? (
-                            <IconTick />
+                            <ImgIconTick
+                              src={IconTick}
+                              alt="Tick icon"
+                              loading="lazy"
+                            />
                           ) : (
-                            <></>
+                            <div></div>
                           )}
-                        </div>
+                        </Fragment>
                       );
                     })}
-                  </div>
-                </div>
+                  </DivDataTablePricing>
+                </DivRowTablePricing>
               );
             },
           )}
-        </div>
-      </div>
-      <div className="bg-blur-circle-bottom-right"></div>
+          <DivCaptionPricing>Pricing is in USD</DivCaptionPricing>
+        </DivWrapperTable>
+      </DivContainer>
+      <DivBlurCircleBR></DivBlurCircleBR>
+      <DivBlurCircleTL></DivBlurCircleTL>
     </SectionWrapper>
   );
 };
