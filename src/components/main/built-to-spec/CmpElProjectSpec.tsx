@@ -54,7 +54,7 @@ type TPropsButtonTab = {
   $isSelected: boolean;
 };
 const ButtonTab = tw.button<TPropsButtonTab>`
-relative mr-[32px] flex min-w-max max-w-full cursor-pointer items-center border-b-[2px] bg-transparent px-0 py-[8px] text-left align-top text-[#222222] opacity-100 transition-all duration-300 ease-[ease] [text-decoration:none]
+relative mr-[32px] flex min-w-max max-w-full cursor-pointer items-center border-b-[2px] bg-transparent px-0 py-[8px] text-left align-top text-[#222222] opacity-100 transition-all duration-300 ease-[ease] [text-decoration:none] hover:transform-none hover:bg-transparent hover:shadow-none
 ${(p) =>
   p.$isSelected
     ? '[border-bottom-color:#161616]'

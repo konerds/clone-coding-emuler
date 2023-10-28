@@ -5,6 +5,7 @@ import { getTypeConvertedPricingToPublic } from '../../../utils';
 
 type TPropsCmpElHeaderTablePricing = {
   objPricing: IObjPricing;
+  idxObjPricing: number;
 };
 
 const DivWrapper = tw.div`
@@ -33,6 +34,7 @@ mb-0 text-center text-[16px] leading-[24px] text-white max-mobile-landscape:text
 
 const CmpElHeaderTablePricing: FC<TPropsCmpElHeaderTablePricing> = ({
   objPricing,
+  idxObjPricing,
 }) => {
   return (
     <DivWrapper>
@@ -44,7 +46,9 @@ const CmpElHeaderTablePricing: FC<TPropsCmpElHeaderTablePricing> = ({
       <H4TextPrice>
         <SpanTextFromPricing>{'from '}</SpanTextFromPricing>
         {' $' + objPricing.priceUSD.toLocaleString() + ' '}
-        <SpanTextUnitPricing>{'USD'}</SpanTextUnitPricing>
+        {idxObjPricing === 0 && (
+          <SpanTextUnitPricing>{'USD'}</SpanTextUnitPricing>
+        )}
       </H4TextPrice>
       <DivTextDataTablePricing>
         {'Per ' + objPricing.unit}

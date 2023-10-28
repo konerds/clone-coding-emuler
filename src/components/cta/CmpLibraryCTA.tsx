@@ -14,7 +14,7 @@ text-white
 `;
 
 const ButtonViewLibrary = tw.button`
-inline-block cursor-pointer rounded-[20rem] border-[1px] border-white bg-transparent px-[1.5rem] py-[0.75rem] text-center text-[0.875rem] leading-[inherit] tracking-[0em] text-white [text-decoration:none]
+inline-block cursor-pointer rounded-[20rem] border-[1px] border-white bg-transparent px-[1.5rem] py-[0.75rem] text-center text-[0.875rem] font-normal leading-[inherit] tracking-[0em] text-white [text-decoration:none] hover:transform-none hover:bg-transparent
 `;
 
 const CmpLibraryCTA: FC = () => {
@@ -22,7 +22,7 @@ const CmpLibraryCTA: FC = () => {
     <DivContainer>
       <DivWrapperText>
         <DivBlockText>
-          This cloneable was built in under 1.5 hours using the Relume Library
+          This website was built for practing Typescript, React, Tailwind.
         </DivBlockText>
       </DivWrapperText>
       <ButtonViewLibrary type="button">View Relume Library</ButtonViewLibrary>

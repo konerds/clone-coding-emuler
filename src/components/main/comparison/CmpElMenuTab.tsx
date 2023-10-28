@@ -11,7 +11,7 @@ type TPropsButtonMenu = {
   $isSelected: boolean;
 };
 const ButtonMenu = tw.button<TPropsButtonMenu>`
-relative inline-block max-w-full cursor-pointer border-b-[2px] bg-transparent px-0 py-[8px] text-left align-top text-[#222222] opacity-100 transition-all duration-300 ease-[ease] [text-decoration:none] max-mobile-landscape:block
+relative inline-block max-w-full cursor-pointer border-b-[2px] bg-transparent px-0 py-[8px] text-left align-top text-[#222222] opacity-100 transition-all duration-300 ease-[ease] [text-decoration:none] hover:transform-none hover:bg-transparent hover:shadow-none max-mobile-landscape:block
 ${(p) =>
   p.$isSelected
     ? '[border-bottom-color:#161616]'

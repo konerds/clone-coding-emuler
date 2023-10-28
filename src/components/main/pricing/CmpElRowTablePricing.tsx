@@ -13,7 +13,7 @@ grid gap-[16px] [grid-auto-columns:1fr] [grid-template-columns:1fr_1fr_1fr] [gri
 `;
 
 const DivTextDataTablePricing = tw.div`
-mb-0 text-center text-[16px] leading-[24px] text-white max-mobile-landscape:text-[14px]
+mb-0 self-center text-center text-[16px] leading-[24px] text-white max-mobile-landscape:text-[14px]
 `;
 
 const DivRowTablePricing = tw.div`

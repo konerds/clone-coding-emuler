@@ -78,6 +78,7 @@ const CmpLayoutPricing: FC = () => {
                 return (
                   <CmpElHeaderTablePricing
                     key={idxObjPricing}
+                    idxObjPricing={idxObjPricing}
                     objPricing={objPricing}
                   />
                 );

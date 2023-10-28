@@ -45,7 +45,7 @@ mb-[40px] max-w-[560px] text-[20px] -tracking-[0.4px] max-desktop:mb-0 max-deskt
 `;
 
 const ButtonGetStarted = tw.button`
-inline-block cursor-pointer rounded-[8px] border-[2px] border-black bg-black px-[32px] py-[16px] text-[16px] font-bold uppercase leading-[inherit] tracking-[0.8px] text-white transition-all ease-[ease] [text-decoration:none] max-desktop:hidden max-tablet:py-[14px] max-tablet:text-[15px]
+inline-block cursor-pointer rounded-[8px] border-[2px] border-black bg-black px-[32px] py-[16px] text-[16px] font-bold uppercase leading-[inherit] tracking-[0.8px] text-white transition-all ease-[ease] [text-decoration:none] hover:bg-black max-desktop:hidden max-tablet:py-[14px] max-tablet:text-[15px]
 `;
 
 const ImageQuoteHeroMobile = tw.img`
