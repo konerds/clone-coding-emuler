@@ -6,7 +6,7 @@ import CmpLayoutComparison from './comparison/CmpLayoutComparison';
 import CmpLayoutBuiltToSpec from './built-to-spec/CmpLayoutBuiltToSpec';
 import CmpLayoutPricing from './pricing/CmpLayoutPricing';
 import CmpLayoutTeam from './team/CmpLayoutTeam';
-import CmpContentFAQ from './faq/CmpContentFAQ';
+import CmpLayoutFAQ from './faq/CmpLayoutFAQ';
 import CmpContentContact from './contact/CmpContentContact';
 
 const CmpLayoutMain: FC = () => {
@@ -19,7 +19,7 @@ const CmpLayoutMain: FC = () => {
       <CmpLayoutBuiltToSpec />
       <CmpLayoutPricing />
       <CmpLayoutTeam />
-      <CmpContentFAQ />
+      <CmpLayoutFAQ />
       <CmpContentContact />
     </>
   );

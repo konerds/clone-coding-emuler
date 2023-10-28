@@ -42,7 +42,7 @@ max-w-[560px] text-[20px] -tracking-[0.4px] max-desktop:text-[18px]
 `;
 
 const DivWrapperGridTeam = tw.div`
-mb-[40px] grid gap-[16px_40px] [grid-auto-columns:1fr] [grid-template-columns:1fr_1fr] [grid-template-rows:auto] max-desktop:gap-y-[5vw] max-desktop:[grid-template-columns:1fr] max-tablet:mb-[24px] max-tablet:gap-y-[24px]
+mb-[40px] grid gap-[16px_40px] [grid-auto-columns:1fr] [grid-template-rows:auto] [grid-template-columns:1fr_1fr] max-desktop:gap-y-[5vw] max-desktop:[grid-template-columns:1fr] max-tablet:mb-[24px] max-tablet:gap-y-[24px]
 `;
 
 const DivPanelRoster = tw.div`

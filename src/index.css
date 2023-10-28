@@ -101,36 +101,16 @@
     @apply inline-block max-w-full border-0 align-middle;
   }
 
+  button {
+    @apply px-[32px] py-[16px] text-[16px] font-bold uppercase tracking-[0.8px] text-white transition-all duration-[400ms] ease-[ease] hover:bg-[color:#c2c0bc] hover:shadow-[#00000026_0px_1px_3px_0px] hover:[transform:translate(0px,-2px)];
+  }
+
   button:active,
   button:hover,
   a:active,
   a:hover {
     @apply [outline:0];
   }
-}
-
-.bg-blur-circle-top-left {
-  @apply absolute -left-[5%] -right-[20%] -top-[10%] bottom-auto h-[280px] w-[280px] bg-[image:linear-gradient(285deg,#ff7448_29%,#ff4848_58%,#6248ff_80%)] opacity-[97%] blur-[68px];
-}
-
-.bg-blur-circle-top-right {
-  @apply absolute -right-[20%] bottom-auto left-auto top-[2%] h-[280px] w-[280px] bg-[image:linear-gradient(285deg,#ff7448_29%,#ff4848_58%,#6248ff_80%)] opacity-[90%] blur-[64px];
-}
-
-.bg-blur-circle-middle-left {
-  @apply absolute bottom-auto left-[5%] right-auto top-[20%] h-[280px] w-[280px] bg-[image:linear-gradient(59deg,#ff7448_27%,#ff4848_50%,#6248ff_75%)] opacity-[90%] blur-[64px];
-}
-
-.bg-blur-circle-bottom-left {
-  @apply absolute -bottom-[10%] -left-[20%] right-auto top-auto h-[280px] w-[280px] bg-[image:linear-gradient(132deg,#ff7448_29%,#ff4848_52%,#6248ff_75%)] opacity-[90%] blur-[64px];
-}
-
-.bg-blur-circle-bottom-right {
-  @apply absolute bottom-0 left-auto right-0 top-auto h-[280px] w-[280px] bg-[image:linear-gradient(132deg,#ff7448_26%,#ff4848_51%,#6248ff_75%)] opacity-[90%] blur-[64px];
-}
-
-.bg-blur-image-process-work {
-  @apply rounded-[12px] bg-[image:linear-gradient(117deg,black,rgba(255,255,255,0)_73%)] bg-cover bg-[position:50%_50%];
 }
 
 .transition-fade-wait-leave {

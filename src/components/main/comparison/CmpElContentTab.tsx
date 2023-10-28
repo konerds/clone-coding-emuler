@@ -2,7 +2,6 @@ import { FC } from 'react';
 import tw from 'tailwind-styled-components';
 import { queryIsMobile } from '../../../utils';
 import { useMediaQuery } from 'react-responsive';
-import ReactCSSTransitionReplace from 'react-css-transition-replace';
 import ImageWithRelumeMobile from '../../../assets/image/img-with-relume-mobile.png';
 import ImageWithRelume1 from '../../../assets/image/img-with-relume-1.png';
 import ImageWithRelume2 from '../../../assets/image/img-with-relume-2.png';
@@ -29,47 +28,39 @@ absolute inset-[0%] z-[1] mx-auto block max-w-[1000px] [transform-style:preserve
 const CmpElContentTab: FC<TPropsCmpElContentTab> = ({ isWithRelume }) => {
   const isMobile = useMediaQuery(queryIsMobile());
   return (
-    <ReactCSSTransitionReplace
-      transitionName="transition-fade-wait"
-      transitionEnterTimeout={1000}
-      transitionLeaveTimeout={500}
-    >
-      <DivWrapperImage>
-        {isMobile ? (
+    <DivWrapperImage>
+      {isMobile ? (
+        <ImgContent
+          src={isWithRelume ? ImageWithRelumeMobile : ImageWithoutRelumeMobile}
+          loading={isWithRelume ? 'lazy' : 'eager'}
+          alt={isWithRelume ? 'with relume' : 'without relume'}
+        />
+      ) : isWithRelume ? (
+        <>
           <ImgContent
-            src={
-              isWithRelume ? ImageWithRelumeMobile : ImageWithoutRelumeMobile
-            }
-            loading={isWithRelume ? 'lazy' : 'eager'}
-            alt={isWithRelume ? 'with relume' : 'without relume'}
-          />
-        ) : isWithRelume ? (
-          <>
-            <ImgContent
-              src={ImageWithRelume1}
-              alt="with relume 1"
-              loading="eager"
-            />
-            <ImgOverlay
-              src={ImageWithRelume2}
-              alt="with relume 2"
-              loading="eager"
-            />
-            <ImgOverlay
-              src={ImageWithRelume3}
-              alt="with relume 3"
-              loading="eager"
-            />
-          </>
-        ) : (
-          <ImgContent
-            src={ImageWithoutRelume}
-            alt="without relume"
+            src={ImageWithRelume1}
+            alt="with relume 1"
             loading="eager"
           />
-        )}
-      </DivWrapperImage>
-    </ReactCSSTransitionReplace>
+          <ImgOverlay
+            src={ImageWithRelume2}
+            alt="with relume 2"
+            loading="eager"
+          />
+          <ImgOverlay
+            src={ImageWithRelume3}
+            alt="with relume 3"
+            loading="eager"
+          />
+        </>
+      ) : (
+        <ImgContent
+          src={ImageWithoutRelume}
+          alt="without relume"
+          loading="eager"
+        />
+      )}
+    </DivWrapperImage>
   );
 };
 

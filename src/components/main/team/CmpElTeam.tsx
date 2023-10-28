@@ -68,7 +68,7 @@ flex items-start
 `;
 
 const ButtonProfile = tw.button`
-relative flex flex-[1_1_0%] items-center justify-center rounded-[8px] border-[2px] border-black bg-white px-[32px] py-[12px] text-center text-[14px] font-bold uppercase tracking-[0.8px] text-black transition-all duration-[400ms] [text-decoration:none] [transition-timing-function:ease] hover:bg-[color:#c2c0bc] hover:shadow-[#00000026_0px_1px_3px_0px] hover:[transform:translate(0px,-2px)]
+relative flex flex-[1_1_0%] items-center justify-center rounded-[8px] border-[2px] border-black bg-white px-[32px] py-[12px] text-center text-[14px] font-bold uppercase tracking-[0.8px] text-black transition-all duration-[400ms] [text-decoration:none] hover:bg-[color:#c2c0bc]
 `;
 
 const DivWrapperIcon = tw.div`
