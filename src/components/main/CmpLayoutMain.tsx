@@ -4,31 +4,22 @@ import CmpLayoutBenefit from './benefit/CmpLayoutBenefit';
 import CmpLayoutProcess from './process/CmpLayoutProcess';
 import CmpLayoutComparison from './comparison/CmpLayoutComparison';
 import CmpLayoutBuiltToSpec from './built-to-spec/CmpLayoutBuiltToSpec';
-import CmpContentPricing from './pricing/CmpContentPricing';
-import CmpContentTeam from './team/CmpContentTeam';
+import CmpLayoutPricing from './pricing/CmpLayoutPricing';
+import CmpLayoutTeam from './team/CmpLayoutTeam';
 import CmpContentFAQ from './faq/CmpContentFAQ';
 import CmpContentContact from './contact/CmpContentContact';
-import {
-  listObjBenefit,
-  listObjExBuiltToSpec,
-  listObjPricing,
-  listObjProcessWork,
-  listObjFAQ,
-  listObjRoster,
-  listObjTeam,
-} from '../../data';
 
 const CmpLayoutMain: FC = () => {
   return (
     <>
       <CmpContentHero />
-      <CmpLayoutBenefit listObjBenefit={listObjBenefit} />
-      <CmpLayoutProcess listObjProcessWork={listObjProcessWork} />
+      <CmpLayoutBenefit />
+      <CmpLayoutProcess />
       <CmpLayoutComparison />
-      <CmpLayoutBuiltToSpec listObjExBuiltToSpec={listObjExBuiltToSpec} />
-      <CmpContentPricing listObjPricing={listObjPricing} />
-      <CmpContentTeam listObjTeam={listObjTeam} listObjRoster={listObjRoster} />
-      <CmpContentFAQ listObjFAQ={listObjFAQ} />
+      <CmpLayoutBuiltToSpec />
+      <CmpLayoutPricing />
+      <CmpLayoutTeam />
+      <CmpContentFAQ />
       <CmpContentContact />
     </>
   );

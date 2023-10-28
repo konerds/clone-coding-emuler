@@ -19,7 +19,7 @@ flex min-w-[120px] flex-[0_0_auto] items-center justify-start py-[16px] max-desk
 `;
 
 const ImgCircleStep = tw.img`
-relative z-[2] overflow-hidden will-change-[opacity] [border-color:#161616_black] [border-style:none] [border-width:8px_1px]
+relative z-[2] overflow-hidden [border-color:#161616_black] [border-style:none] [border-width:8px_1px]
 `;
 
 const DivLineBlack = tw.div`
@@ -27,7 +27,7 @@ absolute left-[19px] right-[20px] h-[72px] w-[2px] bg-[color:#0a0a0a] max-deskto
 `;
 
 const DivWrapperInfo = tw.div`
-flex flex-[1_1_0%] items-center rounded-[16px] border-[2px] border-white p-[24px] will-change-[opacity] max-desktop:items-start max-tablet:flex-col max-tablet:p-[16px]
+flex flex-[1_1_0%] items-center rounded-[16px] border-[2px] border-white p-[24px] max-desktop:items-start max-tablet:flex-col max-tablet:p-[16px]
 `;
 
 const DivBlockImage = tw.div`
@@ -78,10 +78,10 @@ const CmpElProcess: FC<TPropsCmpElProcess> = ({ objProcess }) => {
         <DivBlockIntroduce>
           <H4Title>{objProcess.title}</H4Title>
           <ParagraphDescSentence>
-            {objProcess.descSentence}
+            {objProcess.desc.sentence}
           </ParagraphDescSentence>
           <ParagraphDescParagraph>
-            {objProcess.descParagraph}
+            {objProcess.desc.paragraph}
           </ParagraphDescParagraph>
         </DivBlockIntroduce>
       </DivWrapperInfo>

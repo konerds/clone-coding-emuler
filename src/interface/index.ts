@@ -1,3 +1,11 @@
+export enum EViewport {
+  MOBILE_PORTRAIT = 0,
+  MOBILE_LANDSCAPE = 480,
+  TABLET = 768,
+  DESKTOP = 992,
+  DESKTOP_LARGER = 1280,
+}
+
 export interface IObjBenefit {
   title: string;
   desc: string;
@@ -7,8 +15,10 @@ export interface IObjProcessWork {
   iconStep: string;
   image: string;
   title: string;
-  descSentence: string;
-  descParagraph: string;
+  desc: {
+    sentence: string;
+    paragraph: string;
+  };
 }
 
 export interface IObjExBuiltToSpec {
@@ -23,6 +33,29 @@ export interface IObjExBuiltToSpec {
     figma: string;
     web: string;
   };
+}
+
+export interface IObjTeam {
+  introduce: string;
+  imageProfile: string;
+  positionProfile: string;
+  nameProfile: string;
+  iconArrow: string;
+  textFact: string;
+  imageFact1: string;
+  altImageFact1: string;
+  imageFact2: string;
+  altImageFact2: string;
+}
+
+export interface IObjRoster {
+  name: string;
+  imagePerson: string;
+}
+
+export interface IObjFAQ {
+  question: string;
+  answer: string;
 }
 
 export type TPricing = 'basic' | 'advanced' | 'professional';

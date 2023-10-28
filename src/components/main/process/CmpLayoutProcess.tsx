@@ -1,11 +1,7 @@
 import { FC } from 'react';
-import { IObjProcessWork } from '../../../interface';
 import tw from 'tailwind-styled-components';
 import CmpElProcess from './CmpElProcess';
-
-type TPropsCmpLayoutProcess = {
-  listObjProcessWork: IObjProcessWork[];
-};
+import { listObjProcessWork } from '../../../data';
 
 const SectionWrapper = tw.section`
 relative bg-[color:#0a0a0a] pb-[120px] pt-[120px] max-desktop:py-[104px] max-tablet:py-[64px]
@@ -40,16 +36,14 @@ relative h-[82%] w-[2px] bg-[color:#ffffff26]
 `;
 
 const DivLineWhite = tw.div`
-absolute inset-[0%] w-[2px] bg-white will-change-[width,_height]
+absolute inset-[0%] w-[2px] bg-white
 `;
 
 const DivWrapperProcess = tw.div`
 relative
 `;
 
-const CmpLayoutProcess: FC<TPropsCmpLayoutProcess> = ({
-  listObjProcessWork,
-}) => {
+const CmpLayoutProcess: FC = () => {
   return (
     <SectionWrapper>
       <DivContainer>

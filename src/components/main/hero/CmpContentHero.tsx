@@ -66,7 +66,7 @@ const IframeFigma = tw.iframe`
 `;
 
 const ButtonShowEmbed = tw.button`
-absolute bottom-0 left-0 right-0 top-0 bg-[#d4eff0] text-[16px]
+absolute bottom-0 left-0 right-0 top-0 bg-[color:#d4eff0] text-[16px]
 `;
 
 const DivBlurCircle = tw.div`

@@ -1,14 +1,10 @@
 import { FC } from 'react';
 import tw from 'tailwind-styled-components';
 import { customRP } from '../../../utils';
-import { IObjExBuiltToSpec } from '../../../interface';
 import ImgBgGrainLatest from '../../../assets/image/img-bg-grain-latest.png';
 import IconUnderlineLong from '../../../assets/image/icon/icon-underline-long.svg';
 import CmpElProjectSpec from './CmpElProjectSpec';
-
-type TPropsCmpLayoutBuiltToSpec = {
-  listObjExBuiltToSpec: IObjExBuiltToSpec[];
-};
+import { listObjExBuiltToSpec } from '../../../data';
 
 const customRPSectionWrapper = customRP({
   backgroundImage: `url(${ImgBgGrainLatest})`,
@@ -44,9 +40,7 @@ const DivBlurCircle = tw.div`
 absolute inset-[0%_-5%_auto_auto] -z-[1] block h-[440px] w-[440px] rounded-[500px] bg-[image:linear-gradient(132deg,#ff7448_35%,#ff4848_54%,#6248ff_80%)] opacity-[0.97] [filter:blur(64px)_blur(64px)] max-desktop:h-[400px] max-desktop:w-[400px] max-desktop:opacity-[0.7] max-desktop:[filter:blur(68px)] max-desktop:[image:linear-gradient(285deg,#ff7448_29%,#ff4848_58%,#6248ff_80%)] max-tablet:top-[2%] max-tablet:h-[320px] max-tablet:w-[320px] max-tablet:opacity-[0.9] max-tablet:[filter:blur(64px)] max-mobile-landscape:-right-[20%] max-mobile-landscape:h-[280px] max-mobile-landscape:w-[280px]
 `;
 
-const CmpLayoutBuiltToSpec: FC<TPropsCmpLayoutBuiltToSpec> = ({
-  listObjExBuiltToSpec,
-}) => {
+const CmpLayoutBuiltToSpec: FC = () => {
   return (
     <SectionWrapper style={customRPSectionWrapper}>
       <DivContainer>

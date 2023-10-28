@@ -25,7 +25,7 @@ my-0 mr-[32px] max-tablet:mb-[12px] max-tablet:mr-0 max-tablet:whitespace-nowrap
 `;
 
 const DivWrapperBadge = tw.div`
-inline-block rounded-[8px] bg-[#d4eff0] px-[8px] py-[6px]
+inline-block rounded-[8px] bg-[color:#d4eff0] px-[8px] py-[6px]
 `;
 
 const DivBadgeText = tw.div`
@@ -98,7 +98,7 @@ absolute left-0 top-0 h-full w-full
 `;
 
 const ButtonShowEmbed = tw.button`
-absolute bottom-0 left-0 right-0 top-0 bg-[#d4eff0] text-[16px]
+absolute bottom-0 left-0 right-0 top-0 bg-[color:#d4eff0] text-[16px]
 `;
 
 const CmpElProjectSpec: FC<TPropsCmpElProjectSpec> = ({ objEx }) => {

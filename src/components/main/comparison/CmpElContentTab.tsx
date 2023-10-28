@@ -23,7 +23,7 @@ relative mx-auto max-w-[1000px] max-desktop:mx-0 max-desktop:w-full max-desktop:
 `;
 
 const ImgOverlay = tw.img`
-absolute inset-[0%] z-[1] mx-auto block max-w-[1000px] will-change-transform [transform-style:preserve-3d] [transform:translate3d(0%,0px,0px)_scale3d(1,1,1)_rotateX(0deg)_rotateY(0deg)_rotateZ(0deg)_skew(0deg,0deg)] max-desktop:mx-0 max-desktop:w-full max-desktop:min-w-full max-desktop:max-w-full max-tablet:hidden
+absolute inset-[0%] z-[1] mx-auto block max-w-[1000px] [transform-style:preserve-3d] [transform:translate3d(0%,0px,0px)_scale3d(1,1,1)_rotateX(0deg)_rotateY(0deg)_rotateZ(0deg)_skew(0deg,0deg)] max-desktop:mx-0 max-desktop:w-full max-desktop:min-w-full max-desktop:max-w-full max-tablet:hidden
 `;
 
 const CmpElContentTab: FC<TPropsCmpElContentTab> = ({ isWithRelume }) => {

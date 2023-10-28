@@ -2,12 +2,8 @@ import { FC } from 'react';
 import tw from 'tailwind-styled-components';
 import { customRP } from '../../../utils';
 import ImgBgGrainLatest from '../../../assets/image/img-bg-grain-latest.png';
-import { IObjBenefit } from '../../../interface';
 import CmpElBenefit from './CmpElBenefit';
-
-type TPropsCmpLayoutBenefit = {
-  listObjBenefit: IObjBenefit[];
-};
+import { listObjBenefit } from '../../../data';
 
 const customRPSectionWrapper = customRP({
   backgroundImage: `url(${ImgBgGrainLatest})`,
@@ -28,7 +24,7 @@ const DivBlurCircle = tw.div`
 absolute inset-[auto_0%_-15%_auto] -z-[1] flex h-[440px] w-[440px] items-center justify-center rounded-[500px] bg-[image:linear-gradient(132deg,#ff7448_26%,#ff4848_51%,#6248ff_75%)] opacity-[0.97] [filter:blur(64px)_blur(64px)] max-desktop:h-[320px] max-desktop:w-[320px] max-desktop:[filter:blur(68px)] max-tablet:bottom-[5%] max-tablet:h-[280px] max-tablet:w-[280px] max-tablet:[filter:blur(64px)]
 `;
 
-const CmpLayoutBenefit: FC<TPropsCmpLayoutBenefit> = ({ listObjBenefit }) => {
+const CmpLayoutBenefit: FC = () => {
   return (
     <SectionWrapper style={customRPSectionWrapper}>
       <DivContainer>

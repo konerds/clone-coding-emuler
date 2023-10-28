@@ -2,10 +2,7 @@ import { FC } from 'react';
 import tw from 'tailwind-styled-components';
 import { customRP } from '../../../utils';
 import ImgBgGrainLatest from '../../../assets/image/img-bg-grain-latest.png';
-
-type TPropsCmpContentFAQ = {
-  listObjFAQ: { question: string; answer: string }[];
-};
+import { listObjFAQ } from '../../../data';
 
 const customRPSectionWrapper = customRP({
   backgroundImage: `url(${ImgBgGrainLatest})`,
@@ -14,7 +11,7 @@ const SectionWrapper = tw.section`
 relative bg-[size:300px_300px] bg-[position:0px_0px] py-[120px] max-desktop:py-[104px] max-tablet:py-[64px]
 `;
 
-const CmpContentFAQ: FC<TPropsCmpContentFAQ> = ({ listObjFAQ }) => {
+const CmpContentFAQ: FC = () => {
   return (
     <SectionWrapper style={customRPSectionWrapper}>
       <div className="relative z-[10] px-[5%] py-[64px] text-center">
