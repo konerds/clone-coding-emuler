@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/clone-coding-emuler/static/css/main.69ebf4c0.css",
-    "main.js": "/clone-coding-emuler/static/js/main.9bddd619.js",
+    "main.css": "/clone-coding-emuler/static/css/main.3c3f0d14.css",
+    "main.js": "/clone-coding-emuler/static/js/main.df741d90.js",
     "static/media/pretendard-variable.ttf": "/clone-coding-emuler/static/media/pretendard-variable.4ab1a55a486870ed0174.ttf",
     "static/media/pretendard-variable.eot": "/clone-coding-emuler/static/media/pretendard-variable.2bea04855e4051c7822a.eot",
     "static/media/pretendard-variable.woff2": "/clone-coding-emuler/static/media/pretendard-variable.154ce88f9118a30d9d0e.woff2",
@@ -9,13 +9,16 @@
     "static/media/img-profile-dan.png": "/clone-coding-emuler/static/media/img-profile-dan.e111daa50f2fdce9d04a.png",
     "static/media/img-profile-adam.png": "/clone-coding-emuler/static/media/img-profile-adam.4fa5984e4bd8cae289ea.png",
     "static/media/img-with-relume-1.png": "/clone-coding-emuler/static/media/img-with-relume-1.fb214c4b37df9f513a19.png",
-    "static/media/img-bg-gradient-angle-mobile.png": "/clone-coding-emuler/static/media/img-bg-gradient-angle-mobile.52225d272b85e09ee130.png",
     "static/media/img-without-relume.png": "/clone-coding-emuler/static/media/img-without-relume.eec1468afb643340f5ab.png",
     "static/media/img-with-relume-mobile.png": "/clone-coding-emuler/static/media/img-with-relume-mobile.a08132a32a3445f42fb1.png",
     "static/media/img-without-relume-mobile.png": "/clone-coding-emuler/static/media/img-without-relume-mobile.44ab19ec1dc054cd70bd.png",
-    "static/media/img-bg-gradient-angle.png": "/clone-coding-emuler/static/media/img-bg-gradient-angle.9b24137b635eddcc5abf.png",
+    "static/media/img-bg-gradient-angle-mobile.png": "/clone-coding-emuler/static/media/img-bg-gradient-angle-mobile.a0d70859fe8c2798b604.png",
     "static/media/img-bg-grain-latest.png": "/clone-coding-emuler/static/media/img-bg-grain-latest.3b8d42cf99d3e6c17676.png",
     "static/media/img-with-relume-2.png": "/clone-coding-emuler/static/media/img-with-relume-2.3b723076f032af58cc80.png",
+    "static/media/img-bg-gradient-angle.png": "/clone-coding-emuler/static/media/img-bg-gradient-angle.4441e9943edcab01b9c2.png",
+    "static/media/img-fact2-dan.png": "/clone-coding-emuler/static/media/img-fact2-dan.8410b3eda69bc909ca87.png",
+    "static/media/img-fact1-adam.png": "/clone-coding-emuler/static/media/img-fact1-adam.a7149875de6c127dd3e8.png",
+    "static/media/img-fact1-dan.png": "/clone-coding-emuler/static/media/img-fact1-dan.c33ae2e3ee4afcbe75ba.png",
     "static/media/img-with-relume-3.png": "/clone-coding-emuler/static/media/img-with-relume-3.feab17cbc7f203ed107e.png",
     "static/media/img-quote-hero.svg": "/clone-coding-emuler/static/media/img-quote-hero.d5982dfde76d297b2aa9f501bd8b407c.svg",
     "static/media/img-quote-hero-mobile.svg": "/clone-coding-emuler/static/media/img-quote-hero-mobile.a4e2064671a26289ae4ff2c010508bc4.svg",
@@ -37,16 +40,17 @@
     "static/media/icon-circle-step4.svg": "/clone-coding-emuler/static/media/icon-circle-step4.ee4a5f3a5572f81ab9f2d1fd6916a748.svg",
     "static/media/icon-circle-step1.svg": "/clone-coding-emuler/static/media/icon-circle-step1.071622e5be0c82987db5a07091ff12ca.svg",
     "static/media/icon-webflow.svg": "/clone-coding-emuler/static/media/icon-webflow.7e1d352450d779b1ca15ee14823a3681.svg",
+    "static/media/icon-unlock.svg": "/clone-coding-emuler/static/media/icon-unlock.ae9f5b45ed8d94613bd4c7596c2922f7.svg",
     "static/media/icon-lock.svg": "/clone-coding-emuler/static/media/icon-lock.59cd395c1b73698db8d65a7b823c8df5.svg",
     "static/media/icon-underline-long.svg": "/clone-coding-emuler/static/media/icon-underline-long.b901ff2c90a6f29a03dcaf5d097c672c.svg",
     "static/media/icon-underline.svg": "/clone-coding-emuler/static/media/icon-underline.1950dc373ac7b9aeee1065b79225c1ee.svg",
     "static/media/icon-logo-header-secondary.svg": "/clone-coding-emuler/static/media/icon-logo-header-secondary.0c2465d06334156139c8683d496574af.svg",
     "static/media/icon-tick.svg": "/clone-coding-emuler/static/media/icon-tick.daab0becae064a2dec8c496b08e26a4e.svg",
-    "main.69ebf4c0.css.map": "/clone-coding-emuler/static/css/main.69ebf4c0.css.map",
-    "main.9bddd619.js.map": "/clone-coding-emuler/static/js/main.9bddd619.js.map"
+    "main.3c3f0d14.css.map": "/clone-coding-emuler/static/css/main.3c3f0d14.css.map",
+    "main.df741d90.js.map": "/clone-coding-emuler/static/js/main.df741d90.js.map"
   },
   "entrypoints": [
-    "static/css/main.69ebf4c0.css",
-    "static/js/main.9bddd619.js"
+    "static/css/main.3c3f0d14.css",
+    "static/js/main.df741d90.js"
   ]
 }
