@@ -61,7 +61,7 @@ absolute inset-[-5%_auto_auto_-5%] -z-[1] block h-[440px] w-[440px] rounded-[500
 
 const CmpLayoutPricing: FC = () => {
   return (
-    <SectionWrapper style={customRPSectionWrapper}>
+    <SectionWrapper id="Pricing" style={customRPSectionWrapper}>
       <DivContainer>
         <DivWrapperIntroduce>
           <H2Title>Pricing</H2Title>

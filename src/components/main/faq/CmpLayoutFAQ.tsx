@@ -46,7 +46,7 @@ absolute inset-[auto_0%_-15%_auto] -z-[1] flex h-[440px] w-[440px] items-center 
 
 const CmpLayoutFAQ: FC = () => {
   return (
-    <SectionWrapper style={customRPSectionWrapper}>
+    <SectionWrapper id="FAQ" style={customRPSectionWrapper}>
       <DivContainer>
         <DivWrapperIntroduce>
           <H2Introduce>Frequently asked questions</H2Introduce>

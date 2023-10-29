@@ -130,7 +130,7 @@ const CmpLayoutTeam: FC = () => {
     );
   }, [isMobile]);
   return (
-    <SectionWrapper style={customRPSectionWrapper}>
+    <SectionWrapper id="Team" style={customRPSectionWrapper}>
       <DivContainer>
         <DivWrapperIntroduce>
           <H2Title>

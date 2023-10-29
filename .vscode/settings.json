@@ -6,5 +6,6 @@
     "tw`([^`]*)",
     "tw\\.[^`]+`([^`]*)`",
     "tw\\(.*?\\).*?`([^`]*)"
-  ]
+  ],
+  "css.customData": [".vscode/tailwind.json"]
 }

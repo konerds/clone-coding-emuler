@@ -45,7 +45,7 @@ relative
 
 const CmpLayoutProcess: FC = () => {
   return (
-    <SectionWrapper>
+    <SectionWrapper id="How-It-works">
       <DivContainer>
         <DivWrapperIntroduce>
           <H2Title>How it works</H2Title>
