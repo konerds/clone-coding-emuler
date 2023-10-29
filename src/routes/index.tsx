@@ -12,15 +12,19 @@ const PATH_ROUTE_NOT_FOUND = 'not-found';
 const RoutesApp = (): JSX.Element => {
   return (
     <Routes>
-      <Route path={PATH_ROUTE_ROOT}>
-        <Route index element={<PageLanding />} />
-        <Route path={PATH_ROUTE_CONFIRMATION} element={<PageConfirmation />} />
-        <Route
-          path={PATH_ROUTE_PRIVACY_POLICY}
-          element={<PagePrivacyPolicy />}
-        />
-        <Route path={PATH_ROUTE_NOT_FOUND} element={<PageNotFound />} />
-      </Route>
+      <Route path={PATH_ROUTE_ROOT} element={<PageLanding />} />
+      <Route
+        path={`${PATH_ROUTE_ROOT}${PATH_ROUTE_CONFIRMATION}`}
+        element={<PageConfirmation />}
+      />
+      <Route
+        path={`${PATH_ROUTE_ROOT}${PATH_ROUTE_PRIVACY_POLICY}`}
+        element={<PagePrivacyPolicy />}
+      />
+      <Route
+        path={`${PATH_ROUTE_ROOT}${PATH_ROUTE_NOT_FOUND}`}
+        element={<PageNotFound />}
+      />
       <Route
         path="*"
         element={
