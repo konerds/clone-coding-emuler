@@ -59,7 +59,7 @@ ${(p) => p.$className || ''}
 `;
 
 const ButtonSubmitForm = tw.button`
-inline-block rounded-[8px] border-[2px] border-white bg-white px-[32px] py-[12px] text-[14px] text-black [text-decoration:none]
+inline-block rounded-[8px] border-[2px] border-white bg-white px-[32px] py-[12px] text-[14px] text-black [text-decoration:none] hover:bg-white
 `;
 
 const DivWrapperSuccess = tw.div`

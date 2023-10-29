@@ -14,7 +14,7 @@ text-white
 `;
 
 const ButtonViewLibrary = tw.button`
-inline-block cursor-pointer rounded-[20rem] border-[1px] border-white bg-transparent px-[1.5rem] py-[0.75rem] text-center text-[0.875rem] font-normal leading-[inherit] tracking-[0em] text-white [text-decoration:none] hover:transform-none hover:bg-transparent
+inline-block cursor-pointer rounded-[20rem] border-[1px] border-white bg-transparent px-[1.5rem] py-[0.75rem] text-center text-[0.875rem] font-normal leading-[inherit] tracking-[0em] text-white [text-decoration:none] [text-transform:none] hover:transform-none hover:bg-transparent
 `;
 
 const CmpLibraryCTA: FC = () => {
