@@ -2,6 +2,11 @@ import { FC } from 'react';
 import tw from 'tailwind-styled-components';
 import { ReactComponent as IconLogoHeaderPrimary } from '../../assets/image/icon/icon-logo-header-primary.svg';
 import { ReactComponent as IconLogoHeaderSecondary } from '../../assets/image/icon/icon-logo-header-secondary.svg';
+import { listObjMenuHeader } from '../../data';
+import CmpElMenu from './CmpElMenu';
+import { useMediaQuery } from 'react-responsive';
+import { queryByMaxWidth } from '../../utils';
+import { EViewport } from '../../interface';
 
 const HeaderNavBar = tw.header`
 absolute inset-[0%_0%_auto] z-[100] flex h-[80px] flex-row items-center justify-center [transform:translate(0px,0px)] desktop:h-[96px]
@@ -23,7 +28,12 @@ const DivLogoSecondary = tw.div`
 absolute inset-[0%] z-[1] text-white max-mobile-landscape:text-left max-mobile-landscape:underline
 `;
 
+const DivWrapperListMenu = tw.div`
+mx-auto flex items-center justify-between
+`;
+
 const CmpLayoutHeader: FC = () => {
+  const isDesktop = useMediaQuery(queryByMaxWidth(EViewport.DESKTOP));
   return (
     <HeaderNavBar>
       <DivContainerNavBar>
@@ -35,6 +45,13 @@ const CmpLayoutHeader: FC = () => {
             <IconLogoHeaderSecondary />
           </DivLogoSecondary>
         </LinkHome>
+        {!isDesktop && (
+          <DivWrapperListMenu>
+            {listObjMenuHeader.map((objMenu, idxObjMenu) => {
+              return <CmpElMenu key={idxObjMenu} objMenu={objMenu} />;
+            })}
+          </DivWrapperListMenu>
+        )}
       </DivContainerNavBar>
     </HeaderNavBar>
   );

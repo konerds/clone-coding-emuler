@@ -2,8 +2,8 @@ import { EViewport, IObjPricing, IObjSupport, TPricing } from '../interface';
 
 export const customRP = (obj: React.CSSProperties) => obj;
 
-export const queryIsMobile = () => {
-  return { maxWidth: EViewport.TABLET - 0.02 };
+export const queryByMaxWidth = (maxWidth: EViewport) => {
+  return { maxWidth: maxWidth - 0.02 };
 };
 
 export const capitalizeLetterFirst = (strInput: string) => {

@@ -2,6 +2,7 @@ import {
   IObjBenefit,
   IObjExBuiltToSpec,
   IObjFAQ,
+  IObjMenuHeader,
   IObjPricing,
   IObjProcessWork,
   IObjRoster,
@@ -30,6 +31,14 @@ import ImgPerson2Roster from '../assets/image/img-person2-roster.png';
 import ImgPerson3Roster from '../assets/image/img-person3-roster.png';
 import ImgPerson4Roster from '../assets/image/img-person4-roster.png';
 import ImgPerson5Roster from '../assets/image/img-person5-roster.png';
+
+export const listObjMenuHeader: IObjMenuHeader[] = [
+  { text: 'how it works', href: '#' },
+  { text: 'out work', href: '#' },
+  { text: 'pricing', href: '#' },
+  { text: 'the team', href: '#' },
+  { text: 'faq', href: '#' },
+];
 
 export const listObjBenefit: IObjBenefit[] = [
   {

@@ -1,9 +1,9 @@
 import { FC, useState, useEffect } from 'react';
 import tw from 'tailwind-styled-components';
-import { customRP, queryIsMobile } from '../../../utils';
+import { customRP, queryByMaxWidth } from '../../../utils';
 import ImgBgGradientAngle from '../../../assets/image/img-bg-gradient-angle.png';
 import ImgBgGradientAngleMobile from '../../../assets/image/img-bg-gradient-angle-mobile.png';
-import { IObjProcessWork } from '../../../interface';
+import { EViewport, IObjProcessWork } from '../../../interface';
 import { useMediaQuery } from 'react-responsive';
 
 type TPropsCmpElProcess = {
@@ -53,7 +53,7 @@ text-[#ffffffa6]
 `;
 
 const CmpElProcess: FC<TPropsCmpElProcess> = ({ objProcess }) => {
-  const isMobile = useMediaQuery(queryIsMobile());
+  const isMobile = useMediaQuery(queryByMaxWidth(EViewport.TABLET));
   const [customRPDivBlockImage, setCustomRPDivBlockImage] =
     useState<React.CSSProperties>({});
   useEffect(() => {

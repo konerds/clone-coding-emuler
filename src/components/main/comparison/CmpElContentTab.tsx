@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import tw from 'tailwind-styled-components';
-import { queryIsMobile } from '../../../utils';
+import { queryByMaxWidth } from '../../../utils';
 import { useMediaQuery } from 'react-responsive';
 import ImageWithRelumeMobile from '../../../assets/image/img-with-relume-mobile.png';
 import ImageWithRelume1 from '../../../assets/image/img-with-relume-1.png';
@@ -8,6 +8,7 @@ import ImageWithRelume2 from '../../../assets/image/img-with-relume-2.png';
 import ImageWithRelume3 from '../../../assets/image/img-with-relume-3.png';
 import ImageWithoutRelumeMobile from '../../../assets/image/img-without-relume-mobile.png';
 import ImageWithoutRelume from '../../../assets/image/img-without-relume.png';
+import { EViewport } from '../../../interface';
 
 type TPropsCmpElContentTab = {
   isWithRelume: boolean;
@@ -26,7 +27,7 @@ absolute inset-[0%] z-[1] mx-auto block max-w-[1000px] [transform-style:preserve
 `;
 
 const CmpElContentTab: FC<TPropsCmpElContentTab> = ({ isWithRelume }) => {
-  const isMobile = useMediaQuery(queryIsMobile());
+  const isMobile = useMediaQuery(queryByMaxWidth(EViewport.TABLET));
   return (
     <DivWrapperImage>
       {isMobile ? (

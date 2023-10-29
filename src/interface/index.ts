@@ -6,6 +6,11 @@ export enum EViewport {
   DESKTOP_LARGER = 1280,
 }
 
+export interface IObjMenuHeader {
+  text: string;
+  href: string;
+}
+
 export interface IObjBenefit {
   title: string;
   desc: string;

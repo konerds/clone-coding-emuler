@@ -1,6 +1,6 @@
 import { FC, useRef, useEffect, useState } from 'react';
 import tw from 'tailwind-styled-components';
-import { customRP, queryIsMobile } from '../../../utils';
+import { customRP, queryByMaxWidth } from '../../../utils';
 import ImgBgGrainLatest from '../../../assets/image/img-bg-grain-latest.png';
 import IconUnderlineLong from '../../../assets/image/icon/icon-underline-long.svg';
 import ImgBgGradientAngleMobile from '../../../assets/image/img-bg-gradient-angle-mobile.png';
@@ -10,6 +10,7 @@ import CmpElRoster from './CmpElRoster';
 import CmpElBadgeCapability from './CmpElBadgeCapability';
 import { listCapability, listObjRoster, listObjTeam } from '../../../data';
 import { useMediaQuery } from 'react-responsive';
+import { EViewport } from '../../../interface';
 
 const customRPSectionWrapper = customRP({
   backgroundImage: `url(${ImgBgGrainLatest})`,
@@ -42,7 +43,7 @@ max-w-[560px] text-[20px] -tracking-[0.4px] max-desktop:text-[18px]
 `;
 
 const DivWrapperGridTeam = tw.div`
-mb-[40px] grid gap-[16px_40px] [grid-auto-columns:1fr] [grid-template-rows:auto] [grid-template-columns:1fr_1fr] max-desktop:gap-y-[5vw] max-desktop:[grid-template-columns:1fr] max-tablet:mb-[24px] max-tablet:gap-y-[24px]
+mb-[40px] grid gap-[16px_40px] [grid-auto-columns:1fr] [grid-template-columns:1fr_1fr] [grid-template-rows:auto] max-desktop:gap-y-[5vw] max-desktop:[grid-template-columns:1fr] max-tablet:mb-[24px] max-tablet:gap-y-[24px]
 `;
 
 const DivPanelRoster = tw.div`
@@ -97,7 +98,7 @@ absolute inset-[auto_auto_-10%_-5%] -z-[1] block h-[440px] w-[440px] rounded-[50
 `;
 
 const CmpLayoutTeam: FC = () => {
-  const isMobile = useMediaQuery(queryIsMobile());
+  const isMobile = useMediaQuery(queryByMaxWidth(EViewport.TABLET));
   const [positionScrollYLoopRoster, setPositionScrollYLoopRoster] = useState(0);
   const [customRPDivWrapperImageRoster, setCustomRPDivWrapperImageRoster] =
     useState<React.CSSProperties>({});
