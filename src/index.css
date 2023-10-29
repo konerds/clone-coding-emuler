@@ -105,6 +105,10 @@
     @apply mb-[5px] block font-bold;
   }
 
+  a {
+    @apply cursor-pointer bg-transparent [text-decoration:underline];
+  }
+
   button,
   input,
   textarea {

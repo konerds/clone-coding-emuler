@@ -1,30 +1,84 @@
 import { FC } from 'react';
 import tw from 'tailwind-styled-components';
-import { ReactComponent as IconFooterLogo } from '../../assets/image/icon/icon-logo-footer.svg';
+import { ReactComponent as IconFooterLogoPrimary } from '../../assets/image/icon/icon-logo-footer-primary.svg';
+import { ReactComponent as IconFooterLogoSecondary } from '../../assets/image/icon/icon-logo-footer-secondary.svg';
 
 const FooterWrapper = tw.section`
 relative z-0 bg-[color:#0a0a0a] py-[40px]
 `;
 
+const DivContainer = tw.div`
+static mx-auto block w-[90%] max-w-[1360px]
+`;
+
+const DivWrapperFooter = tw.div`
+mb-[56px] flex justify-between max-tablet:mb-[48px]
+`;
+
+const DivWrapperLogo = tw.div`
+relative flex w-full items-center justify-between
+`;
+
+const LinkWrapperLogo = tw.a`
+relative inline-block h-[calc((100/3)*1px)] w-[124px] max-w-full
+`;
+
+type TPropsDivContainerLogo = {
+  $type: 'primary' | 'secondary';
+};
+const DivContainerLogo = tw.div<TPropsDivContainerLogo>`
+absolute inset-[0%]
+${(p) => (p.$type === 'primary' ? 'z-0 text-white' : 'z-[1] text-black')}
+`;
+
+const LinkButtonContactFooter = tw.a`
+text-[16px] leading-[1.3] text-white [text-decoration:none]
+`;
+
+const DivWrapperCredit = tw.div`
+flex items-center justify-between max-tablet:flex-col-reverse
+`;
+
+const ParagraphDescCredit = tw.p`
+text-[14px] text-[#ffffffa6]
+`;
+
+const ParagraphTitleCredit = tw.p`
+text-[16px] leading-[1.5] text-[#ffffffa6] [text-decoration-color:#ffffffa6] [text-decoration:underline] max-tablet:mb-[16px]
+`;
+
+const LinkTitleCredit = tw.a`
+text-[16px] leading-[1.5] text-[#ffffffa6] [text-decoration-color:#ffffffa6] [text-decoration:underline]
+`;
+
 const CmpLayoutFooter: FC = () => {
   return (
     <FooterWrapper>
-      <div className="relative z-[10] bg-[color:#0a0a0a] text-center text-white">
-        <div className="px-[5%] py-[40px]">
-          <div className="flex items-center justify-between">
-            <IconFooterLogo />
-            <span className="text-[16px] leading-[1.3]">hello@relume.io</span>
-          </div>
-          <div className="mt-[52px] leading-[1.5] -tracking-[0.32px] text-[#ffffffa6]">
-            <div className="mb-[16px] text-[16px] underline decoration-[#ffffffa6]">
-              Privacy Policy
-            </div>
-            <div className="mb-[10px] text-[14px]">
-              © 2021, Relume. All Rights Reserved.
-            </div>
-          </div>
-        </div>
-      </div>
+      <DivContainer>
+        <DivWrapperFooter>
+          <DivWrapperLogo>
+            <LinkWrapperLogo href="#">
+              <DivContainerLogo $type="primary">
+                <IconFooterLogoPrimary width={125} height={34} />
+              </DivContainerLogo>
+              <DivContainerLogo $type="secondary">
+                <IconFooterLogoSecondary width={125} height={34} />
+              </DivContainerLogo>
+            </LinkWrapperLogo>
+            <LinkButtonContactFooter href="#">
+              hello@relume.io
+            </LinkButtonContactFooter>
+          </DivWrapperLogo>
+        </DivWrapperFooter>
+        <DivWrapperCredit>
+          <ParagraphDescCredit>
+            © 2021, Relume. All Rights Reserved.
+          </ParagraphDescCredit>
+          <ParagraphTitleCredit>
+            <LinkTitleCredit>Privacy Policy</LinkTitleCredit>
+          </ParagraphTitleCredit>
+        </DivWrapperCredit>
+      </DivContainer>
     </FooterWrapper>
   );
 };
