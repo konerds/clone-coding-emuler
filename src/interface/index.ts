@@ -93,17 +93,18 @@ export interface IObjSupport {
   }[];
 }
 
+export type TObjContentPrivacyPolicy =
+  | {
+      type: 'plain' | 'strong';
+      text: string;
+    }
+  | {
+      type: 'a';
+      href: string;
+      text: string;
+    };
+
 export interface IObjPrivacyPolicy {
   type: 'paragraph' | 'heading';
-  content: (
-    | {
-        type: 'plain' | 'strong';
-        text: string;
-      }
-    | {
-        type: 'a';
-        href: string;
-        text: string;
-      }
-  )[];
+  content: TObjContentPrivacyPolicy[];
 }

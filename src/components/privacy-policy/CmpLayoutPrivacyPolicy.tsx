@@ -1,8 +1,9 @@
-import { FC, Fragment } from 'react';
+import { FC, Fragment, createElement } from 'react';
 import tw from 'tailwind-styled-components';
 import { customRP } from '../../utils';
 import ImgBgGrainLatest from '../../assets/image/img-bg-grain-latest.png';
 import { listObjPrivacyPolicy } from '../../data';
+import CmpElContentPrivacyPolicy from './CmpElContentPrivacyPolicy';
 
 const customRPSectionWrapper = customRP({
   backgroundImage: `url(${ImgBgGrainLatest})`,
@@ -29,13 +30,6 @@ const ParagraphContent = tw.p`
 const H5Content = tw.h5`
 `;
 
-const StrongContent = tw.strong`
-`;
-
-const LinkContent = tw.a`
-text-[-webkit-link]
-`;
-
 const CmpLayoutPrivacyPolicy: FC = () => {
   return (
     <SectionWrapper style={customRPSectionWrapper}>
@@ -45,42 +39,24 @@ const CmpLayoutPrivacyPolicy: FC = () => {
           {listObjPrivacyPolicy.map((objPrivayPolicy, idxObjPrivacyPolicy) => {
             return (
               <Fragment key={idxObjPrivacyPolicy}>
-                {objPrivayPolicy.type === 'heading' ? (
-                  <H5Content>
-                    {objPrivayPolicy.content.map((content, idxContent) => {
-                      return (
-                        <Fragment key={idxContent}>
-                          {content.type === 'strong' ? (
-                            <StrongContent>{content.text}</StrongContent>
-                          ) : content.type === 'a' ? (
-                            <LinkContent href={content.href}>
-                              {content.text}
-                            </LinkContent>
-                          ) : (
-                            content.text
-                          )}
-                        </Fragment>
-                      );
-                    })}
-                  </H5Content>
-                ) : (
-                  <ParagraphContent>
-                    {objPrivayPolicy.content.map((content, idxContent) => {
-                      return (
-                        <Fragment key={idxContent}>
-                          {content.type === 'strong' ? (
-                            <StrongContent>{content.text}</StrongContent>
-                          ) : content.type === 'a' ? (
-                            <LinkContent href={content.href}>
-                              {content.text}
-                            </LinkContent>
-                          ) : (
-                            content.text
-                          )}
-                        </Fragment>
-                      );
-                    })}
-                  </ParagraphContent>
+                {createElement(
+                  objPrivayPolicy.type === 'heading'
+                    ? H5Content
+                    : ParagraphContent,
+                  {
+                    children: (
+                      <>
+                        {objPrivayPolicy.content.map((content, idxContent) => {
+                          return (
+                            <CmpElContentPrivacyPolicy
+                              key={idxContent}
+                              content={content}
+                            />
+                          );
+                        })}
+                      </>
+                    ),
+                  },
                 )}
               </Fragment>
             );
