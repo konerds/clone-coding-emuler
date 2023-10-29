@@ -482,6 +482,7 @@ export const listObjPrivacyPolicy: IObjPrivacyPolicy[] = [
       {
         type: 'a',
         href: 'http://www.google.com/analytics/learn/privacy.html',
+        isTargetBlank: true,
         text: 'http://www.google.com/analytics/learn/privacy.html',
       },
     ],
@@ -567,6 +568,7 @@ export const listObjPrivacyPolicy: IObjPrivacyPolicy[] = [
       {
         type: 'a',
         href: 'https://relume.io',
+        isTargetBlank: true,
         text: 'https://relume.io',
       },
       {
@@ -655,7 +657,7 @@ export const listObjPrivacyPolicy: IObjPrivacyPolicy[] = [
       },
       {
         type: 'a',
-        href: '#',
+        href: 'mailto:hello@relume.io',
         text: 'hello@relume.io',
       },
     ],

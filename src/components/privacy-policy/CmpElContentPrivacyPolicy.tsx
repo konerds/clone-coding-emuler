@@ -21,7 +21,10 @@ const CmpElContentPrivacyPolicy: FC<TPropsCmpElContentPrivacyPolicy> = ({
       {content.type === 'strong' ? (
         <StrongContent>{content.text}</StrongContent>
       ) : content.type === 'a' ? (
-        <LinkContent href={content.href} target="_blank">
+        <LinkContent
+          href={content.href}
+          target={content.isTargetBlank ? '_blank' : '_self'}
+        >
           {content.text}
         </LinkContent>
       ) : (

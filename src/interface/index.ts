@@ -100,6 +100,7 @@ export type TObjContentPrivacyPolicy =
     }
   | {
       type: 'a';
+      isTargetBlank?: boolean;
       href: string;
       text: string;
     };
