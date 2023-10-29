@@ -98,7 +98,12 @@
   }
 
   p {
-    @apply mb-[10px] text-[16px] leading-[1.5] -tracking-[0.32px];
+    @apply mb-[10px] mt-0 text-[16px] leading-[1.5] -tracking-[0.32px];
+  }
+
+  b,
+  strong {
+    @apply font-bold;
   }
 
   img {

@@ -92,3 +92,18 @@ export interface IObjSupport {
     support: boolean | TComplexityDesign;
   }[];
 }
+
+export interface IObjPrivacyPolicy {
+  type: 'paragraph' | 'heading';
+  content: (
+    | {
+        type: 'plain' | 'strong';
+        text: string;
+      }
+    | {
+        type: 'a';
+        href: string;
+        text: string;
+      }
+  )[];
+}

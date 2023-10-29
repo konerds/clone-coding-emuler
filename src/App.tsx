@@ -1,10 +1,7 @@
+import { useEffect } from 'react';
 import tw from 'tailwind-styled-components';
-
-import CmpLayoutFooter from './components/footer/CmpLayoutFooter';
-import CmpLayoutHeader from './components/header/CmpLayoutHeader';
-import CmpLayoutMain from './components/main/CmpLayoutMain';
-import CmpGetStartedCTAFixed from './components/cta/CmpGetStartedCTAFixed';
-import CmpLibraryCTA from './components/cta/CmpLibraryCTA';
+import { useLocation } from 'react-router-dom';
+import RoutesApp from './routes';
 
 type TPropsDivApp = {
   $isDev: boolean;
@@ -14,20 +11,14 @@ ${(p) => (p.$isDev ? 'debug-screens' : '')}
 bg-inherit
 `;
 
-const MainWrapperPage = tw.main`
-overflow-hidden [transform:translate(0px,0px)]
-`;
-
 const App = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return (
     <DivApp $isDev={process.env.NODE_ENV !== 'production'}>
-      <CmpGetStartedCTAFixed />
-      <MainWrapperPage>
-        <CmpLayoutHeader />
-        <CmpLayoutMain />
-        <CmpLayoutFooter />
-      </MainWrapperPage>
-      <CmpLibraryCTA />
+      <RoutesApp />
     </DivApp>
   );
 };
