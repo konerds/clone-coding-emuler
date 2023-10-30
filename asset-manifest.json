@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/clone-coding-emuler/static/css/main.e0f92e73.css",
-    "main.js": "/clone-coding-emuler/static/js/main.1eaa38b9.js",
+    "main.css": "/clone-coding-emuler/static/css/main.e74c35e0.css",
+    "main.js": "/clone-coding-emuler/static/js/main.a58166e3.js",
     "static/media/pretendard-variable.ttf": "/clone-coding-emuler/static/media/pretendard-variable.4ab1a55a486870ed0174.ttf",
     "static/media/pretendard-variable.eot": "/clone-coding-emuler/static/media/pretendard-variable.2bea04855e4051c7822a.eot",
     "static/media/pretendard-variable.woff2": "/clone-coding-emuler/static/media/pretendard-variable.154ce88f9118a30d9d0e.woff2",
@@ -33,6 +33,7 @@
     "static/media/icon-step2-webflow-dev.svg": "/clone-coding-emuler/static/media/icon-step2-webflow-dev.f9fec17d396c624ea1ed4686f25239c1.svg",
     "static/media/icon-step1-visual-design.svg": "/clone-coding-emuler/static/media/icon-step1-visual-design.8e5d3c34f3fdcb3594362aa52e80bd16.svg",
     "static/media/icon-circle-step3.svg": "/clone-coding-emuler/static/media/icon-circle-step3.43f8133dd93f1ed42e4c435d9a0d2534.svg",
+    "static/media/icon-circle-outlined.svg": "/clone-coding-emuler/static/media/icon-circle-outlined.39850ba8e0ec7d2f6b35aab042269eef.svg",
     "static/media/icon-circle-step5.svg": "/clone-coding-emuler/static/media/icon-circle-step5.a3e99e56fbcd4685122cea3ec26021a8.svg",
     "static/media/icon-figma.svg": "/clone-coding-emuler/static/media/icon-figma.00350e4cd655610ffd2a36448af5ffbf.svg",
     "static/media/icon-circle-step2.svg": "/clone-coding-emuler/static/media/icon-circle-step2.9a1bee4123a722760571802042c0a84a.svg",
@@ -49,11 +50,11 @@
     "static/media/icon-logo-footer-secondary.svg": "/clone-coding-emuler/static/media/icon-logo-footer-secondary.0c2465d06334156139c8683d496574af.svg",
     "static/media/icon-logo-header-secondary.svg": "/clone-coding-emuler/static/media/icon-logo-header-secondary.0c2465d06334156139c8683d496574af.svg",
     "static/media/icon-tick.svg": "/clone-coding-emuler/static/media/icon-tick.daab0becae064a2dec8c496b08e26a4e.svg",
-    "main.e0f92e73.css.map": "/clone-coding-emuler/static/css/main.e0f92e73.css.map",
-    "main.1eaa38b9.js.map": "/clone-coding-emuler/static/js/main.1eaa38b9.js.map"
+    "main.e74c35e0.css.map": "/clone-coding-emuler/static/css/main.e74c35e0.css.map",
+    "main.a58166e3.js.map": "/clone-coding-emuler/static/js/main.a58166e3.js.map"
   },
   "entrypoints": [
-    "static/css/main.e0f92e73.css",
-    "static/js/main.1eaa38b9.js"
+    "static/css/main.e74c35e0.css",
+    "static/js/main.a58166e3.js"
   ]
 }
