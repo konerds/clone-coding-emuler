@@ -30,7 +30,13 @@ const ParagraphCloseWindow = tw.p`
 text-[#ffffffa6]
 `;
 
-const CmpMainConfirmation: FC = () => {
+type TPropsCmpMainConfirmation = {
+  handlerOnRequestCloseModal: () => void;
+};
+
+const CmpMainConfirmation: FC<TPropsCmpMainConfirmation> = ({
+  handlerOnRequestCloseModal,
+}) => {
   return (
     <DivWrapper>
       <DivContainer>
@@ -45,7 +51,13 @@ const CmpMainConfirmation: FC = () => {
         <ParagraphHeadingSub>
           {`We'll be in touch shortly via email to organise a time to discuss the project in more detail. `}
         </ParagraphHeadingSub>
-        <ParagraphCloseWindow>You can close this window.</ParagraphCloseWindow>
+        <ParagraphCloseWindow
+          onClick={() => {
+            handlerOnRequestCloseModal();
+          }}
+        >
+          You can close this window.
+        </ParagraphCloseWindow>
       </DivContainer>
     </DivWrapper>
   );

@@ -1,11 +1,17 @@
-import NewWindow from 'react-new-window';
+import { FC } from 'react';
 import CmpLayoutConfirmation from '../../components/confirmation/CmpLayoutConfirmation';
 
-const PageConfirmation = () => {
+type TPropsPageConfirmation = {
+  handlerOnRequestCloseModal: () => void;
+};
+
+const PageConfirmation: FC<TPropsPageConfirmation> = ({
+  handlerOnRequestCloseModal,
+}) => {
   return (
-    <NewWindow>
-      <CmpLayoutConfirmation />;
-    </NewWindow>
+    <CmpLayoutConfirmation
+      handlerOnRequestCloseModal={handlerOnRequestCloseModal}
+    />
   );
 };
 

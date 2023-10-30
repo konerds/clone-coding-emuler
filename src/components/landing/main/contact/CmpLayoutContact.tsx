@@ -1,6 +1,8 @@
 import { FC, useState } from 'react';
 import tw from 'tailwind-styled-components';
+import Modal from 'react-modal';
 import CmpElWrapperInput from './CmpElForm';
+import PageConfirmation from '../../../../pages/popup/PageConfirmation';
 
 const SectionWrapper = tw.section`
 relative bg-[color:#0a0a0a] py-[120px] max-desktop:py-[104px] max-tablet:py-[64px]
@@ -59,7 +61,7 @@ ${(p) => p.$className || ''}
 `;
 
 const ButtonSubmitForm = tw.button`
-inline-block rounded-[8px] border-[2px] border-white bg-white px-[32px] py-[12px] text-[14px] text-black [text-decoration:none] hover:bg-white
+inline-block rounded-[8px] border-[2px] border-white bg-white px-[32px] py-[12px] text-[14px] text-black [text-decoration:none] hover:bg-white disabled:cursor-not-allowed
 `;
 
 const DivWrapperSuccess = tw.div`
@@ -77,11 +79,20 @@ mt-[10px] rounded-[8px] bg-[color:#ffdede] p-[10px] text-[#e01e1e]
 const DivTextFailure = tw.div`
 `;
 
-type TStateMsgSubmit = 'none' | 'success' | 'failure';
+type TMsgSubmit = 'success' | 'failure';
+export type TObjStateMsgSubmit =
+  | {
+      type: 'none';
+    }
+  | {
+      type: TMsgSubmit;
+      msg?: string;
+    };
 
 const CmpLayoutContact: FC = () => {
-  const [isShowMsgSubmit, setIsShowMsgSubmit] =
-    useState<TStateMsgSubmit>('none');
+  const [stateMsgSubmit, setStateMsgSubmit] = useState<TObjStateMsgSubmit>({
+    type: 'none',
+  });
   const [nameEntered, setNameEntered] = useState('');
   const [emailEntered, setEmailEntered] = useState('');
   const [locationEntered, setLocationEntered] = useState('');
@@ -114,14 +125,27 @@ const CmpLayoutContact: FC = () => {
       console.log(linkToDesginEntered);
       console.log(detailsProjectEntered);
 
-      setIsShowMsgSubmit('success');
+      setStateMsgSubmit({
+        type: 'success',
+      });
     } catch (e) {
-      setIsShowMsgSubmit('failure');
-    } finally {
+      setStateMsgSubmit({
+        type: 'failure',
+        msg: `Oops! Something went wrong while submitting the form.`,
+      });
       setTimeout(() => {
-        setIsShowMsgSubmit('none');
+        setStateMsgSubmit({ type: 'none' });
       }, 2000);
     }
+  };
+  const handlerOnRequestCloseModal = () => {
+    setStateMsgSubmit({
+      type: 'success',
+      msg: `Thank you! Your message has been received. We'll be in touch.`,
+    });
+    setTimeout(() => {
+      setStateMsgSubmit({ type: 'none' });
+    }, 2000);
   };
   return (
     <SectionWrapper id="Get-Started">
@@ -221,20 +245,46 @@ const CmpLayoutContact: FC = () => {
                 value={detailsProjectEntered}
                 setValue={setDetailsProjectEntered}
               />
-              <ButtonSubmitForm>Submit</ButtonSubmitForm>
+              <ButtonSubmitForm disabled={stateMsgSubmit.type === 'success'}>
+                Submit
+              </ButtonSubmitForm>
             </FormConfirmation>
-            {isShowMsgSubmit === 'success' && (
-              <DivWrapperSuccess>
-                <DivTextSuccess>
-                  Thank you! Your message has been received. We'll be in touch.
-                </DivTextSuccess>
-              </DivWrapperSuccess>
+            {stateMsgSubmit.type === 'success' && (
+              <>
+                {!!stateMsgSubmit.msg ? (
+                  <DivWrapperSuccess>
+                    <DivTextSuccess>{stateMsgSubmit.msg}</DivTextSuccess>
+                  </DivWrapperSuccess>
+                ) : (
+                  <Modal
+                    style={{
+                      overlay: {
+                        zIndex: '1010',
+                      },
+                      content: {
+                        top: 0,
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        padding: 0,
+                        width: '100vw',
+                        height: '100vh',
+                        border: 'none',
+                      },
+                    }}
+                    isOpen={true}
+                    onRequestClose={handlerOnRequestCloseModal}
+                  >
+                    <PageConfirmation
+                      handlerOnRequestCloseModal={handlerOnRequestCloseModal}
+                    />
+                  </Modal>
+                )}
+              </>
             )}
-            {isShowMsgSubmit === 'failure' && (
+            {stateMsgSubmit.type === 'failure' && !!stateMsgSubmit.msg && (
               <DivWrapperFailure>
-                <DivTextFailure>
-                  Oops! Something went wrong while submitting the form.
-                </DivTextFailure>
+                <DivTextFailure>{stateMsgSubmit.msg}</DivTextFailure>
               </DivWrapperFailure>
             )}
           </DivBlockForm>

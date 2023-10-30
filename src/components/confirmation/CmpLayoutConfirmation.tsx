@@ -2,11 +2,19 @@ import { FC } from 'react';
 import CmpHeaderConfirmation from './CmpHeaderConfirmation';
 import CmpMainConfirmation from './CmpMainConfirmation';
 
-const CmpLayoutConfirmation: FC = () => {
+type TPropsCmpLayoutConfirmation = {
+  handlerOnRequestCloseModal: () => void;
+};
+
+const CmpLayoutConfirmation: FC<TPropsCmpLayoutConfirmation> = ({
+  handlerOnRequestCloseModal,
+}) => {
   return (
     <>
       <CmpHeaderConfirmation />
-      <CmpMainConfirmation />
+      <CmpMainConfirmation
+        handlerOnRequestCloseModal={handlerOnRequestCloseModal}
+      />
     </>
   );
 };
