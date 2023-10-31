@@ -37,7 +37,9 @@ const CmpLayoutHeader: FC = () => {
   );
   useEffect(() => {
     getListObjMenuHeader().then((dataListObjMenuHeader) => {
-      setListObjMenuHeader(dataListObjMenuHeader);
+      if (!!dataListObjMenuHeader) {
+        setListObjMenuHeader(dataListObjMenuHeader);
+      }
     });
   }, []);
   return (
