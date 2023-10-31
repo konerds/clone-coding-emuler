@@ -35,7 +35,7 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
 
       - name: Build
-        run: npm run build
+        run: CI=false npm run build
         env:
           REACT_APP_IS_USE_PROXY: ${{ vars.REACT_APP_IS_USE_PROXY }}
           REACT_APP_URL_API_SERVER: ${{ vars.REACT_APP_URL_API_SERVER }}
