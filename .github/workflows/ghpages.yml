@@ -37,9 +37,8 @@ jobs:
 
       - name: Set environment variable
         run: |
-          echo "REACT_APP_IS_USE_PROXY=$REACT_APP_IS_USE_PROXY" >> .env.production
-          echo "REACT_APP_URL_API_SERVER=$REACT_APP_URL_API_SERVER" >> .env.production
-          cat .env.production
+          echo "REACT_APP_IS_USE_PROXY=$REACT_APP_IS_USE_PROXY"
+          echo "REACT_APP_URL_API_SERVER=$REACT_APP_URL_API_SERVER"
         env:
           REACT_APP_IS_USE_PROXY: ${{ vars.REACT_APP_IS_USE_PROXY }}
           REACT_APP_URL_API_SERVER: ${{ vars.REACT_APP_URL_API_SERVER }}
