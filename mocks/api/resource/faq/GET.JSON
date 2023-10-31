@@ -1,0 +1,34 @@
+[
+  {
+    "question": "Do my designs need to be in Figma, Adobe or Sketch?",
+    "answer": "No, we also accept other forms of designs including video files and images."
+  },
+  {
+    "question": "How long will it take to build my website on Webflow?",
+    "answer": "Most website builds take 2-4 weeks to complete. Some websites may take longer depending on the size of the website and the responsiveness of clients."
+  },
+  {
+    "question": "Why do I need Relume, can’t I build the Webflow website myself?",
+    "answer": "A platform and CMS like Webflow is only as good as it's implementation. That's why it's important to hire an expert, like Relume, to help build the core of your Webflow website, so that if you choose to be hands on, you can build upon a strong foundation."
+  },
+  {
+    "question": "Can I host my Webflow website anywhere?",
+    "answer": "We highly recommend that you host your website through Webflow's AWS system if you wish to gain access to all the powerful CMS and hosting features that Webflow has to offer. All hosting plans include automatic backups, version control, SEO management, new features as they are released, and security updates. Hosting your website on Webflow removes the requirement for monthly maintenance retainers that are usually associated with platforms such as Wordpress."
+  },
+  {
+    "question": "Can you help improve my design?",
+    "answer": "Yes, we're more than happy to discuss custom options if you want us to make any adjustments to your current design."
+  },
+  {
+    "question": "Do I need to provide you with mobile and tablet designs?",
+    "answer": "No, we're able to design for mobile and tablet based off your desktop design. However, if you wish to provide your own designs for mobile and tablet then that's fine too."
+  },
+  {
+    "question": "Do you offer any support?",
+    "answer": "Yes. We offer support for the duration of 30 days post launch, so that if you have any questions, we're there to help."
+  },
+  {
+    "question": "Do you offer Webflow training?",
+    "answer": "Yes. We provide our clients with a library of personalised tutorials on how to use your new website so that you are well equipped to take full control and ownership of your website. "
+  }
+]

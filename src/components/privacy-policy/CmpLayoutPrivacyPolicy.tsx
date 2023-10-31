@@ -1,9 +1,10 @@
-import { FC, Fragment, createElement } from 'react';
+import { FC, useState, useEffect, Fragment, createElement } from 'react';
 import tw from 'tailwind-styled-components';
 import { customRP } from '../../utils';
 import ImgBgGrainLatest from '../../assets/image/img-bg-grain-latest.png';
-import { listObjPrivacyPolicy } from '../../data';
 import CmpElContentPrivacyPolicy from './CmpElContentPrivacyPolicy';
+import { IObjPrivacyPolicy } from '../../interface';
+import { getListObjPrivacyPolicy } from '../../api';
 
 const customRPSectionWrapper = customRP({
   backgroundImage: `url(${ImgBgGrainLatest})`,
@@ -31,6 +32,16 @@ const H5Content = tw.h5`
 `;
 
 const CmpLayoutPrivacyPolicy: FC = () => {
+  const [listObjPrivacyPolicy, setListObjPrivacyPolicy] = useState<
+    IObjPrivacyPolicy[]
+  >([]);
+  useEffect(() => {
+    getListObjPrivacyPolicy().then((dataListObjPrivacyPolicy) => {
+      if (!!dataListObjPrivacyPolicy) {
+        setListObjPrivacyPolicy(dataListObjPrivacyPolicy);
+      }
+    });
+  }, []);
   return (
     <SectionWrapper style={customRPSectionWrapper}>
       <DivContainer>

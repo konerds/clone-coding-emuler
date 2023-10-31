@@ -1,10 +1,11 @@
-import { FC } from 'react';
+import { FC, useState, useEffect } from 'react';
 import tw from 'tailwind-styled-components';
 import { customRP } from '../../../../utils';
 import ImgBgGrainLatest from '../../../../assets/image/img-bg-grain-latest.png';
 import IconUnderlineLong from '../../../../assets/image/icon/icon-underline-long.svg';
 import CmpElProjectSpec from './CmpElProjectSpec';
-import { listObjExBuiltToSpec } from '../../../../data';
+import { getListObjExBuiltToSpec } from '../../../../api';
+import { IObjExBuiltToSpec } from '../../../../interface';
 
 const customRPSectionWrapper = customRP({
   backgroundImage: `url(${ImgBgGrainLatest})`,
@@ -41,6 +42,16 @@ absolute inset-[0%_-5%_auto_auto] -z-[1] block h-[440px] w-[440px] rounded-[500p
 `;
 
 const CmpLayoutBuiltToSpec: FC = () => {
+  const [listObjExBuiltToSpec, setListObjExBuiltToSpec] = useState<
+    IObjExBuiltToSpec[]
+  >([]);
+  useEffect(() => {
+    getListObjExBuiltToSpec().then((dataListObjExBuiltToSpec) => {
+      if (!!dataListObjExBuiltToSpec) {
+        setListObjExBuiltToSpec(dataListObjExBuiltToSpec);
+      }
+    });
+  }, []);
   return (
     <SectionWrapper id="Our-Work" style={customRPSectionWrapper}>
       <DivContainer>

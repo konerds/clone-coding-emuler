@@ -1,14 +1,9 @@
+const apiMocker = require('connect-api-mocker');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = (app) => {
   if (process.env.NODE_ENV === 'development') {
-    app.use(
-      '/api',
-      createProxyMiddleware({
-        target: 'http://localhost:3010',
-        changeOrigin: true,
-      }),
-    );
+    app.use(apiMocker('/api', 'mocks/api'));
   } else {
     if (process.env.REACT_APP_IS_USE_PROXY === 'true') {
       app.use(

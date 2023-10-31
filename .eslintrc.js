@@ -15,12 +15,7 @@ module.exports = {
     node: true,
     jest: true,
   },
-  ignorePatterns: [
-    '.eslintrc.js',
-    'tailwind.config.js',
-    'setupProxy.js',
-    'mocks/*',
-  ],
+  ignorePatterns: ['.eslintrc.js', 'tailwind.config.js', 'setupProxy.js'],
   rules: {
     'prettier/prettier': 'warn',
     '@typescript-eslint/interface-name-prefix': 'off',

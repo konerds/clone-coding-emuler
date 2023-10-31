@@ -1,9 +1,10 @@
-import { FC } from 'react';
+import { FC, useState, useEffect } from 'react';
 import tw from 'tailwind-styled-components';
 import { customRP } from '../../../../utils';
 import ImgBgGrainLatest from '../../../../assets/image/img-bg-grain-latest.png';
-import { listObjFAQ } from '../../../../data';
 import CmpElFAQ from './CmpElFAQ';
+import { IObjFAQ } from '../../../../interface';
+import { getListObjFAQ } from '../../../../api';
 
 const customRPSectionWrapper = customRP({
   backgroundImage: `url(${ImgBgGrainLatest})`,
@@ -45,6 +46,14 @@ absolute inset-[auto_0%_-15%_auto] -z-[1] flex h-[440px] w-[440px] items-center 
 `;
 
 const CmpLayoutFAQ: FC = () => {
+  const [listObjFAQ, setListObjFAQ] = useState<IObjFAQ[]>([]);
+  useEffect(() => {
+    getListObjFAQ().then((dataListObjFAQ) => {
+      if (!!dataListObjFAQ) {
+        setListObjFAQ(dataListObjFAQ);
+      }
+    });
+  }, []);
   return (
     <SectionWrapper id="FAQ" style={customRPSectionWrapper}>
       <DivContainer>

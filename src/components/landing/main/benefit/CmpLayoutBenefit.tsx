@@ -1,9 +1,10 @@
-import { FC } from 'react';
+import { FC, useState, useEffect } from 'react';
 import tw from 'tailwind-styled-components';
 import { customRP } from '../../../../utils';
 import ImgBgGrainLatest from '../../../../assets/image/img-bg-grain-latest.png';
 import CmpElBenefit from './CmpElBenefit';
-import { listObjBenefit } from '../../../../data';
+import { getListObjBenefit } from '../../../../api';
+import { IObjBenefit } from '../../../../interface';
 
 const customRPSectionWrapper = customRP({
   backgroundImage: `url(${ImgBgGrainLatest})`,
@@ -25,6 +26,14 @@ absolute inset-[auto_0%_-15%_auto] -z-[1] flex h-[440px] w-[440px] items-center 
 `;
 
 const CmpLayoutBenefit: FC = () => {
+  const [listObjBenefit, setListObjBenefit] = useState<IObjBenefit[]>([]);
+  useEffect(() => {
+    getListObjBenefit().then((dataListObjBenefit) => {
+      if (!!dataListObjBenefit) {
+        setListObjBenefit(dataListObjBenefit);
+      }
+    });
+  }, []);
   return (
     <SectionWrapper style={customRPSectionWrapper}>
       <DivContainer>

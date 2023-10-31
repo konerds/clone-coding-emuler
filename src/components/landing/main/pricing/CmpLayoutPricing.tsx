@@ -1,11 +1,12 @@
-import { FC } from 'react';
+import { FC, useState, useEffect } from 'react';
 import tw from 'tailwind-styled-components';
 import { customRP } from '../../../../utils';
 import ImgBgGrainLatest from '../../../../assets/image/img-bg-grain-latest.png';
 import { getListObjConvertedByTypeSupport } from '../../../../utils';
 import CmpElHeaderTablePricing from './CmpElHeaderTablePricing';
 import CmpElRowTablePricing from './CmpElRowTablePricing';
-import { listObjPricing } from '../../../../data';
+import { IObjPricing } from '../../../../interface';
+import { getListObjPricing } from '../../../../api';
 
 const customRPSectionWrapper = customRP({
   backgroundImage: `url(${ImgBgGrainLatest})`,
@@ -35,7 +36,7 @@ rounded-[16px] bg-[color:#161616] p-[40px] max-tablet:px-[24px] max-tablet:py-[3
 `;
 
 const DivHeaderTablePricing = tw.div`
-grid gap-[16px] border-none pb-[40px] pt-0 [grid-auto-columns:1fr] [grid-template-rows:auto] [grid-template-columns:0.5fr_1.25fr] max-tablet:[grid-template-columns:1.25fr]
+grid gap-[16px] border-none pb-[40px] pt-0 [grid-auto-columns:1fr] [grid-template-columns:0.5fr_1.25fr] [grid-template-rows:auto] max-tablet:[grid-template-columns:1.25fr]
 [&>div:nth-last-child(2)]:mb-[24px]
 `;
 
@@ -60,6 +61,14 @@ absolute inset-[-5%_auto_auto_-5%] -z-[1] block h-[440px] w-[440px] rounded-[500
 `;
 
 const CmpLayoutPricing: FC = () => {
+  const [listObjPricing, setListObjPricing] = useState<IObjPricing[]>([]);
+  useEffect(() => {
+    getListObjPricing().then((dataListObjPricing) => {
+      if (!!dataListObjPricing) {
+        setListObjPricing(dataListObjPricing);
+      }
+    });
+  }, []);
   return (
     <SectionWrapper id="Pricing" style={customRPSectionWrapper}>
       <DivContainer>

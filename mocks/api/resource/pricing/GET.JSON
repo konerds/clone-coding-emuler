@@ -1,0 +1,41 @@
+[
+  {
+    "type": "basic",
+    "priceUSD": 1000,
+    "unit": "page",
+    "listSupport": [
+      { "type": "design-complexity", "support": "low" },
+      { "type": "responsive-development", "support": true },
+      { "type": "seo-setup", "support": true },
+      { "type": "content-population", "support": true },
+      { "type": "cms-implementation", "support": true },
+      { "type": "advanced-animations", "support": false }
+    ]
+  },
+  {
+    "type": "advanced",
+    "priceUSD": 2500,
+    "unit": "page",
+    "listSupport": [
+      { "type": "design-complexity", "support": "medium" },
+      { "type": "responsive-development", "support": true },
+      { "type": "seo-setup", "support": true },
+      { "type": "content-population", "support": true },
+      { "type": "cms-implementation", "support": true },
+      { "type": "advanced-animations", "support": true }
+    ]
+  },
+  {
+    "type": "professional",
+    "priceUSD": 4000,
+    "unit": "page",
+    "listSupport": [
+      { "type": "design-complexity", "support": "high" },
+      { "type": "responsive-development", "support": true },
+      { "type": "seo-setup", "support": true },
+      { "type": "content-population", "support": true },
+      { "type": "cms-implementation", "support": true },
+      { "type": "advanced-animations", "support": true }
+    ]
+  }
+]

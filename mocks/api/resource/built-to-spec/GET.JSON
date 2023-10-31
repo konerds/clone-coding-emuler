@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Goodhousing.com.au",
+    "type": "CONSTRUCTION COMPANY",
+    "colorBadgeType": "#d4eff0",
+    "quoteClient": {
+      "content": "They have a strong work ethic and really care about the end product, which made the whole process feel seamless.",
+      "author": "Lily"
+    },
+    "link": {
+      "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F76D0zWGXi4FJydVnMuzumL%2FWebsite-Design%3Fnode-id%3D1%253A488",
+      "web": "https://goodhousing.com.au"
+    }
+  },
+  {
+    "name": "Lauraavery.com.au",
+    "type": "SKIN CARE STUDIO",
+    "colorBadgeType": "#e9e5dd",
+    "quoteClient": {
+      "content": "You can tell there is a lot of thought put behind every detail. I don't think they could have done a better job!",
+      "author": "Laura"
+    },
+    "link": {
+      "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F76D0zWGXi4FJydVnMuzumL%2FWebsite-Design%3Fnode-id%3D1%253A10",
+      "web": "https://lauraavery.com.au"
+    }
+  },
+  {
+    "name": "Yolomedia.com.au",
+    "type": "CREATIVE AGENCY",
+    "colorBadgeType": "#deeffa",
+    "quoteClient": {
+      "content": "Props to them, they manage to always get the design spot on, it's quite impressive.",
+      "author": "Tristan"
+    },
+    "link": {
+      "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F76D0zWGXi4FJydVnMuzumL%2FWebsite-Design%3Fnode-id%3D148%253A1749",
+      "web": "https://www.yolomedia.com.au"
+    }
+  }
+]
