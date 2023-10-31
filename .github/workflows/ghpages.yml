@@ -7,6 +7,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: github-pages
     permissions:
       contents: write
     concurrency:
@@ -34,17 +35,11 @@ jobs:
         run: npm ci
         if: steps.cache.outputs.cache-hit != 'true'
 
-      - name: Set Environment Variable
-        run: |
-          echo \
-          REACT_APP_IS_USE_PROXY=$REACT_APP_IS_USE_PROXY \
-          REACT_APP_URL_API_SERVER=$REACT_APP_URL_API_SERVER > .env.production
+      - name: Build
+        run: CI=false npm run build
         env:
           REACT_APP_IS_USE_PROXY: ${{ vars.REACT_APP_IS_USE_PROXY }}
           REACT_APP_URL_API_SERVER: ${{ vars.REACT_APP_URL_API_SERVER }}
-
-      - name: Build
-        run: CI=false npm run build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
