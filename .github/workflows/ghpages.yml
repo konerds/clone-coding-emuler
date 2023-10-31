@@ -35,14 +35,17 @@ jobs:
         run: npm ci
         if: steps.cache.outputs.cache-hit != 'true'
 
-      - name: Build
-        run: CI=false
-          REACT_APP_IS_USE_PROXY=$REACT_APP_IS_USE_PROXY
-          REACT_APP_URL_API_SERVER=$REACT_APP_URL_API_SERVER
-          npm run build
+      - name: Set environment variable
+        run: |
+          echo "REACT_APP_IS_USE_PROXY=$REACT_APP_IS_USE_PROXY" >> .env.production
+          echo "REACT_APP_URL_API_SERVER=$REACT_APP_URL_API_SERVER" >> .env.production
+          cat .env.production
         env:
           REACT_APP_IS_USE_PROXY: ${{ vars.REACT_APP_IS_USE_PROXY }}
           REACT_APP_URL_API_SERVER: ${{ vars.REACT_APP_URL_API_SERVER }}
+
+      - name: Build
+        run: CI=false npm run build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
