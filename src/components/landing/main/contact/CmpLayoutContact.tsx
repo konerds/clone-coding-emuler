@@ -49,7 +49,7 @@ mb-[56px] text-center text-white max-tablet:mb-[48px] max-tablet:text-[24px] max
 `;
 
 const DivLayoutGridSectionForm = tw.div`
-grid w-full gap-x-[24px] gap-y-[16px] [grid-auto-columns:1fr] [grid-template-columns:1fr_1fr] [grid-template-rows:auto] max-tablet:gap-y-0 max-tablet:[grid-template-columns:1fr]
+grid w-full gap-x-[24px] gap-y-[16px] [grid-template-columns:1fr_1fr] [grid-template-rows:auto] [grid-auto-columns:1fr] max-tablet:gap-y-0 max-tablet:[grid-template-columns:1fr]
 `;
 
 type TPropsDivWrapperInput = {

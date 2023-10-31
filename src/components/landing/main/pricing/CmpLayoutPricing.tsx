@@ -35,7 +35,7 @@ rounded-[16px] bg-[color:#161616] p-[40px] max-tablet:px-[24px] max-tablet:py-[3
 `;
 
 const DivHeaderTablePricing = tw.div`
-grid gap-[16px] border-none pb-[40px] pt-0 [grid-auto-columns:1fr] [grid-template-columns:0.5fr_1.25fr] [grid-template-rows:auto] max-tablet:[grid-template-columns:1.25fr]
+grid gap-[16px] border-none pb-[40px] pt-0 [grid-auto-columns:1fr] [grid-template-rows:auto] [grid-template-columns:0.5fr_1.25fr] max-tablet:[grid-template-columns:1.25fr]
 [&>div:nth-last-child(2)]:mb-[24px]
 `;
 

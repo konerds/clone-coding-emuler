@@ -1,0 +1,9 @@
+{
+  "resource--menu-header": [
+    { "text": "how it works", "href": "#How-It-works" },
+    { "text": "out work", "href": "#Our-Work" },
+    { "text": "pricing", "href": "#Pricing" },
+    { "text": "the team", "href": "#Team" },
+    { "text": "faq", "href": "#FAQ" }
+  ]
+}
