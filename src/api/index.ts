@@ -10,6 +10,9 @@ const instanceAxios: AxiosInstance = axios.create({
 });
 
 export const getListObjMenuHeader = async () => {
+  console.log(process.env.NODE_ENV);
+  console.log(process.env.REACT_APP_IS_USE_PROXY);
+  console.log(instanceAxios.defaults.baseURL);
   try {
     const response = await instanceAxios.get<IObjMenuHeader[]>(
       '/resource/menu-header',

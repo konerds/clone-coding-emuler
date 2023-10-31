@@ -26,7 +26,7 @@
   "homepage": "https://konerds.github.io/clone-coding-emuler",
   "scripts": {
     "mock-api": "json-server ./mocks/database.json --routes ./mocks/routes.json --port 3010",
-    "serve": "react-scripts start",
+    "serve": "set PUBLIC_URL=.&&react-scripts start",
     "start": "run-p mock-api serve",
     "start:dev": "npm run start",
     "start:prod": "",
