@@ -2,11 +2,13 @@ import axios, { AxiosInstance } from 'axios';
 import {
   IObjMenuHeader,
   IObjBenefit,
-  // IObjProcessWork,
+  IObjProcessWork,
   IObjExBuiltToSpec,
   IObjPricing,
   IObjFAQ,
   IObjPrivacyPolicy,
+  IObjTeam,
+  IObjRoster,
 } from '../interface';
 
 const instanceAxios: AxiosInstance = axios.create({
@@ -34,14 +36,14 @@ export const getListObjBenefit = async () => {
   } catch (e) {}
 };
 
-// export const getListObjProcessWork = async () => {
-//   try {
-//     const response = await instanceAxios.get<IObjProcessWork[]>(
-//       '/resource/process-work',
-//     );
-//     return response.data;
-//   } catch (e) {}
-// };
+export const getListObjProcessWork = async () => {
+  try {
+    const response = await instanceAxios.get<IObjProcessWork[]>(
+      '/resource/process-work',
+    );
+    return response.data;
+  } catch (e) {}
+};
 
 export const getListObjExBuiltToSpec = async () => {
   try {
@@ -56,6 +58,20 @@ export const getListObjPricing = async () => {
   try {
     const response =
       await instanceAxios.get<IObjPricing[]>('/resource/pricing');
+    return response.data;
+  } catch (e) {}
+};
+
+export const getListObjTeam = async () => {
+  try {
+    const response = await instanceAxios.get<IObjTeam[]>('/resource/team');
+    return response.data;
+  } catch (e) {}
+};
+
+export const getListObjRoster = async () => {
+  try {
+    const response = await instanceAxios.get<IObjRoster[]>('/resource/roster');
     return response.data;
   } catch (e) {}
 };

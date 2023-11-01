@@ -1,7 +1,8 @@
-import { FC } from 'react';
+import { FC, useState, useEffect } from 'react';
 import tw from 'tailwind-styled-components';
 import CmpElProcess from './CmpElProcess';
-import { listObjProcessWork } from '../../../../data';
+import { IObjProcessWork } from '../../../../interface';
+import { getListObjProcessWork } from '../../../../api';
 
 const SectionWrapper = tw.section`
 relative bg-[color:#0a0a0a] pb-[120px] pt-[120px] max-desktop:py-[104px] max-tablet:py-[64px]
@@ -44,6 +45,16 @@ relative
 `;
 
 const CmpLayoutProcess: FC = () => {
+  const [listObjProcessWork, setListObjProcessWork] = useState<
+    IObjProcessWork[]
+  >([]);
+  useEffect(() => {
+    getListObjProcessWork().then((dataListObjProcessWork) => {
+      if (!!dataListObjProcessWork) {
+        setListObjProcessWork(dataListObjProcessWork);
+      }
+    });
+  }, []);
   return (
     <SectionWrapper id="How-It-works">
       <DivContainer>

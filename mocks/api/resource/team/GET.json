@@ -1,0 +1,26 @@
+[
+  {
+    "introduce": "Dan takes care of day to day business operations, ensures projects run smoothly and finds the best Webflow talent to help execute projects.",
+    "imageProfile": "https://bucket-s3-clone-coding.s3.amazonaws.com/image/img-profile-dan.png",
+    "positionProfile": "co-founder",
+    "nameProfile": "Dan",
+    "iconArrow": "https://bucket-s3-clone-coding.s3.amazonaws.com/image/img-arrow-dan.svg",
+    "textFact": "\"driven & friendly\"",
+    "imageFact1": "https://bucket-s3-clone-coding.s3.amazonaws.com/image/img-fact1-dan.png",
+    "altImageFact1": "Image and text that reads &quot;started his first business at age 15&quot;",
+    "imageFact2": "https://bucket-s3-clone-coding.s3.amazonaws.com/image/img-fact2-dan.png",
+    "altImageFact2": "Image and text that reads &quot;can play beethoven blindfolded&quot;"
+  },
+  {
+    "introduce": "Adam provides creative direction for the business and ensures all projects ensures your website will be built on Webflow, pixel perfect.",
+    "imageProfile": "https://bucket-s3-clone-coding.s3.amazonaws.com/image/img-profile-adam.png",
+    "positionProfile": "co-founder",
+    "nameProfile": "Adam",
+    "iconArrow": "https://bucket-s3-clone-coding.s3.amazonaws.com/image/img-arrow-adam.svg",
+    "textFact": "\"passionate & creative\"",
+    "imageFact1": "https://bucket-s3-clone-coding.s3.amazonaws.com/image/img-fact1-adam.png",
+    "altImageFact1": "Image and text that reads &quot;can moonwalk like MJ&quot;",
+    "imageFact2": "https://bucket-s3-clone-coding.s3.amazonaws.com/image/img-fact2-adam.png",
+    "altImageFact2": "Image and text that reads &quot;taught himself photoshop at age 12&quot;"
+  }
+]

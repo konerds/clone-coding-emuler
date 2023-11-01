@@ -8,10 +8,13 @@ import ImgBgGradientAngle from '../../../../assets/image/img-bg-gradient-angle.p
 import CmpElTeam from './CmpElTeam';
 import CmpElRoster from './CmpElRoster';
 import CmpElBadgeCapability from './CmpElBadgeCapability';
-import { listObjRoster, listObjTeam } from '../../../../data';
 import { useMediaQuery } from 'react-responsive';
-import { EViewport } from '../../../../interface';
-import { getListCapability } from '../../../../api';
+import { EViewport, IObjRoster, IObjTeam } from '../../../../interface';
+import {
+  getListCapability,
+  getListObjRoster,
+  getListObjTeam,
+} from '../../../../api';
 
 const customRPSectionWrapper = customRP({
   backgroundImage: `url(${ImgBgGrainLatest})`,
@@ -104,8 +107,20 @@ const CmpLayoutTeam: FC = () => {
   const [customRPDivWrapperImageRoster, setCustomRPDivWrapperImageRoster] =
     useState<React.CSSProperties>({});
   const refDivWrapperWidthFull = useRef<HTMLDivElement>(null);
+  const [listObjTeam, setListObjTeam] = useState<IObjTeam[]>([]);
+  const [listObjRoster, setListObjRoster] = useState<IObjRoster[]>([]);
   const [listCapability, setListCapability] = useState<string[]>([]);
   useEffect(() => {
+    getListObjTeam().then((dataListObjTeam) => {
+      if (!!dataListObjTeam) {
+        setListObjTeam(dataListObjTeam);
+      }
+    });
+    getListObjRoster().then((dataListObjRoster) => {
+      if (!!dataListObjRoster) {
+        setListObjRoster(dataListObjRoster);
+      }
+    });
     getListCapability().then((dataListCapability) => {
       if (!!dataListCapability) {
         setListCapability(dataListCapability);
