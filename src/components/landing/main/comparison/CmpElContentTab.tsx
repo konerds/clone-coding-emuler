@@ -9,6 +9,7 @@ import ImageWithRelume3 from '../../../../assets/image/img-with-relume-3.png';
 import ImageWithoutRelumeMobile from '../../../../assets/image/img-without-relume-mobile.png';
 import ImageWithoutRelume from '../../../../assets/image/img-without-relume.png';
 import { EViewport } from '../../../../interface';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
 type TPropsCmpElContentTab = {
   isWithRelume: boolean;
@@ -29,39 +30,51 @@ absolute inset-[0%] z-[1] mx-auto block max-w-[1000px] [transform-style:preserve
 const CmpElContentTab: FC<TPropsCmpElContentTab> = ({ isWithRelume }) => {
   const isMobile = useMediaQuery(queryByMaxWidth(EViewport.TABLET));
   return (
-    <DivWrapperImage>
-      {isMobile ? (
-        <ImgContent
-          src={isWithRelume ? ImageWithRelumeMobile : ImageWithoutRelumeMobile}
-          loading={isWithRelume ? 'lazy' : 'eager'}
-          alt={isWithRelume ? 'with relume' : 'without relume'}
-        />
-      ) : isWithRelume ? (
-        <>
-          <ImgContent
-            src={ImageWithRelume1}
-            alt="with relume 1"
-            loading="eager"
-          />
-          <ImgOverlay
-            src={ImageWithRelume2}
-            alt="with relume 2"
-            loading="eager"
-          />
-          <ImgOverlay
-            src={ImageWithRelume3}
-            alt="with relume 3"
-            loading="eager"
-          />
-        </>
-      ) : (
-        <ImgContent
-          src={ImageWithoutRelume}
-          alt="without relume"
-          loading="eager"
-        />
-      )}
-    </DivWrapperImage>
+    <SwitchTransition>
+      <CSSTransition
+        key={isWithRelume ? 'with relume' : 'without relume'}
+        addEndListener={(node, done) =>
+          node.addEventListener('transitionend', done, false)
+        }
+        classNames="transition-fade"
+      >
+        <DivWrapperImage>
+          {isMobile ? (
+            <ImgContent
+              src={
+                isWithRelume ? ImageWithRelumeMobile : ImageWithoutRelumeMobile
+              }
+              loading={isWithRelume ? 'lazy' : 'eager'}
+              alt={isWithRelume ? 'with relume' : 'without relume'}
+            />
+          ) : isWithRelume ? (
+            <>
+              <ImgContent
+                src={ImageWithRelume1}
+                alt="with relume 1"
+                loading="eager"
+              />
+              <ImgOverlay
+                src={ImageWithRelume2}
+                alt="with relume 2"
+                loading="eager"
+              />
+              <ImgOverlay
+                src={ImageWithRelume3}
+                alt="with relume 3"
+                loading="eager"
+              />
+            </>
+          ) : (
+            <ImgContent
+              src={ImageWithoutRelume}
+              alt="without relume"
+              loading="eager"
+            />
+          )}
+        </DivWrapperImage>
+      </CSSTransition>
+    </SwitchTransition>
   );
 };
 

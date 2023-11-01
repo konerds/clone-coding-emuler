@@ -149,16 +149,16 @@
   }
 }
 
-.transition-fade-wait-leave {
-  @apply opacity-100;
-}
-.transition-fade-wait-leave.transition-fade-wait-leave-active {
-  @apply opacity-0 transition-[opacity_0.4s_ease-in];
-}
-
-.transition-fade-wait-enter {
+.transition-fade-enter {
   @apply opacity-0;
 }
-.transition-fade-wait-enter.transition-fade-wait-enter-active {
+.transition-fade-enter-active {
   @apply opacity-100 transition-[opacity_0.4s_ease-in_0.6s];
+}
+
+.transition-fade-exit {
+  @apply opacity-100;
+}
+.transition-fade-exit-active {
+  @apply opacity-0 transition-[opacity_0.4s_ease-in];
 }
