@@ -106,6 +106,7 @@ const CmpLayoutTeam: FC = () => {
   const [positionScrollYLoopRoster, setPositionScrollYLoopRoster] = useState(0);
   const [customRPDivWrapperImageRoster, setCustomRPDivWrapperImageRoster] =
     useState<React.CSSProperties>({});
+  const [heightDivWrapperWidthFull, setHeightDivWrapperWidthFull] = useState(0);
   const refDivWrapperWidthFull = useRef<HTMLDivElement>(null);
   const [listObjTeam, setListObjTeam] = useState<IObjTeam[]>([]);
   const [listObjRoster, setListObjRoster] = useState<IObjRoster[]>([]);
@@ -128,8 +129,21 @@ const CmpLayoutTeam: FC = () => {
     });
   }, []);
   useEffect(() => {
-    const heightDivWrapperWidthFull =
-      refDivWrapperWidthFull.current?.offsetHeight;
+    if (!!refDivWrapperWidthFull.current) {
+      const observerResize = new ResizeObserver(() => {
+        const heightNew =
+          refDivWrapperWidthFull.current?.getBoundingClientRect().height;
+        if (!!heightNew) {
+          setHeightDivWrapperWidthFull(heightNew);
+        }
+      });
+      observerResize.observe(refDivWrapperWidthFull.current);
+      return () => {
+        observerResize.disconnect();
+      };
+    }
+  }, [refDivWrapperWidthFull.current]);
+  useEffect(() => {
     if (!!heightDivWrapperWidthFull) {
       const keyInterval = setInterval(() => {
         setPositionScrollYLoopRoster((valuePrev) => {
@@ -143,7 +157,7 @@ const CmpLayoutTeam: FC = () => {
         clearInterval(keyInterval);
       };
     }
-  }, [refDivWrapperWidthFull]);
+  }, [heightDivWrapperWidthFull]);
   useEffect(() => {
     setCustomRPDivWrapperImageRoster(
       customRP({
@@ -181,7 +195,9 @@ const CmpLayoutTeam: FC = () => {
                 return (
                   <DivWrapperWidthFull
                     key={idxArrRepeat}
-                    ref={refDivWrapperWidthFull}
+                    ref={
+                      idxArrRepeat === 0 ? refDivWrapperWidthFull : undefined
+                    }
                   >
                     {listObjRoster.map((objRoster, idxObjRoster) => {
                       return (
