@@ -1,6 +1,6 @@
 import { FC, useState, useRef, useEffect } from 'react';
 import tw from 'tailwind-styled-components';
-import { customRP, getHeightByRef } from '../../../../utils';
+import { customRP, getHeightByRef, getHeightWindow } from '../../../../utils';
 import ImgBgGrainLatest from '../../../../assets/image/img-bg-grain-latest.png';
 import IconUnderline from '../../../../assets/image/icon/icon-underline.svg';
 import CmpElContentTab from './CmpElContentTab';
@@ -52,17 +52,54 @@ const DivBlurCircle = tw.div`
 absolute inset-[30%_auto_auto_5%] flex h-[440px] w-[440px] items-center justify-center rounded-[500px] bg-[image:linear-gradient(59deg,#ff7448_27%,#ff4848_50%,#6248ff_75%)] opacity-[0.97] [filter:blur(64px)_blur(64px)] max-desktop:top-[20%] max-desktop:h-[320px] max-desktop:w-[320px] max-desktop:opacity-[0.8] max-desktop:[filter:blur(68px)] max-tablet:h-[280px] max-tablet:w-[280px] max-tablet:opacity-[0.9] max-tablet:[filter:blur(64px)] max-mobile-landscape:top-[20%]
 `;
 
-const CmpLayoutComparison: FC = () => {
+type TPropsCmpLayoutComparison = {
+  posTopScroll: number;
+};
+
+const CmpLayoutComparison: FC<TPropsCmpLayoutComparison> = ({
+  posTopScroll,
+}) => {
   const [isWithRelume, setIsWithRelume] = useState(true);
-  const refImageWillBeLoadedEager = useRef<HTMLImageElement>(null);
-  const heightMinImageDefault = getHeightByRef(refImageWillBeLoadedEager);
+  const refImageWillBeLoaded = useRef<HTMLImageElement>(null);
+  const heightMinImageDefault = getHeightByRef(refImageWillBeLoaded);
   const [customRPDivContentTab, setCustomRPDivContentTab] =
     useState<React.CSSProperties>({});
+  const refDivWrapperWithRelume = useRef<HTMLImageElement>(null);
+  const heightDivWrapperWithRelume = getHeightByRef(refDivWrapperWithRelume);
+  const heightWindow = getHeightWindow();
+  const [positionXImageOverlay, setPositionXImageOverlay] = useState(0);
   useEffect(() => {
-    setCustomRPDivContentTab({
-      minHeight: `${heightMinImageDefault}px`,
-    });
+    if (!!heightMinImageDefault) {
+      setCustomRPDivContentTab({
+        minHeight: `${heightMinImageDefault}px`,
+      });
+    }
   }, [heightMinImageDefault]);
+  useEffect(() => {
+    if (
+      !!refDivWrapperWithRelume.current &&
+      !!heightDivWrapperWithRelume &&
+      heightWindow
+    ) {
+      const collapseAdded = heightWindow / 10;
+      const posXNew =
+        15 -
+        (Math.abs(
+          heightDivWrapperWithRelume * 1.5 -
+            refDivWrapperWithRelume.current.getBoundingClientRect().top,
+        ) /
+          (collapseAdded + heightDivWrapperWithRelume)) *
+          15;
+      if (posXNew >= 0 && posXNew <= 15) {
+        setPositionXImageOverlay(posXNew);
+      }
+    }
+  }, [
+    posTopScroll,
+    refDivWrapperWithRelume.current,
+    heightDivWrapperWithRelume,
+    heightWindow,
+  ]);
   return (
     <SectionWrapper style={customRPSectionWrapper}>
       <DivContainer>
@@ -80,7 +117,7 @@ const CmpLayoutComparison: FC = () => {
             perfect design and smooth interactions that delight your users.
           </ParagraphDesc>
         </DivWrapperIntroduce>
-        <DivWrapperWithRelume>
+        <DivWrapperWithRelume ref={refDivWrapperWithRelume}>
           <DivListTab>
             {[true, false].map((flagBtn, idxBtn) => {
               return (
@@ -96,7 +133,8 @@ const CmpLayoutComparison: FC = () => {
           <DivContentTab style={customRPDivContentTab}>
             <CmpElContentTab
               isWithRelume={isWithRelume}
-              refImageWillBeLoadedEager={refImageWillBeLoadedEager}
+              refImageWillBeLoaded={refImageWillBeLoaded}
+              positionXImageOverlay={positionXImageOverlay}
             />
           </DivContentTab>
         </DivWrapperWithRelume>

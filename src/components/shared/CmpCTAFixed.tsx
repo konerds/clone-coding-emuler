@@ -1,6 +1,6 @@
 import { FC, useState, useRef, useEffect } from 'react';
 import tw from 'tailwind-styled-components';
-import { getHeightByRef, getPositionScrollWindow } from '../../utils';
+import { getHeightByRef } from '../../utils';
 
 const DivContainer = tw.div`
 fixed inset-[16px_0%_auto] z-[1000] mx-auto flex w-[90%] max-w-[1360px] justify-end desktop:inset-[24px_0%_auto] desktop:block
@@ -28,6 +28,7 @@ type TPropsCmpCTAFixed = {
   icon?: string;
   href: string;
   textBtn: string;
+  posTopScroll?: number;
   refSectionWrapperProcess?: React.RefObject<HTMLElement>;
   refSectionWrapperContact?: React.RefObject<HTMLElement>;
 };
@@ -36,16 +37,16 @@ const CmpCTAFixed: FC<TPropsCmpCTAFixed> = ({
   icon,
   href,
   textBtn,
+  posTopScroll,
   refSectionWrapperProcess,
   refSectionWrapperContact,
 }) => {
   const refLinkCTAFixed = useRef<HTMLAnchorElement>(null);
-  const posTopScroll = getPositionScrollWindow('y');
   const heightOffsetLinkCTAFixed = getHeightByRef(refLinkCTAFixed, true);
   const [isTouchedProcess, setIsTouchedProcess] = useState(false);
   const [isTouchedContact, setIsTouchedContact] = useState(false);
   useEffect(() => {
-    if (!!refSectionWrapperProcess?.current) {
+    if (!!posTopScroll && !!refSectionWrapperProcess?.current) {
       setIsTouchedProcess(
         posTopScroll + heightOffsetLinkCTAFixed >
           refSectionWrapperProcess.current.offsetTop &&
@@ -60,7 +61,7 @@ const CmpCTAFixed: FC<TPropsCmpCTAFixed> = ({
     refSectionWrapperProcess?.current,
   ]);
   useEffect(() => {
-    if (!!refSectionWrapperContact?.current) {
+    if (!!posTopScroll && !!refSectionWrapperContact?.current) {
       setIsTouchedContact(
         posTopScroll + heightOffsetLinkCTAFixed >
           refSectionWrapperContact.current.offsetTop &&

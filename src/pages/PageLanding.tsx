@@ -5,12 +5,14 @@ import CmpLayoutHeader from '../components/shared/header/CmpLayoutHeader';
 import CmpLayoutMain from '../components/landing/main/CmpLayoutMain';
 import CmpLayoutFooter from '../components/landing/footer/CmpLayoutFooter';
 import CmpLibraryCTA from '../components/landing/cta/CmpLibraryCTA';
+import { getPositionScrollWindow } from '../utils';
 
 const MainWrapperPage = tw.main`
 overflow-hidden [transform:translate(0px,0px)]
 `;
 
 const PageLanding: FC = () => {
+  const posTopScroll = getPositionScrollWindow('y');
   const refSectionWrapperProcess = useRef<HTMLElement>(null);
   const refSectionWrapperContact = useRef<HTMLElement>(null);
   return (
@@ -18,12 +20,14 @@ const PageLanding: FC = () => {
       <CmpCTAFixed
         textBtn="get started"
         href="#Get-Started"
+        posTopScroll={posTopScroll}
         refSectionWrapperProcess={refSectionWrapperProcess}
         refSectionWrapperContact={refSectionWrapperContact}
       />
       <MainWrapperPage>
         <CmpLayoutHeader />
         <CmpLayoutMain
+          posTopScroll={posTopScroll}
           refSectionWrapperProcess={refSectionWrapperProcess}
           refSectionWrapperContact={refSectionWrapperContact}
         />

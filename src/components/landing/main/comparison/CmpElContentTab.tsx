@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import tw from 'tailwind-styled-components';
-import { queryByMaxWidth } from '../../../../utils';
+import { customRP, queryByMaxWidth } from '../../../../utils';
 import { useMediaQuery } from 'react-responsive';
 import ImageWithRelumeMobile from '../../../../assets/image/img-with-relume-mobile.png';
 import ImageWithRelume1 from '../../../../assets/image/img-with-relume-1.png';
@@ -13,7 +13,8 @@ import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
 type TPropsCmpElContentTab = {
   isWithRelume: boolean;
-  refImageWillBeLoadedEager: React.RefObject<HTMLImageElement>;
+  refImageWillBeLoaded: React.RefObject<HTMLImageElement>;
+  positionXImageOverlay: number;
 };
 
 const DivWrapperImage = tw.div`
@@ -25,14 +26,22 @@ relative mx-auto max-w-[1000px] max-desktop:mx-0 max-desktop:w-full max-desktop:
 `;
 
 const ImgOverlay = tw.img`
-absolute inset-[0%] z-[1] mx-auto block max-w-[1000px] [transform-style:preserve-3d] [transform:translate3d(0%,0px,0px)_scale3d(1,1,1)_rotateX(0deg)_rotateY(0deg)_rotateZ(0deg)_skew(0deg,0deg)] max-desktop:mx-0 max-desktop:w-full max-desktop:min-w-full max-desktop:max-w-full max-tablet:hidden
+absolute inset-[0%] z-[1] mx-auto block max-w-[1000px] [transform-style:preserve-3d] max-desktop:mx-0 max-desktop:w-full max-desktop:min-w-full max-desktop:max-w-full max-tablet:hidden
 `;
 
 const CmpElContentTab: FC<TPropsCmpElContentTab> = ({
   isWithRelume,
-  refImageWillBeLoadedEager,
+  refImageWillBeLoaded,
+  positionXImageOverlay,
 }) => {
   const isMobile = useMediaQuery(queryByMaxWidth(EViewport.TABLET));
+  const customRPImgOverlay = (positionX: 'start' | 'end') => {
+    return customRP({
+      transform: `translate3d(${
+        positionX === 'start' ? '' : '-'
+      }${positionXImageOverlay}%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)`,
+    });
+  };
   return (
     <SwitchTransition>
       <CSSTransition
@@ -45,7 +54,7 @@ const CmpElContentTab: FC<TPropsCmpElContentTab> = ({
         <DivWrapperImage>
           {isMobile ? (
             <ImgContent
-              ref={refImageWillBeLoadedEager}
+              ref={isWithRelume ? refImageWillBeLoaded : undefined}
               src={
                 isWithRelume ? ImageWithRelumeMobile : ImageWithoutRelumeMobile
               }
@@ -55,16 +64,19 @@ const CmpElContentTab: FC<TPropsCmpElContentTab> = ({
           ) : isWithRelume ? (
             <>
               <ImgContent
+                ref={refImageWillBeLoaded}
                 src={ImageWithRelume1}
                 alt="with relume 1"
                 loading="lazy"
               />
               <ImgOverlay
+                style={customRPImgOverlay('end')}
                 src={ImageWithRelume2}
                 alt="with relume 2"
                 loading="lazy"
               />
               <ImgOverlay
+                style={customRPImgOverlay('start')}
                 src={ImageWithRelume3}
                 alt="with relume 3"
                 loading="lazy"
@@ -72,7 +84,7 @@ const CmpElContentTab: FC<TPropsCmpElContentTab> = ({
             </>
           ) : (
             <ImgContent
-              ref={refImageWillBeLoadedEager}
+              ref={refImageWillBeLoaded}
               src={ImageWithoutRelume}
               alt="without relume"
               loading="eager"

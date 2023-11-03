@@ -90,3 +90,17 @@ export const getHeightByRef = <T extends HTMLElement>(
   }, []);
   return heightEl;
 };
+
+export const getHeightWindow = () => {
+  const [heightWindow, setHeightWindow] = useState(window?.innerHeight || 0);
+  useEffect(() => {
+    const handlerSetHeightWindow = () => {
+      setHeightWindow(window?.innerHeight || 0);
+    };
+    window.addEventListener('resize', handlerSetHeightWindow);
+    return () => {
+      window.removeEventListener('resize', handlerSetHeightWindow);
+    };
+  }, []);
+  return heightWindow;
+};
