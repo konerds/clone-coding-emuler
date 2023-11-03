@@ -1,8 +1,9 @@
-import { FC, useState, useEffect } from 'react';
+import { FC, useState, useRef, useEffect } from 'react';
 import tw from 'tailwind-styled-components';
 import CmpElProcess from './CmpElProcess';
 import { IObjProcessWork } from '../../../../interface';
 import { getListObjProcessWork } from '../../../../api';
+import { getPositionYByRef } from '../../../../utils';
 
 const SectionWrapper = tw.section`
 relative bg-[color:#0a0a0a] pb-[120px] pt-[120px] max-desktop:py-[104px] max-tablet:py-[64px]
@@ -44,10 +45,21 @@ const DivWrapperProcess = tw.div`
 relative
 `;
 
-const CmpLayoutProcess: FC = () => {
+type TPropsCmpLayoutProcess = {
+  setPosYSectionWrapperProcess: React.Dispatch<
+    React.SetStateAction<[number, number]>
+  >;
+};
+
+const CmpLayoutProcess: FC<TPropsCmpLayoutProcess> = ({
+  setPosYSectionWrapperProcess,
+}) => {
   const [listObjProcessWork, setListObjProcessWork] = useState<
     IObjProcessWork[]
   >([]);
+  const refSectionWrapper = useRef<HTMLElement>(null);
+  const [posTopNewSectionWrapper, posBottomNewSectionWrapper] =
+    getPositionYByRef(refSectionWrapper);
   useEffect(() => {
     getListObjProcessWork().then((dataListObjProcessWork) => {
       if (!!dataListObjProcessWork) {
@@ -55,8 +67,14 @@ const CmpLayoutProcess: FC = () => {
       }
     });
   }, []);
+  useEffect(() => {
+    setPosYSectionWrapperProcess([
+      posTopNewSectionWrapper,
+      posBottomNewSectionWrapper,
+    ]);
+  }, [posTopNewSectionWrapper]);
   return (
-    <SectionWrapper id="How-It-works">
+    <SectionWrapper id="How-It-works" ref={refSectionWrapper}>
       <DivContainer>
         <DivWrapperIntroduce>
           <H2Title>How it works</H2Title>

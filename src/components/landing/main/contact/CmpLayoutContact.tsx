@@ -1,8 +1,10 @@
-import { FC, useState } from 'react';
+import { FC, useState, useRef, useEffect } from 'react';
 import tw from 'tailwind-styled-components';
 import Modal from 'react-modal';
 import CmpElWrapperInput from './CmpElForm';
 import PageConfirmation from '../../../../pages/popup/PageConfirmation';
+import { TObjStateMsgSubmit } from '../../../../interface';
+import { getPositionYByRef } from '../../../../utils';
 
 const SectionWrapper = tw.section`
 relative bg-[color:#0a0a0a] py-[120px] max-desktop:py-[104px] max-tablet:py-[64px]
@@ -49,7 +51,7 @@ mb-[56px] text-center text-white max-tablet:mb-[48px] max-tablet:text-[24px] max
 `;
 
 const DivLayoutGridSectionForm = tw.div`
-grid w-full gap-x-[24px] gap-y-[16px] [grid-auto-columns:1fr] [grid-template-rows:auto] [grid-template-columns:1fr_1fr] max-tablet:gap-y-0 max-tablet:[grid-template-columns:1fr]
+grid w-full gap-x-[24px] gap-y-[16px] [grid-auto-columns:1fr] [grid-template-columns:1fr_1fr] [grid-template-rows:auto] max-tablet:gap-y-0 max-tablet:[grid-template-columns:1fr]
 `;
 
 type TPropsDivWrapperInput = {
@@ -79,17 +81,15 @@ mt-[10px] rounded-[8px] bg-[color:#ffdede] p-[10px] text-[#e01e1e]
 const DivTextFailure = tw.div`
 `;
 
-type TMsgSubmit = 'success' | 'failure';
-export type TObjStateMsgSubmit =
-  | {
-      type: 'none';
-    }
-  | {
-      type: TMsgSubmit;
-      msg?: string;
-    };
+type TPropsCmpLayoutContact = {
+  setPosYSectionWrapperContact: React.Dispatch<
+    React.SetStateAction<[number, number]>
+  >;
+};
 
-const CmpLayoutContact: FC = () => {
+const CmpLayoutContact: FC<TPropsCmpLayoutContact> = ({
+  setPosYSectionWrapperContact,
+}) => {
   const [stateMsgSubmit, setStateMsgSubmit] = useState<TObjStateMsgSubmit>({
     type: 'none',
   });
@@ -99,6 +99,15 @@ const CmpLayoutContact: FC = () => {
   const [companyEntered, setCompanyEntered] = useState('');
   const [linkToDesginEntered, setLinkToDesignEntered] = useState('');
   const [detailsProjectEntered, setDetailsProjectEntered] = useState('');
+  const refSectionWrapper = useRef<HTMLElement>(null);
+  const [posTopNewSectionWrapper, postBottomNewSectionWrapper] =
+    getPositionYByRef(refSectionWrapper);
+  useEffect(() => {
+    setPosYSectionWrapperContact([
+      posTopNewSectionWrapper,
+      postBottomNewSectionWrapper,
+    ]);
+  }, [posTopNewSectionWrapper]);
   const handlerSubmitConfirmation = async (
     e: React.FormEvent<HTMLFormElement>,
   ) => {
@@ -148,7 +157,7 @@ const CmpLayoutContact: FC = () => {
     }, 2000);
   };
   return (
-    <SectionWrapper id="Get-Started">
+    <SectionWrapper id="Get-Started" ref={refSectionWrapper}>
       <DivContainer>
         <DivWrapperIntroduce>
           <H2TitleIntroduce>Get started</H2TitleIntroduce>

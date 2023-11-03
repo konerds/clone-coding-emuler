@@ -109,3 +109,13 @@ export interface IObjPrivacyPolicy {
   type: 'paragraph' | 'heading';
   content: TObjContentPrivacyPolicy[];
 }
+
+type TMsgSubmit = 'success' | 'failure';
+export type TObjStateMsgSubmit =
+  | {
+      type: 'none';
+    }
+  | {
+      type: TMsgSubmit;
+      msg?: string;
+    };
