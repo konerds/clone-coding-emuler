@@ -65,40 +65,8 @@ export const getPositionScrollWindow = (axis: 'x' | 'y') => {
   return positionScroll;
 };
 
-export const getPositionYByRef = <T extends HTMLElement>(
-  refEl: React.RefObject<T>,
-  isObserveOnlyRef?: boolean,
-) => {
-  const [positionTopEl, setPositionTopEl] = useState(0);
-  const [positionBottomEl, setPositionBottomEl] = useState(0);
-
-  useEffect(() => {
-    if (!!refEl.current) {
-      const fnCbSetPositionY: ResizeObserverCallback = () => {
-        const posTopNew = refEl.current?.getBoundingClientRect().top;
-        const posBottomNew = refEl.current?.getBoundingClientRect().bottom;
-        if (!!posTopNew && !!posBottomNew) {
-          setPositionTopEl(posTopNew);
-          setPositionBottomEl(posBottomNew);
-        }
-      };
-      const observerResize = new ResizeObserver(fnCbSetPositionY);
-
-      observerResize.observe(
-        !!isObserveOnlyRef ? refEl.current : document.body,
-      );
-      return () => {
-        observerResize.disconnect();
-      };
-    }
-  }, [refEl.current, !!isObserveOnlyRef ? undefined : document.body]);
-
-  return [positionTopEl, positionBottomEl];
-};
-
 export const getHeightOffsetByRef = <T extends HTMLElement>(
   refEl: React.RefObject<T>,
-  isObserveOnlyRef?: boolean,
 ) => {
   const [heightEl, setHeightEl] = useState(0);
 
@@ -106,19 +74,18 @@ export const getHeightOffsetByRef = <T extends HTMLElement>(
     if (!!refEl.current) {
       const fnCbSetPositionY: ResizeObserverCallback = () => {
         const heightNew = refEl.current?.getBoundingClientRect().height;
-        const topNew = refEl.current?.getBoundingClientRect().top;
-        if (!!heightNew && !!topNew) {
-          setHeightEl(heightNew + topNew);
+        const posTopNew = refEl.current?.getBoundingClientRect().top;
+        if (!!heightNew && !!posTopNew) {
+          setHeightEl(heightNew + posTopNew);
         }
       };
       const observerResize = new ResizeObserver(fnCbSetPositionY);
-
-      observerResize.observe(isObserveOnlyRef ? refEl.current : document.body);
+      observerResize.observe(refEl.current);
       return () => {
         observerResize.disconnect();
       };
     }
-  }, [refEl.current, isObserveOnlyRef ? undefined : document.body]);
+  }, []);
 
   return heightEl;
 };

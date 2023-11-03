@@ -10,33 +10,25 @@ import CmpLayoutFAQ from './faq/CmpLayoutFAQ';
 import CmpLayoutContact from './contact/CmpLayoutContact';
 
 type TPropsCmpLayoutMain = {
-  setPosYSectionWrapperProcess: React.Dispatch<
-    React.SetStateAction<[number, number]>
-  >;
-  setPosYSectionWrapperContact: React.Dispatch<
-    React.SetStateAction<[number, number]>
-  >;
+  refSectionWrapperProcess: React.RefObject<HTMLElement>;
+  refSectionWrapperContact: React.RefObject<HTMLElement>;
 };
 
 const CmpLayoutMain: FC<TPropsCmpLayoutMain> = ({
-  setPosYSectionWrapperProcess,
-  setPosYSectionWrapperContact,
+  refSectionWrapperProcess,
+  refSectionWrapperContact,
 }) => {
   return (
     <>
       <CmpContentHero />
       <CmpLayoutBenefit />
-      <CmpLayoutProcess
-        setPosYSectionWrapperProcess={setPosYSectionWrapperProcess}
-      />
+      <CmpLayoutProcess refSectionWrapper={refSectionWrapperProcess} />
       <CmpLayoutComparison />
       <CmpLayoutBuiltToSpec />
       <CmpLayoutPricing />
       <CmpLayoutTeam />
       <CmpLayoutFAQ />
-      <CmpLayoutContact
-        setPosYSectionWrapperContact={setPosYSectionWrapperContact}
-      />
+      <CmpLayoutContact refSectionWrapper={refSectionWrapperContact} />
     </>
   );
 };

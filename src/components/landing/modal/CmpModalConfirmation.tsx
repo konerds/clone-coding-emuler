@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import CmpLayoutConfirmation from '../../components/confirmation/CmpLayoutConfirmation';
+import CmpLayoutConfirmation from '../../confirmation/CmpLayoutConfirmation';
 
 type TPropsPageConfirmation = {
   handlerOnRequestCloseModal: () => void;

@@ -1,10 +1,9 @@
-import { FC, useState, useRef, useEffect } from 'react';
+import { FC, useState } from 'react';
 import tw from 'tailwind-styled-components';
 import Modal from 'react-modal';
 import CmpElWrapperInput from './CmpElForm';
-import PageConfirmation from '../../../../pages/popup/PageConfirmation';
+import PageConfirmation from '../../modal/CmpModalConfirmation';
 import { TObjStateMsgSubmit } from '../../../../interface';
-import { getPositionYByRef } from '../../../../utils';
 
 const SectionWrapper = tw.section`
 relative bg-[color:#0a0a0a] py-[120px] max-desktop:py-[104px] max-tablet:py-[64px]
@@ -82,13 +81,11 @@ const DivTextFailure = tw.div`
 `;
 
 type TPropsCmpLayoutContact = {
-  setPosYSectionWrapperContact: React.Dispatch<
-    React.SetStateAction<[number, number]>
-  >;
+  refSectionWrapper: React.RefObject<HTMLElement>;
 };
 
 const CmpLayoutContact: FC<TPropsCmpLayoutContact> = ({
-  setPosYSectionWrapperContact,
+  refSectionWrapper,
 }) => {
   const [stateMsgSubmit, setStateMsgSubmit] = useState<TObjStateMsgSubmit>({
     type: 'none',
@@ -99,15 +96,6 @@ const CmpLayoutContact: FC<TPropsCmpLayoutContact> = ({
   const [companyEntered, setCompanyEntered] = useState('');
   const [linkToDesginEntered, setLinkToDesignEntered] = useState('');
   const [detailsProjectEntered, setDetailsProjectEntered] = useState('');
-  const refSectionWrapper = useRef<HTMLElement>(null);
-  const [posTopNewSectionWrapper, postBottomNewSectionWrapper] =
-    getPositionYByRef(refSectionWrapper);
-  useEffect(() => {
-    setPosYSectionWrapperContact([
-      posTopNewSectionWrapper,
-      postBottomNewSectionWrapper,
-    ]);
-  }, [posTopNewSectionWrapper]);
   const handlerSubmitConfirmation = async (
     e: React.FormEvent<HTMLFormElement>,
   ) => {

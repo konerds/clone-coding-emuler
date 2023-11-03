@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useRef } from 'react';
 import tw from 'tailwind-styled-components';
 import CmpCTAFixed from '../components/shared/CmpCTAFixed';
 import CmpLayoutHeader from '../components/shared/header/CmpLayoutHeader';
@@ -11,27 +11,21 @@ overflow-hidden [transform:translate(0px,0px)]
 `;
 
 const PageLanding: FC = () => {
-  const [posYSectionWrapperProcess, setPosYSectionWrapperProcess] = useState<
-    [number, number]
-  >([0, 0]);
-  const [posYSectionWrapperContact, setPosYSectionWrapperContact] = useState<
-    [number, number]
-  >([0, 0]);
+  const refSectionWrapperProcess = useRef<HTMLElement>(null);
+  const refSectionWrapperContact = useRef<HTMLElement>(null);
   return (
     <>
       <CmpCTAFixed
         textBtn="get started"
         href="#Get-Started"
-        objPosSectionForLanding={{
-          posYSectionWrapperProcess: posYSectionWrapperProcess,
-          posYSectionWrapperContact: posYSectionWrapperContact,
-        }}
+        refSectionWrapperProcess={refSectionWrapperProcess}
+        refSectionWrapperContact={refSectionWrapperContact}
       />
       <MainWrapperPage>
         <CmpLayoutHeader />
         <CmpLayoutMain
-          setPosYSectionWrapperProcess={setPosYSectionWrapperProcess}
-          setPosYSectionWrapperContact={setPosYSectionWrapperContact}
+          refSectionWrapperProcess={refSectionWrapperProcess}
+          refSectionWrapperContact={refSectionWrapperContact}
         />
         <CmpLayoutFooter />
       </MainWrapperPage>

@@ -28,58 +28,51 @@ type TPropsCmpCTAFixed = {
   icon?: string;
   href: string;
   textBtn: string;
-  objPosSectionForLanding?: {
-    posYSectionWrapperProcess: [number, number];
-    posYSectionWrapperContact: [number, number];
-  };
+  refSectionWrapperProcess?: React.RefObject<HTMLElement>;
+  refSectionWrapperContact?: React.RefObject<HTMLElement>;
 };
 
 const CmpCTAFixed: FC<TPropsCmpCTAFixed> = ({
   icon,
   href,
   textBtn,
-  objPosSectionForLanding,
+  refSectionWrapperProcess,
+  refSectionWrapperContact,
 }) => {
-  const posTopScrollWindow = getPositionScrollWindow('y');
   const refLinkCTAFixed = useRef<HTMLAnchorElement>(null);
-  const heightLinkCTAFixed = getHeightOffsetByRef(refLinkCTAFixed, true);
+  const posTopScroll = getPositionScrollWindow('y');
+  const heightOffsetLinkCTAFixed = getHeightOffsetByRef(refLinkCTAFixed);
   const [isTouchedProcess, setIsTouchedProcess] = useState(false);
   const [isTouchedContact, setIsTouchedContact] = useState(false);
   useEffect(() => {
-    if (!!objPosSectionForLanding) {
-      if (
-        posTopScrollWindow + heightLinkCTAFixed >
-          objPosSectionForLanding.posYSectionWrapperProcess[0] &&
-        posTopScrollWindow - heightLinkCTAFixed <
-          objPosSectionForLanding.posYSectionWrapperProcess[1]
-      ) {
-        setIsTouchedProcess(true);
-      } else {
-        setIsTouchedProcess(false);
-      }
+    if (!!refSectionWrapperProcess?.current) {
+      setIsTouchedProcess(
+        posTopScroll + heightOffsetLinkCTAFixed >
+          refSectionWrapperProcess.current.offsetTop &&
+          posTopScroll <
+            refSectionWrapperProcess.current.offsetTop +
+              refSectionWrapperProcess.current.offsetHeight,
+      );
     }
   }, [
-    heightLinkCTAFixed,
-    posTopScrollWindow,
-    objPosSectionForLanding?.posYSectionWrapperProcess,
+    posTopScroll,
+    heightOffsetLinkCTAFixed,
+    refSectionWrapperProcess?.current,
   ]);
   useEffect(() => {
-    if (!!objPosSectionForLanding) {
-      if (
-        posTopScrollWindow + heightLinkCTAFixed >
-          objPosSectionForLanding.posYSectionWrapperContact[0] &&
-        posTopScrollWindow - heightLinkCTAFixed <
-          objPosSectionForLanding.posYSectionWrapperContact[1]
-      ) {
-        setIsTouchedContact(true);
-      } else {
-        setIsTouchedContact(false);
-      }
+    if (!!refSectionWrapperContact?.current) {
+      setIsTouchedContact(
+        posTopScroll + heightOffsetLinkCTAFixed >
+          refSectionWrapperContact.current.offsetTop &&
+          posTopScroll <
+            refSectionWrapperContact.current.offsetTop +
+              refSectionWrapperContact.current.offsetHeight,
+      );
     }
   }, [
-    heightLinkCTAFixed,
-    posTopScrollWindow,
-    objPosSectionForLanding?.posYSectionWrapperContact,
+    posTopScroll,
+    heightOffsetLinkCTAFixed,
+    refSectionWrapperContact?.current,
   ]);
   return (
     <DivContainer>
