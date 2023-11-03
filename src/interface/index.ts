@@ -1,9 +1,9 @@
 export enum EViewport {
   MOBILE_PORTRAIT = 0,
-  MOBILE_LANDSCAPE = 480,
-  TABLET = 768,
-  DESKTOP = 992,
-  DESKTOP_LARGER = 1280,
+  MOBILE_LANDSCAPE = 478.98,
+  TABLET = 767.98,
+  DESKTOP = 991.98,
+  DESKTOP_LARGER = 1279.98,
 }
 
 export interface IObjMenuHeader {

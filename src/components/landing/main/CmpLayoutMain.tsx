@@ -11,12 +11,14 @@ import CmpLayoutContact from './contact/CmpLayoutContact';
 
 type TPropsCmpLayoutMain = {
   posTopScroll: number;
+  heightWindow: number;
   refSectionWrapperProcess: React.RefObject<HTMLElement>;
   refSectionWrapperContact: React.RefObject<HTMLElement>;
 };
 
 const CmpLayoutMain: FC<TPropsCmpLayoutMain> = ({
   posTopScroll,
+  heightWindow,
   refSectionWrapperProcess,
   refSectionWrapperContact,
 }) => {
@@ -24,8 +26,15 @@ const CmpLayoutMain: FC<TPropsCmpLayoutMain> = ({
     <>
       <CmpContentHero />
       <CmpLayoutBenefit />
-      <CmpLayoutProcess refSectionWrapper={refSectionWrapperProcess} />
-      <CmpLayoutComparison posTopScroll={posTopScroll} />
+      <CmpLayoutProcess
+        posTopScroll={posTopScroll}
+        heightWindow={heightWindow}
+        refSectionWrapper={refSectionWrapperProcess}
+      />
+      <CmpLayoutComparison
+        posTopScroll={posTopScroll}
+        heightWindow={heightWindow}
+      />
       <CmpLayoutBuiltToSpec />
       <CmpLayoutPricing />
       <CmpLayoutTeam />

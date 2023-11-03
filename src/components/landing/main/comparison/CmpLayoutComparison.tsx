@@ -1,6 +1,6 @@
 import { FC, useState, useRef, useEffect } from 'react';
 import tw from 'tailwind-styled-components';
-import { customRP, getHeightByRef, getHeightWindow } from '../../../../utils';
+import { customRP, getHeightByRef } from '../../../../utils';
 import ImgBgGrainLatest from '../../../../assets/image/img-bg-grain-latest.png';
 import IconUnderline from '../../../../assets/image/icon/icon-underline.svg';
 import CmpElContentTab from './CmpElContentTab';
@@ -54,10 +54,12 @@ absolute inset-[30%_auto_auto_5%] flex h-[440px] w-[440px] items-center justify-
 
 type TPropsCmpLayoutComparison = {
   posTopScroll: number;
+  heightWindow: number;
 };
 
 const CmpLayoutComparison: FC<TPropsCmpLayoutComparison> = ({
   posTopScroll,
+  heightWindow,
 }) => {
   const [isWithRelume, setIsWithRelume] = useState(true);
   const refImageWillBeLoaded = useRef<HTMLImageElement>(null);
@@ -66,7 +68,6 @@ const CmpLayoutComparison: FC<TPropsCmpLayoutComparison> = ({
     useState<React.CSSProperties>({});
   const refDivWrapperWithRelume = useRef<HTMLImageElement>(null);
   const heightDivWrapperWithRelume = getHeightByRef(refDivWrapperWithRelume);
-  const heightWindow = getHeightWindow();
   const [positionXImageOverlay, setPositionXImageOverlay] = useState(0);
   useEffect(() => {
     if (!!heightMinImageDefault) {
@@ -96,9 +97,9 @@ const CmpLayoutComparison: FC<TPropsCmpLayoutComparison> = ({
     }
   }, [
     posTopScroll,
+    heightWindow,
     refDivWrapperWithRelume.current,
     heightDivWrapperWithRelume,
-    heightWindow,
   ]);
   return (
     <SectionWrapper style={customRPSectionWrapper}>

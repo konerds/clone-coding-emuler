@@ -31,7 +31,7 @@ mx-auto flex items-center justify-between
 
 const CmpLayoutHeader: FC = () => {
   const { pathname } = useLocation();
-  const isDesktop = useMediaQuery(queryByMaxWidth(EViewport.DESKTOP));
+  const isWithinTablet = useMediaQuery(queryByMaxWidth(EViewport.DESKTOP));
   const [listObjMenuHeader, setListObjMenuHeader] = useState<IObjMenuHeader[]>(
     [],
   );
@@ -56,7 +56,7 @@ const CmpLayoutHeader: FC = () => {
             <IconLogoHeaderSecondary />
           </DivLogoSecondary>
         </Link>
-        {!isDesktop && !pathname.split('/').includes('privacy-policy') && (
+        {!isWithinTablet && !pathname.split('/').includes('privacy-policy') && (
           <DivWrapperListMenu>
             {listObjMenuHeader?.map((objMenu, idxObjMenu) => {
               return <CmpElMenu key={idxObjMenu} objMenu={objMenu} />;

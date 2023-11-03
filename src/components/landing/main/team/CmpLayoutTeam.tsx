@@ -102,7 +102,7 @@ absolute inset-[auto_auto_-10%_-5%] -z-[1] block h-[440px] w-[440px] rounded-[50
 `;
 
 const CmpLayoutTeam: FC = () => {
-  const isMobile = useMediaQuery(queryByMaxWidth(EViewport.TABLET));
+  const isWithinMobile = useMediaQuery(queryByMaxWidth(EViewport.TABLET));
   const [positionScrollYLoopRoster, setPositionScrollYLoopRoster] = useState(0);
   const [customRPDivWrapperImageRoster, setCustomRPDivWrapperImageRoster] =
     useState<React.CSSProperties>({});
@@ -162,11 +162,11 @@ const CmpLayoutTeam: FC = () => {
     setCustomRPDivWrapperImageRoster(
       customRP({
         backgroundImage: `url(${
-          isMobile ? ImgBgGradientAngleMobile : ImgBgGradientAngle
+          isWithinMobile ? ImgBgGradientAngleMobile : ImgBgGradientAngle
         })`,
       }),
     );
-  }, [isMobile]);
+  }, [isWithinMobile]);
   return (
     <SectionWrapper id="Team" style={customRPSectionWrapper}>
       <DivContainer>

@@ -1,8 +1,10 @@
 import { FC, useState, useEffect } from 'react';
 import tw from 'tailwind-styled-components';
 import CmpElProcess from './CmpElProcess';
-import { IObjProcessWork } from '../../../../interface';
+import { EViewport, IObjProcessWork } from '../../../../interface';
 import { getListObjProcessWork } from '../../../../api';
+import { getHeightByRef, queryByMaxWidth } from '../../../../utils';
+import { useMediaQuery } from 'react-responsive';
 
 const SectionWrapper = tw.section`
 relative bg-[color:#0a0a0a] pb-[120px] pt-[120px] max-desktop:py-[104px] max-tablet:py-[64px]
@@ -37,7 +39,7 @@ relative h-[82%] w-[2px] bg-[color:#ffffff26]
 `;
 
 const DivLineWhite = tw.div`
-absolute inset-[0%] w-[2px] bg-white
+absolute inset-[0%] w-[2px] bg-white will-change-[width,_height]
 `;
 
 const DivWrapperProcess = tw.div`
@@ -45,15 +47,24 @@ relative
 `;
 
 type TPropsCmpLayoutProcess = {
+  posTopScroll: number;
+  heightWindow: number;
   refSectionWrapper: React.RefObject<HTMLElement>;
 };
 
 const CmpLayoutProcess: FC<TPropsCmpLayoutProcess> = ({
+  posTopScroll,
+  heightWindow,
   refSectionWrapper,
 }) => {
+  const isWithinTablet = useMediaQuery(queryByMaxWidth(EViewport.DESKTOP));
+  const [customRPDivLineWhite, setCustomRPDivLineWhite] =
+    useState<React.CSSProperties>({});
   const [listObjProcessWork, setListObjProcessWork] = useState<
     IObjProcessWork[]
   >([]);
+  const heightRefSectionWrapper = getHeightByRef(refSectionWrapper);
+  const [percentageLineWhite, setPercentageLineWhite] = useState(0);
   useEffect(() => {
     getListObjProcessWork().then((dataListObjProcessWork) => {
       if (!!dataListObjProcessWork) {
@@ -61,6 +72,34 @@ const CmpLayoutProcess: FC<TPropsCmpLayoutProcess> = ({
       }
     });
   }, []);
+  useEffect(() => {
+    if (!isWithinTablet && !!refSectionWrapper.current) {
+      const positionTopRelative =
+        refSectionWrapper.current.getBoundingClientRect().top -
+        heightWindow / 26;
+      if (positionTopRelative < 0) {
+        const percentageLineWhiteNew = Math.abs(positionTopRelative) / 13;
+        setPercentageLineWhite(
+          percentageLineWhiteNew > 100 ? 100 : percentageLineWhiteNew,
+        );
+      } else {
+        setPercentageLineWhite(0);
+      }
+    }
+  }, [
+    isWithinTablet,
+    posTopScroll,
+    heightWindow,
+    refSectionWrapper.current,
+    heightRefSectionWrapper,
+  ]);
+  useEffect(() => {
+    if (!isWithinTablet) {
+      setCustomRPDivLineWhite({
+        height: `${percentageLineWhite}%`,
+      });
+    }
+  }, [percentageLineWhite]);
   return (
     <SectionWrapper id="How-It-works" ref={refSectionWrapper}>
       <DivContainer>
@@ -74,13 +113,45 @@ const CmpLayoutProcess: FC<TPropsCmpLayoutProcess> = ({
         <DivLayoutGrid>
           <DivWrapperTimeline>
             <DivLineGrey>
-              <DivLineWhite></DivLineWhite>
+              <DivLineWhite style={customRPDivLineWhite}></DivLineWhite>
             </DivLineGrey>
           </DivWrapperTimeline>
           <DivWrapperProcess>
             {listObjProcessWork.map((objProcess, idxObjProcess) => {
+              const numHelperSubtract = (idxArr: number) => {
+                return idxArr === 0
+                  ? 0
+                  : idxArr === lenListObjProcessWork - 1
+                  ? 8
+                  : 2;
+              };
+              const lenListObjProcessWork = listObjProcessWork.length;
+              const listCollapse = Array.from({
+                length: lenListObjProcessWork,
+              }).map((_, idxArr) => {
+                const DEFAULT_PERCENTAGE = 100 / (lenListObjProcessWork - 1);
+                const limitMin =
+                  DEFAULT_PERCENTAGE * idxArr - numHelperSubtract(idxArr);
+                return limitMin || 1;
+              });
+              const percentageLineWhiteCalculated = !isWithinTablet
+                ? (percentageLineWhite - listCollapse[idxObjProcess]) /
+                  numHelperSubtract(idxObjProcess)
+                : undefined;
+              const percentageLineWhiteCurrent =
+                percentageLineWhiteCalculated !== undefined
+                  ? percentageLineWhiteCalculated < 0.15
+                    ? 0.15
+                    : percentageLineWhiteCalculated > 1
+                    ? 1
+                    : percentageLineWhiteCalculated
+                  : percentageLineWhiteCalculated;
               return (
-                <CmpElProcess key={idxObjProcess} objProcess={objProcess} />
+                <CmpElProcess
+                  key={idxObjProcess}
+                  objProcess={objProcess}
+                  percentageLineWhiteCurrent={percentageLineWhiteCurrent}
+                />
               );
             })}
           </DivWrapperProcess>

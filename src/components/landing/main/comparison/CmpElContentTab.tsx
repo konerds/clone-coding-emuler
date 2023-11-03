@@ -34,7 +34,7 @@ const CmpElContentTab: FC<TPropsCmpElContentTab> = ({
   refImageWillBeLoaded,
   positionXImageOverlay,
 }) => {
-  const isMobile = useMediaQuery(queryByMaxWidth(EViewport.TABLET));
+  const isWithinMobile = useMediaQuery(queryByMaxWidth(EViewport.TABLET));
   const customRPImgOverlay = (positionX: 'start' | 'end') => {
     return customRP({
       transform: `translate3d(${
@@ -52,7 +52,7 @@ const CmpElContentTab: FC<TPropsCmpElContentTab> = ({
         classNames="transition-fade"
       >
         <DivWrapperImage>
-          {isMobile ? (
+          {isWithinMobile ? (
             <ImgContent
               ref={isWithRelume ? refImageWillBeLoaded : undefined}
               src={

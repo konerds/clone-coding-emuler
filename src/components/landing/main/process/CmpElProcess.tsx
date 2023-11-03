@@ -6,12 +6,13 @@ import ImgBgGradientAngleMobile from '../../../../assets/image/img-bg-gradient-a
 import { EViewport, IObjProcessWork } from '../../../../interface';
 import { useMediaQuery } from 'react-responsive';
 
-type TPropsCmpElProcess = {
-  objProcess: IObjProcessWork;
-};
+const MARGIN_BOTTOM_PER_PROCESS = 40;
 
+const customRPDivWrapperProcess = customRP({
+  marginBottom: `${MARGIN_BOTTOM_PER_PROCESS}px`,
+});
 const DivWrapperProcess = tw.div`
-relative mb-[40px] flex items-center
+relative flex items-center
 `;
 
 const DivWrapperStep = tw.div`
@@ -52,26 +53,49 @@ const ParagraphDescParagraph = tw.p`
 text-[#ffffffa6]
 `;
 
-const CmpElProcess: FC<TPropsCmpElProcess> = ({ objProcess }) => {
-  const isMobile = useMediaQuery(queryByMaxWidth(EViewport.TABLET));
+type TPropsCmpElProcess = {
+  objProcess: IObjProcessWork;
+  percentageLineWhiteCurrent?: number;
+};
+
+const CmpElProcess: FC<TPropsCmpElProcess> = ({
+  objProcess,
+  percentageLineWhiteCurrent,
+}) => {
+  const isWithinMobile = useMediaQuery(queryByMaxWidth(EViewport.TABLET));
   const [customRPDivBlockImage, setCustomRPDivBlockImage] =
+    useState<React.CSSProperties>({});
+  const [opacityCurrent, setOpacityCurrent] = useState(1);
+  const [customRPElWithOpacity, setCustomRPElWithOpacity] =
     useState<React.CSSProperties>({});
   useEffect(() => {
     setCustomRPDivBlockImage(
       customRP({
         backgroundImage: `url(${
-          isMobile ? ImgBgGradientAngleMobile : ImgBgGradientAngle
+          isWithinMobile ? ImgBgGradientAngleMobile : ImgBgGradientAngle
         })`,
       }),
     );
-  }, [isMobile]);
+  }, [isWithinMobile]);
+  useEffect(() => {
+    setOpacityCurrent(percentageLineWhiteCurrent || 1);
+  }, [percentageLineWhiteCurrent]);
+  useEffect(() => {
+    setCustomRPElWithOpacity({
+      opacity: opacityCurrent,
+    });
+  }, [opacityCurrent]);
   return (
-    <DivWrapperProcess>
+    <DivWrapperProcess style={customRPDivWrapperProcess}>
       <DivWrapperStep>
-        <ImgCircleStep src={objProcess.iconStep} loading="lazy" />
+        <ImgCircleStep
+          style={customRPElWithOpacity}
+          src={objProcess.iconStep}
+          loading="lazy"
+        />
         <DivLineBlack></DivLineBlack>
       </DivWrapperStep>
-      <DivWrapperInfo>
+      <DivWrapperInfo style={customRPElWithOpacity}>
         <DivBlockImage style={customRPDivBlockImage}>
           <ImgInfoStep src={objProcess.image} loading="lazy" />
         </DivBlockImage>
