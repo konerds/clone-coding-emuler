@@ -52,7 +52,6 @@ export const getListObjConvertedByTypeSupport = (listObj: IObjPricing[]) => {
 
 export const getPositionScrollWindow = (axis: 'x' | 'y') => {
   const [positionScroll, setPositionScroll] = useState(0);
-
   useEffect(() => {
     const updatePosition = () => {
       setPositionScroll(axis === 'y' ? window.scrollY : window.scrollX);
@@ -61,22 +60,25 @@ export const getPositionScrollWindow = (axis: 'x' | 'y') => {
     updatePosition();
     return () => window.removeEventListener('scroll', updatePosition);
   }, []);
-
   return positionScroll;
 };
 
-export const getHeightOffsetByRef = <T extends HTMLElement>(
+export const getHeightByRef = <T extends HTMLElement>(
   refEl: React.RefObject<T>,
+  isIncludePositionTop?: boolean,
 ) => {
   const [heightEl, setHeightEl] = useState(0);
-
   useEffect(() => {
     if (!!refEl.current) {
       const fnCbSetPositionY: ResizeObserverCallback = () => {
         const heightNew = refEl.current?.getBoundingClientRect().height;
         const posTopNew = refEl.current?.getBoundingClientRect().top;
-        if (!!heightNew && !!posTopNew) {
-          setHeightEl(heightNew + posTopNew);
+        if (!!heightNew) {
+          setHeightEl(
+            isIncludePositionTop && !!posTopNew
+              ? heightNew + posTopNew
+              : heightNew,
+          );
         }
       };
       const observerResize = new ResizeObserver(fnCbSetPositionY);
@@ -86,6 +88,5 @@ export const getHeightOffsetByRef = <T extends HTMLElement>(
       };
     }
   }, []);
-
   return heightEl;
 };

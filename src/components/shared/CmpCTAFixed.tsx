@@ -1,6 +1,6 @@
 import { FC, useState, useRef, useEffect } from 'react';
 import tw from 'tailwind-styled-components';
-import { getHeightOffsetByRef, getPositionScrollWindow } from '../../utils';
+import { getHeightByRef, getPositionScrollWindow } from '../../utils';
 
 const DivContainer = tw.div`
 fixed inset-[16px_0%_auto] z-[1000] mx-auto flex w-[90%] max-w-[1360px] justify-end desktop:inset-[24px_0%_auto] desktop:block
@@ -41,7 +41,7 @@ const CmpCTAFixed: FC<TPropsCmpCTAFixed> = ({
 }) => {
   const refLinkCTAFixed = useRef<HTMLAnchorElement>(null);
   const posTopScroll = getPositionScrollWindow('y');
-  const heightOffsetLinkCTAFixed = getHeightOffsetByRef(refLinkCTAFixed);
+  const heightOffsetLinkCTAFixed = getHeightByRef(refLinkCTAFixed, true);
   const [isTouchedProcess, setIsTouchedProcess] = useState(false);
   const [isTouchedContact, setIsTouchedContact] = useState(false);
   useEffect(() => {

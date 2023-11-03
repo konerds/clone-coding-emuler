@@ -153,12 +153,15 @@
   @apply opacity-0;
 }
 .transition-fade-enter-active {
-  @apply opacity-100 transition-[opacity_0.4s_ease-in_0.6s];
+  @apply opacity-100;
 }
-
 .transition-fade-exit {
   @apply opacity-100;
 }
 .transition-fade-exit-active {
-  @apply opacity-0 transition-[opacity_0.4s_ease-in];
+  @apply opacity-0;
+}
+.transition-fade-enter-active,
+.transition-fade-exit-active {
+  @apply transition-opacity delay-0 duration-500 ease-[ease] will-change-[opacity];
 }

@@ -1,6 +1,6 @@
-import { FC, useState } from 'react';
+import { FC, useState, useRef, useEffect } from 'react';
 import tw from 'tailwind-styled-components';
-import { customRP } from '../../../../utils';
+import { customRP, getHeightByRef } from '../../../../utils';
 import ImgBgGrainLatest from '../../../../assets/image/img-bg-grain-latest.png';
 import IconUnderline from '../../../../assets/image/icon/icon-underline.svg';
 import CmpElContentTab from './CmpElContentTab';
@@ -54,6 +54,15 @@ absolute inset-[30%_auto_auto_5%] flex h-[440px] w-[440px] items-center justify-
 
 const CmpLayoutComparison: FC = () => {
   const [isWithRelume, setIsWithRelume] = useState(true);
+  const refImageWillBeLoadedEager = useRef<HTMLImageElement>(null);
+  const heightMinImageDefault = getHeightByRef(refImageWillBeLoadedEager);
+  const [customRPDivContentTab, setCustomRPDivContentTab] =
+    useState<React.CSSProperties>({});
+  useEffect(() => {
+    setCustomRPDivContentTab({
+      minHeight: `${heightMinImageDefault}px`,
+    });
+  }, [heightMinImageDefault]);
   return (
     <SectionWrapper style={customRPSectionWrapper}>
       <DivContainer>
@@ -84,8 +93,11 @@ const CmpLayoutComparison: FC = () => {
               );
             })}
           </DivListTab>
-          <DivContentTab>
-            <CmpElContentTab isWithRelume={isWithRelume} />
+          <DivContentTab style={customRPDivContentTab}>
+            <CmpElContentTab
+              isWithRelume={isWithRelume}
+              refImageWillBeLoadedEager={refImageWillBeLoadedEager}
+            />
           </DivContentTab>
         </DivWrapperWithRelume>
       </DivContainer>
