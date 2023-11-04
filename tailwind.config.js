@@ -11,7 +11,7 @@ module.exports = {
     screens: {
       ...defaultTheme.screens,
       'mobile-portrait': '0px',
-      'mobile-landscape': '480px',
+      'mobile-landscape': '479px',
       tablet: '768px',
       desktop: '992px',
       'desktop-larger': '1280px',
