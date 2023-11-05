@@ -1,7 +1,7 @@
 [
   {
-    "iconStep": "https://bucket-s3-clone-coding.s3.amazonaws.com/image/icon/icon-circle-step1.svg",
-    "image": "https://bucket-s3-clone-coding.s3.amazonaws.com/image/icon/icon-step1-visual-design.svg",
+    "iconStep": "https://bucket-s3-clone-coding.s3.amazonaws.com/relume/image/icon/icon-circle-step1.svg",
+    "image": "https://bucket-s3-clone-coding.s3.amazonaws.com/relume/image/icon/icon-step1-visual-design.svg",
     "title": "Share your designs",
     "desc": {
       "sentence": "Determine costs and timeline...",
@@ -9,8 +9,8 @@
     }
   },
   {
-    "iconStep": "https://bucket-s3-clone-coding.s3.amazonaws.com/image/icon/icon-circle-step2.svg",
-    "image": "https://bucket-s3-clone-coding.s3.amazonaws.com/image/icon/icon-step2-webflow-dev.svg",
+    "iconStep": "https://bucket-s3-clone-coding.s3.amazonaws.com/relume/image/icon/icon-circle-step2.svg",
+    "image": "https://bucket-s3-clone-coding.s3.amazonaws.com/relume/image/icon/icon-step2-webflow-dev.svg",
     "title": "Begin development",
     "desc": {
       "sentence": "Begin building on Webflow...",
@@ -18,8 +18,8 @@
     }
   },
   {
-    "iconStep": "https://bucket-s3-clone-coding.s3.amazonaws.com/image/icon/icon-circle-step3.svg",
-    "image": "https://bucket-s3-clone-coding.s3.amazonaws.com/image/icon/icon-step3-feedback.svg",
+    "iconStep": "https://bucket-s3-clone-coding.s3.amazonaws.com/relume/image/icon/icon-circle-step3.svg",
+    "image": "https://bucket-s3-clone-coding.s3.amazonaws.com/relume/image/icon/icon-step3-feedback.svg",
     "title": "Provide feedback",
     "desc": {
       "sentence": "Add the final polish...",
@@ -27,8 +27,8 @@
     }
   },
   {
-    "iconStep": "https://bucket-s3-clone-coding.s3.amazonaws.com/image/icon/icon-circle-step4.svg",
-    "image": "https://bucket-s3-clone-coding.s3.amazonaws.com/image/icon/icon-step4-onboarding.svg",
+    "iconStep": "https://bucket-s3-clone-coding.s3.amazonaws.com/relume/image/icon/icon-circle-step4.svg",
+    "image": "https://bucket-s3-clone-coding.s3.amazonaws.com/relume/image/icon/icon-step4-onboarding.svg",
     "title": "Webflow training & support",
     "desc": {
       "sentence": "Learn how to use Webflow...",
@@ -36,8 +36,8 @@
     }
   },
   {
-    "iconStep": "https://bucket-s3-clone-coding.s3.amazonaws.com/image/icon/icon-circle-step5.svg",
-    "image": "https://bucket-s3-clone-coding.s3.amazonaws.com/image/icon/icon-step5-launch.svg",
+    "iconStep": "https://bucket-s3-clone-coding.s3.amazonaws.com/relume/image/icon/icon-circle-step5.svg",
+    "image": "https://bucket-s3-clone-coding.s3.amazonaws.com/relume/image/icon/icon-step5-launch.svg",
     "title": "Launch new website",
     "desc": {
       "sentence": "Release it to the world...",
