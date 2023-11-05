@@ -50,7 +50,7 @@ export const getListObjConvertedByTypeSupport = (listObj: IObjPricing[]) => {
   }, [] as IObjSupport[]);
 };
 
-export const getPositionScrollWindow = (axis: 'x' | 'y') => {
+export const usePositionScrollWindow = (axis: 'x' | 'y') => {
   const [positionScroll, setPositionScroll] = useState(0);
   useEffect(() => {
     const updatePosition = () => {
