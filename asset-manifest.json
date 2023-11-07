@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/clone-coding-emuler/static/css/main.f93f749b.css",
+    "main.css": "/clone-coding-emuler/static/css/main.c6f9be07.css",
     "main.js": "/clone-coding-emuler/static/js/main.3fd89e66.js",
     "static/media/pretendard-variable.ttf": "/clone-coding-emuler/static/media/pretendard-variable.4ab1a55a486870ed0174.ttf",
     "static/media/pretendard-variable.eot": "/clone-coding-emuler/static/media/pretendard-variable.2bea04855e4051c7822a.eot",
@@ -33,11 +33,11 @@
     "static/media/icon-logo-footer-secondary.svg": "/clone-coding-emuler/static/media/icon-logo-footer-secondary.c8ec5aacf86e0fb9be6713f317b3e172.svg",
     "static/media/icon-logo-header-secondary.svg": "/clone-coding-emuler/static/media/icon-logo-header-secondary.c8ec5aacf86e0fb9be6713f317b3e172.svg",
     "static/media/icon-tick.svg": "/clone-coding-emuler/static/media/icon-tick.daab0becae064a2dec8c496b08e26a4e.svg",
-    "main.f93f749b.css.map": "/clone-coding-emuler/static/css/main.f93f749b.css.map",
+    "main.c6f9be07.css.map": "/clone-coding-emuler/static/css/main.c6f9be07.css.map",
     "main.3fd89e66.js.map": "/clone-coding-emuler/static/js/main.3fd89e66.js.map"
   },
   "entrypoints": [
-    "static/css/main.f93f749b.css",
+    "static/css/main.c6f9be07.css",
     "static/js/main.3fd89e66.js"
   ]
 }
