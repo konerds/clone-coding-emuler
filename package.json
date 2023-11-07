@@ -24,7 +24,7 @@
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://konerds.github.io/clone-coding-emuler",
+  "homepage": "https://konerds.github.io/emuler-clone-coding",
   "scripts": {
     "start": "set PUBLIC_URL=.&&react-scripts start",
     "build": "react-scripts build",
