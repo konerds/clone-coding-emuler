@@ -57,7 +57,7 @@
   html,
   body {
     font-family: pretendard-variable;
-    @apply box-border select-none antialiased antialiased-stroke drag-none scroll-none;
+    @apply box-border select-none antialiased antialiased-stroke drag-none;
   }
 
   html,
@@ -70,7 +70,7 @@
   }
 
   body {
-    @apply m-0 bg-[color:#d8d5d1] text-[14px] font-normal leading-[20px] text-[#161616];
+    @apply m-0 overflow-hidden bg-[color:#d8d5d1] text-[14px] font-normal leading-[20px] text-[#161616];
   }
 
   h1 {
