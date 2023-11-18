@@ -1,4 +1,4 @@
-# Pratice Frontend Publishing with Relume Webflow Example
+# Practice Frontend Publishing with Relume Webflow Example
 
 <p>
 Relume Landing Page<br/>
