@@ -1,5 +1,6 @@
-import { FC, useState, useEffect } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo, useState, useLayoutEffect } from 'react';
+
+import { tw } from '../../../../utils';
 import { customRP } from '../../../../utils';
 import ImgBgGrainLatest from '../../../../assets/image/img-bg-grain-latest.png';
 import { getListObjConvertedByTypeSupport } from '../../../../utils';
@@ -45,7 +46,7 @@ h-[24px] max-tablet:hidden
 `;
 
 const DivDataTablePricing = tw.div`
-grid gap-[16px] [grid-auto-columns:1fr] [grid-template-rows:auto] [grid-template-columns:1fr_1fr_1fr]
+grid gap-[16px] [grid-auto-columns:1fr] [grid-template-columns:1fr_1fr_1fr] [grid-template-rows:auto]
 `;
 
 const DivCaptionPricing = tw.div`
@@ -60,11 +61,11 @@ const DivBlurCircleTL = tw.div`
 absolute inset-[-5%_auto_auto_-5%] -z-[1] block h-[440px] w-[440px] rounded-[500px] bg-[image:linear-gradient(132deg,#ff7448_35%,#ff4848_54%,#6248ff_80%)] opacity-[0.97] [filter:blur(64px)_blur(64px)] max-desktop:-right-[5%] max-desktop:-top-[10%] max-desktop:h-[400px] max-desktop:w-[400px] max-desktop:bg-[image:linear-gradient(285deg,#ff7448_29%,#ff4848_58%,#6248ff_80%)] max-desktop:[filter:blur(68px)] max-tablet:h-[320px] max-tablet:w-[320px] max-mobile-landscape:-right-[20%] max-mobile-landscape:h-[280px] max-mobile-landscape:w-[280px]
 `;
 
-const CmpLayoutPricing: FC = () => {
+const CmpLayoutPricing = () => {
   const [listObjPricing, setListObjPricing] = useState<IObjPricing[]>([]);
-  useEffect(() => {
+  useLayoutEffect(() => {
     getListObjPricing().then((dataListObjPricing) => {
-      if (!!dataListObjPricing) {
+      if (dataListObjPricing) {
         setListObjPricing(dataListObjPricing);
       }
     });
@@ -108,4 +109,4 @@ const CmpLayoutPricing: FC = () => {
   );
 };
 
-export default CmpLayoutPricing;
+export default memo(CmpLayoutPricing);

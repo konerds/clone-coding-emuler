@@ -1,5 +1,6 @@
-import { FC, useState } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo, useState } from 'react';
+
+import { tw } from '../../../../utils';
 import AnimateHeight from 'react-animate-height';
 import { IObjFAQ } from '../../../../interface';
 import IconChevron from '../../../../assets/image/icon/icon-chevron.svg';
@@ -32,19 +33,14 @@ const ParagraphAnswer = tw.p`
 ml-0 mt-[24px]
 `;
 
-const CmpElFAQ: FC<TPropsCmpElFAQ> = ({ objFAQ }) => {
+const CmpElFAQ = ({ objFAQ }: TPropsCmpElFAQ) => {
   const [isShow, setIsShow] = useState(false);
   return (
     <DivBlockFAQ>
-      <DivWrapperQuestion
-        onClick={() => {
-          setIsShow(!isShow);
-        }}
-      >
+      <DivWrapperQuestion onClick={() => setIsShow(!isShow)}>
         <H5Question>{objFAQ.question}</H5Question>
         <ImgIconChevron
           src={IconChevron}
-          loading="lazy"
           style={{
             transform: `translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(${
               isShow ? '180deg' : '0deg'
@@ -65,4 +61,4 @@ const CmpElFAQ: FC<TPropsCmpElFAQ> = ({ objFAQ }) => {
   );
 };
 
-export default CmpElFAQ;
+export default memo(CmpElFAQ);

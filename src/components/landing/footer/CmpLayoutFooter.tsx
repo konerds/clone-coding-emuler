@@ -1,5 +1,6 @@
-import { FC } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo } from 'react';
+
+import { tw } from '../../../utils';
 import { Link } from 'react-router-dom';
 import { ReactComponent as IconFooterLogoPrimary } from '../../../assets/image/icon/icon-logo-footer-primary.svg';
 import { ReactComponent as IconFooterLogoSecondary } from '../../../assets/image/icon/icon-logo-footer-secondary.svg';
@@ -48,7 +49,7 @@ const ParagraphTitleCredit = tw.p`
 text-[16px] leading-[1.5] text-[#ffffffa6] [text-decoration-color:#ffffffa6] [text-decoration:underline] max-tablet:mb-[16px]
 `;
 
-const CmpLayoutFooter: FC = () => {
+const CmpLayoutFooter = () => {
   return (
     <FooterWrapper>
       <DivContainer>
@@ -85,4 +86,4 @@ const CmpLayoutFooter: FC = () => {
   );
 };
 
-export default CmpLayoutFooter;
+export default memo(CmpLayoutFooter);

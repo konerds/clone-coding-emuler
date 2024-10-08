@@ -1,5 +1,6 @@
-import { FC } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo } from 'react';
+
+import { tw } from '../../../../utils';
 import { IObjBenefit } from '../../../../interface';
 import IconCMSUserFriendly from '../../../../assets/image/icon/icon-cms-user-friendly.svg';
 
@@ -23,7 +24,7 @@ my-0 max-tablet:text-[24px] max-tablet:leading-[32px]
 
 const ParagraphDescBenefit = tw.p``;
 
-const CmpElBenefit: FC<TPropsCmpElBenefit> = ({ objBenefit }) => {
+const CmpElBenefit = ({ objBenefit }: TPropsCmpElBenefit) => {
   return (
     <DivWrapperBenefit>
       <DivWrapperImageIcon>
@@ -35,4 +36,4 @@ const CmpElBenefit: FC<TPropsCmpElBenefit> = ({ objBenefit }) => {
   );
 };
 
-export default CmpElBenefit;
+export default memo(CmpElBenefit);

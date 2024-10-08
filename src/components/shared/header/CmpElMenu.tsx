@@ -1,5 +1,6 @@
-import { FC, useState } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo, useState } from 'react';
+
+import { tw } from '../../../utils';
 import { IObjMenuHeader } from '../../../interface';
 
 type TPropsCmpElMenu = {
@@ -25,7 +26,7 @@ ${(p) =>
     : '[transform:translate3d(0px,0px,0px)_scale3d(1,1,1)_rotateX(0deg)_rotateY(0deg)_rotateZ(0deg)_skew(0deg,0deg)]'}
 `;
 
-const CmpElMenu: FC<TPropsCmpElMenu> = ({ objMenu }) => {
+const CmpElMenu = ({ objMenu }: TPropsCmpElMenu) => {
   const [isHoverOnMenu, setIsHoverOnMenu] = useState(false);
   return (
     <LinkWrapper href={objMenu.href}>
@@ -46,4 +47,4 @@ const CmpElMenu: FC<TPropsCmpElMenu> = ({ objMenu }) => {
   );
 };
 
-export default CmpElMenu;
+export default memo(CmpElMenu);

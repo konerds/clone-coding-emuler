@@ -1,18 +1,18 @@
-import { FC } from 'react';
+import { memo } from 'react';
 import CmpLayoutConfirmation from '../../confirmation/CmpLayoutConfirmation';
 
 type TPropsPageConfirmation = {
-  handlerOnRequestCloseModal: () => void;
+  handlerRequestCloseModal: () => void;
 };
 
-const PageConfirmation: FC<TPropsPageConfirmation> = ({
-  handlerOnRequestCloseModal,
-}) => {
+const PageConfirmation = ({
+  handlerRequestCloseModal,
+}: TPropsPageConfirmation) => {
   return (
     <CmpLayoutConfirmation
-      handlerOnRequestCloseModal={handlerOnRequestCloseModal}
+      handlerRequestCloseModal={handlerRequestCloseModal}
     />
   );
 };
 
-export default PageConfirmation;
+export default memo(PageConfirmation);

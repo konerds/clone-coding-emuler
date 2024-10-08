@@ -1,9 +1,7 @@
-import { FC, Fragment } from 'react';
-import tw from 'tailwind-styled-components';
-import { TObjContentPrivacyPolicy } from '../../interface';
+import { memo, Fragment } from 'react';
 
-const StrongContent = tw.strong`
-`;
+import { tw } from '../../utils';
+import { TObjContentPrivacyPolicy } from '../../interface';
 
 const LinkContent = tw.a`
 text-[-webkit-link]
@@ -13,13 +11,13 @@ type TPropsCmpElContentPrivacyPolicy = {
   content: TObjContentPrivacyPolicy;
 };
 
-const CmpElContentPrivacyPolicy: FC<TPropsCmpElContentPrivacyPolicy> = ({
+const CmpElContentPrivacyPolicy = ({
   content,
-}) => {
+}: TPropsCmpElContentPrivacyPolicy) => {
   return (
     <Fragment>
       {content.type === 'strong' ? (
-        <StrongContent>{content.text}</StrongContent>
+        <strong>{content.text}</strong>
       ) : content.type === 'a' ? (
         <LinkContent
           href={content.href}
@@ -34,4 +32,4 @@ const CmpElContentPrivacyPolicy: FC<TPropsCmpElContentPrivacyPolicy> = ({
   );
 };
 
-export default CmpElContentPrivacyPolicy;
+export default memo(CmpElContentPrivacyPolicy);

@@ -1,7 +1,7 @@
-import { FC } from 'react';
+import { memo } from 'react';
 
-const PageNotFound: FC = () => {
+const PageNotFound = () => {
   return <>Not Found</>;
 };
 
-export default PageNotFound;
+export default memo(PageNotFound);

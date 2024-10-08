@@ -1,5 +1,6 @@
-import { FC, useState, useEffect } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo, useState, useEffect } from 'react';
+
+import { tw } from '../../../../utils';
 import { customRP, queryByMaxWidth } from '../../../../utils';
 import ImgBgGradientAngle from '../../../../assets/image/img-bg-gradient-angle.png';
 import ImgBgGradientAngleMobile from '../../../../assets/image/img-bg-gradient-angle-mobile.png';
@@ -58,10 +59,10 @@ type TPropsCmpElProcess = {
   percentageLineWhiteCurrent?: number;
 };
 
-const CmpElProcess: FC<TPropsCmpElProcess> = ({
+const CmpElProcess = ({
   objProcess,
   percentageLineWhiteCurrent,
-}) => {
+}: TPropsCmpElProcess) => {
   const isWithinMobile = useMediaQuery(queryByMaxWidth(EViewport.TABLET));
   const [customRPDivBlockImage, setCustomRPDivBlockImage] =
     useState<React.CSSProperties>({});
@@ -91,13 +92,12 @@ const CmpElProcess: FC<TPropsCmpElProcess> = ({
         <ImgCircleStep
           style={customRPElWithOpacity}
           src={objProcess.iconStep}
-          loading="lazy"
         />
         <DivLineBlack></DivLineBlack>
       </DivWrapperStep>
       <DivWrapperInfo style={customRPElWithOpacity}>
         <DivBlockImage style={customRPDivBlockImage}>
-          <ImgInfoStep src={objProcess.image} loading="lazy" />
+          <ImgInfoStep src={objProcess.image} />
         </DivBlockImage>
         <DivBlockIntroduce>
           <H4Title>{objProcess.title}</H4Title>
@@ -113,4 +113,4 @@ const CmpElProcess: FC<TPropsCmpElProcess> = ({
   );
 };
 
-export default CmpElProcess;
+export default memo(CmpElProcess);

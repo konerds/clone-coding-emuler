@@ -1,5 +1,6 @@
-import { FC } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo } from 'react';
+
+import { tw } from '../../../../utils';
 import { IObjPricing } from '../../../../interface';
 import { getTypeConvertedPricingToPublic } from '../../../../utils';
 
@@ -32,10 +33,10 @@ const DivTextDataTablePricing = tw.div`
 mb-0 text-center text-[16px] leading-[24px] text-white max-mobile-landscape:text-[14px]
 `;
 
-const CmpElHeaderTablePricing: FC<TPropsCmpElHeaderTablePricing> = ({
+const CmpElHeaderTablePricing = ({
   objPricing,
   idxObjPricing,
-}) => {
+}: TPropsCmpElHeaderTablePricing) => {
   return (
     <DivWrapper>
       <H5TextTypePage>
@@ -57,4 +58,4 @@ const CmpElHeaderTablePricing: FC<TPropsCmpElHeaderTablePricing> = ({
   );
 };
 
-export default CmpElHeaderTablePricing;
+export default memo(CmpElHeaderTablePricing);

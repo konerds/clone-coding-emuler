@@ -1,5 +1,12 @@
-import { FC, useState, useEffect, Fragment, createElement } from 'react';
-import tw from 'tailwind-styled-components';
+import {
+  memo,
+  useState,
+  Fragment,
+  createElement,
+  useLayoutEffect,
+} from 'react';
+
+import { tw } from '../../utils';
 import { customRP } from '../../utils';
 import ImgBgGrainLatest from '../../assets/image/img-bg-grain-latest.png';
 import CmpElContentPrivacyPolicy from './CmpElContentPrivacyPolicy';
@@ -31,13 +38,13 @@ const ParagraphContent = tw.p`
 const H5Content = tw.h5`
 `;
 
-const CmpLayoutPrivacyPolicy: FC = () => {
+const CmpLayoutPrivacyPolicy = () => {
   const [listObjPrivacyPolicy, setListObjPrivacyPolicy] = useState<
     IObjPrivacyPolicy[]
   >([]);
-  useEffect(() => {
+  useLayoutEffect(() => {
     getListObjPrivacyPolicy().then((dataListObjPrivacyPolicy) => {
-      if (!!dataListObjPrivacyPolicy) {
+      if (dataListObjPrivacyPolicy) {
         setListObjPrivacyPolicy(dataListObjPrivacyPolicy);
       }
     });
@@ -78,4 +85,4 @@ const CmpLayoutPrivacyPolicy: FC = () => {
   );
 };
 
-export default CmpLayoutPrivacyPolicy;
+export default memo(CmpLayoutPrivacyPolicy);

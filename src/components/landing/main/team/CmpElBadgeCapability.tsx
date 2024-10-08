@@ -1,5 +1,6 @@
-import { FC } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo } from 'react';
+
+import { tw } from '../../../../utils';
 
 type TPropsCmpElBadgeCapability = {
   badgeCapability: string;
@@ -13,9 +14,9 @@ const DivCapability = tw.div`
 text-[12px] font-bold uppercase leading-[12px] tracking-[0.6px] text-white [text-decoration:none]
 `;
 
-const CmpElBadgeCapability: FC<TPropsCmpElBadgeCapability> = ({
+const CmpElBadgeCapability = ({
   badgeCapability,
-}) => {
+}: TPropsCmpElBadgeCapability) => {
   return (
     <DivWrapper>
       <DivCapability>{badgeCapability}</DivCapability>
@@ -23,4 +24,4 @@ const CmpElBadgeCapability: FC<TPropsCmpElBadgeCapability> = ({
   );
 };
 
-export default CmpElBadgeCapability;
+export default memo(CmpElBadgeCapability);

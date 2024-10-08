@@ -1,5 +1,6 @@
-import { FC } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo } from 'react';
+
+import { tw } from '../../../../utils';
 
 type TPropsCmpElForm = {
   textLabel: string;
@@ -30,7 +31,7 @@ const TextareaForm = tw.textarea`
 mb-[40px] block h-auto min-h-[160px] w-full rounded-[8px] border-[2px] border-[#ffffff0d] bg-[color:#ffffff0d] p-[12px] align-middle text-[16px] font-normal leading-[24px] text-white transition-all duration-[400ms] ease-[ease] placeholder:bg-[color:#161616] placeholder:text-[#999999] focus:border-white
 `;
 
-const CmpElForm: FC<TPropsCmpElForm> = ({
+const CmpElForm = ({
   textLabel,
   base,
   nameInput,
@@ -38,7 +39,7 @@ const CmpElForm: FC<TPropsCmpElForm> = ({
   placeholder,
   value,
   setValue,
-}) => {
+}: TPropsCmpElForm) => {
   return (
     <>
       <LabelInputForm htmlFor={nameInput}>{textLabel}</LabelInputForm>
@@ -70,4 +71,4 @@ const CmpElForm: FC<TPropsCmpElForm> = ({
   );
 };
 
-export default CmpElForm;
+export default memo(CmpElForm);

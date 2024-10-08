@@ -1,5 +1,6 @@
-import { FC } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo } from 'react';
+
+import { tw } from '../../../../utils';
 
 type TPropsCmpElMenuTab = {
   flagBtn: boolean;
@@ -22,18 +23,16 @@ const DivWrapperNav = tw.div`
 font-bold uppercase tracking-[0.28px] text-[#0a0a0a] [text-decoration:none]
 `;
 
-const CmpElMenuTab: FC<TPropsCmpElMenuTab> = ({
+const CmpElMenuTab = ({
   flagBtn,
   isWithRelume,
   setIsWithRelume,
-}) => {
+}: TPropsCmpElMenuTab) => {
   return (
     <ButtonMenu
       type="button"
       $isSelected={flagBtn === isWithRelume}
-      onClick={() => {
-        setIsWithRelume(flagBtn);
-      }}
+      onClick={() => setIsWithRelume(flagBtn)}
     >
       <DivWrapperNav className="text-[13px] font-bold leading-[20px] tracking-[0.28px] mobile-landscape:text-[14px]">
         {flagBtn ? 'WITH RELUME' : 'WITHOUT RELUME'}
@@ -42,4 +41,4 @@ const CmpElMenuTab: FC<TPropsCmpElMenuTab> = ({
   );
 };
 
-export default CmpElMenuTab;
+export default memo(CmpElMenuTab);
