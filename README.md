@@ -22,14 +22,6 @@ Relume Landing Page<br/>
 
 > In production, you can set below environment variables
 
-| Variable Name            | Description                                                                                            |
-| ------------------------ | ------------------------------------------------------------------------------------------------------ |
-| REACT_APP_IS_USE_PROXY   | If set "true" in production environment, requests to "api" will be matched to REACT_APP_URL_API_SERVER |
-| REACT_APP_URL_API_SERVER | API Server URL of Backend Web Service in production environment                                        |
-
-### Command
-
-| Command Name  | Description                                                               |
-| ------------- | ------------------------------------------------------------------------- |
-| npm start     | You can start app in development environment with "http-proxy-middleware" |
-| npm run build | You can build app to bundle of static files.                              |
+| Variable Name            | Description                                                     |
+| ------------------------ | --------------------------------------------------------------- |
+| REACT_APP_URL_API_SERVER | API Server URL of Backend API Service in production environment |
