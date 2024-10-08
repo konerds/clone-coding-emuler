@@ -1,5 +1,6 @@
-import { FC, useState, createElement } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo, useState, createElement } from 'react';
+
+import { tw } from '../../../../utils';
 import { IObjTeam } from '../../../../interface';
 import { ReactComponent as IconLock } from '../../../../assets/image/icon/icon-lock.svg';
 import { ReactComponent as IconUnlock } from '../../../../assets/image/icon/icon-unlock.svg';
@@ -36,8 +37,8 @@ ${(p) =>
   p.$name === 'Dan'
     ? 'left-[64px] max-tablet:left-[40px] max-mobile-landscape:left-[24px]'
     : p.$name === 'Adam'
-    ? 'right-[64px] max-tablet:right-[40px] max-mobile-landscape:right-[24px]'
-    : ''}
+      ? 'right-[64px] max-tablet:right-[40px] max-mobile-landscape:right-[24px]'
+      : ''}
 `;
 
 const DivWrapperImageFact = tw.div`
@@ -79,7 +80,7 @@ const DivTextButtonProfile = tw.div`
 text-[12px] mobile-landscape:text-[14px]
 `;
 
-const CmpElTeam: FC<TPropsCmpElTeam> = ({ objTeam }) => {
+const CmpElTeam = ({ objTeam }: TPropsCmpElTeam) => {
   const [isLocked, setIsLocked] = useState(true);
   const [positionMouseX, setPositionMouseX] = useState(0);
   const [positionMouseY, setPositionMouseY] = useState(0);
@@ -97,14 +98,12 @@ const CmpElTeam: FC<TPropsCmpElTeam> = ({ objTeam }) => {
       >
         <ImgProfile
           src={objTeam.imageProfile}
-          loading="eager"
           $isLocked={isLocked}
           alt={`Portrait photo of ${objTeam.positionProfile} ${objTeam.nameProfile}`}
         />
         {isLocked ? (
           <ImgArrowProfile
             src={objTeam.iconArrow}
-            loading="lazy"
             $name={objTeam.nameProfile}
             style={{
               transform: `translate3d(${positionMouseX}%, ${positionMouseY}%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)`,
@@ -113,8 +112,8 @@ const CmpElTeam: FC<TPropsCmpElTeam> = ({ objTeam }) => {
           />
         ) : (
           <DivWrapperImageFact>
-            <ImgFact1 src={objTeam.imageFact1} loading="eager" />
-            <ImgFact2 src={objTeam.imageFact2} loading="eager" />
+            <ImgFact1 src={objTeam.imageFact1} />
+            <ImgFact2 src={objTeam.imageFact2} />
             <H6TextFact>{objTeam.textFact}</H6TextFact>
           </DivWrapperImageFact>
         )}
@@ -125,12 +124,7 @@ const CmpElTeam: FC<TPropsCmpElTeam> = ({ objTeam }) => {
         </ParagraphIntroduceProfile>
       </DivWrapperIntroduceProfile>
       <DivWrapperBtnProfile>
-        <ButtonProfile
-          type="button"
-          onClick={() => {
-            setIsLocked(false);
-          }}
-        >
+        <ButtonProfile type="button" onClick={() => setIsLocked(false)}>
           <DivWrapperIcon>
             {createElement(isLocked ? IconLock : IconUnlock, {
               width: 16,
@@ -146,4 +140,4 @@ const CmpElTeam: FC<TPropsCmpElTeam> = ({ objTeam }) => {
   );
 };
 
-export default CmpElTeam;
+export default memo(CmpElTeam);

@@ -1,5 +1,6 @@
-import { FC, useState } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo, useCallback, useState } from 'react';
+
+import { tw } from '../../../../utils';
 import Modal from 'react-modal';
 import CmpElWrapperInput from './CmpElForm';
 import PageConfirmation from '../../modal/CmpModalConfirmation';
@@ -84,9 +85,7 @@ type TPropsCmpLayoutContact = {
   refSectionWrapper: React.RefObject<HTMLElement>;
 };
 
-const CmpLayoutContact: FC<TPropsCmpLayoutContact> = ({
-  refSectionWrapper,
-}) => {
+const CmpLayoutContact = ({ refSectionWrapper }: TPropsCmpLayoutContact) => {
   const [stateMsgSubmit, setStateMsgSubmit] = useState<TObjStateMsgSubmit>({
     type: 'none',
   });
@@ -114,14 +113,6 @@ const CmpLayoutContact: FC<TPropsCmpLayoutContact> = ({
       ) {
         throw new Error('Input Error');
       }
-
-      console.log(nameEntered);
-      console.log(emailEntered);
-      console.log(locationEntered);
-      console.log(companyEntered);
-      console.log(linkToDesginEntered);
-      console.log(detailsProjectEntered);
-
       setStateMsgSubmit({
         type: 'success',
       });
@@ -135,7 +126,7 @@ const CmpLayoutContact: FC<TPropsCmpLayoutContact> = ({
       }, 2000);
     }
   };
-  const handlerOnRequestCloseModal = () => {
+  const handlerRequestCloseModal = useCallback(() => {
     setStateMsgSubmit({
       type: 'success',
       msg: `Thank you! Your message has been received. We'll be in touch.`,
@@ -143,7 +134,7 @@ const CmpLayoutContact: FC<TPropsCmpLayoutContact> = ({
     setTimeout(() => {
       setStateMsgSubmit({ type: 'none' });
     }, 2000);
-  };
+  }, []);
   return (
     <SectionWrapper id="Get-Started" ref={refSectionWrapper}>
       <DivContainer>
@@ -248,7 +239,7 @@ const CmpLayoutContact: FC<TPropsCmpLayoutContact> = ({
             </FormConfirmation>
             {stateMsgSubmit.type === 'success' && (
               <>
-                {!!stateMsgSubmit.msg ? (
+                {stateMsgSubmit.msg ? (
                   <DivWrapperSuccess>
                     <DivTextSuccess>{stateMsgSubmit.msg}</DivTextSuccess>
                   </DivWrapperSuccess>
@@ -270,16 +261,16 @@ const CmpLayoutContact: FC<TPropsCmpLayoutContact> = ({
                       },
                     }}
                     isOpen={true}
-                    onRequestClose={handlerOnRequestCloseModal}
+                    onRequestClose={handlerRequestCloseModal}
                   >
                     <PageConfirmation
-                      handlerOnRequestCloseModal={handlerOnRequestCloseModal}
+                      handlerRequestCloseModal={handlerRequestCloseModal}
                     />
                   </Modal>
                 )}
               </>
             )}
-            {stateMsgSubmit.type === 'failure' && !!stateMsgSubmit.msg && (
+            {stateMsgSubmit.type === 'failure' && stateMsgSubmit.msg && (
               <DivWrapperFailure>
                 <DivTextFailure>{stateMsgSubmit.msg}</DivTextFailure>
               </DivWrapperFailure>
@@ -291,4 +282,4 @@ const CmpLayoutContact: FC<TPropsCmpLayoutContact> = ({
   );
 };
 
-export default CmpLayoutContact;
+export default memo(CmpLayoutContact);

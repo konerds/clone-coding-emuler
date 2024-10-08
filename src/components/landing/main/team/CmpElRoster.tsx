@@ -1,5 +1,6 @@
-import { FC } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo } from 'react';
+
+import { tw } from '../../../../utils';
 import { IObjRoster } from '../../../../interface';
 
 type TPropsCmpElRoster = {
@@ -18,17 +19,13 @@ const H6Roster = tw.h6`
 z-[5] mx-[8px] my-0 text-[11px] leading-[20px] tracking-[0.4px] text-black tablet:text-[10px]
 `;
 
-const CmpElRoster: FC<TPropsCmpElRoster> = ({ objRoster }) => {
+const CmpElRoster = ({ objRoster }: TPropsCmpElRoster) => {
   return (
     <DivWrapper>
-      <ImgRoster
-        src={objRoster.imagePerson}
-        loading="lazy"
-        alt={objRoster.name}
-      />
+      <ImgRoster src={objRoster.imagePerson} alt={objRoster.name} />
       <H6Roster>WEBFLOW EXPERT</H6Roster>
     </DivWrapper>
   );
 };
 
-export default CmpElRoster;
+export default memo(CmpElRoster);

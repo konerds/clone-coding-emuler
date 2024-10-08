@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
-import tw from 'tailwind-styled-components';
+import { useEffect, useState } from 'react';
+
+import { tw, VerticalScrollPositionContext } from './utils';
 import { useLocation } from 'react-router-dom';
 import RoutesApp from './routes';
 
@@ -16,10 +17,22 @@ const App = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+  const [verticalScrollPosition, setVerticalScrollPosition] = useState(0);
+  useEffect(() => {
+    const updatePosition = () => {
+      setVerticalScrollPosition(window.scrollY);
+    };
+    window.addEventListener('scroll', updatePosition);
+    return () => {
+      window.removeEventListener('scroll', updatePosition);
+    };
+  }, []);
   return (
-    <DivApp $isDev={process.env.NODE_ENV !== 'production'}>
-      <RoutesApp />
-    </DivApp>
+    <VerticalScrollPositionContext.Provider value={verticalScrollPosition}>
+      <DivApp $isDev={process.env.NODE_ENV !== 'production'}>
+        <RoutesApp />
+      </DivApp>
+    </VerticalScrollPositionContext.Provider>
   );
 };
 

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { memo } from 'react';
 import CmpContentHero from './hero/CmpContentHero';
 import CmpLayoutBenefit from './benefit/CmpLayoutBenefit';
 import CmpLayoutProcess from './process/CmpLayoutProcess';
@@ -8,33 +8,27 @@ import CmpLayoutPricing from './pricing/CmpLayoutPricing';
 import CmpLayoutTeam from './team/CmpLayoutTeam';
 import CmpLayoutFAQ from './faq/CmpLayoutFAQ';
 import CmpLayoutContact from './contact/CmpLayoutContact';
+import { getHeightWindow } from '../../../utils';
 
 type TPropsCmpLayoutMain = {
-  posTopScroll: number;
-  heightWindow: number;
   refSectionWrapperProcess: React.RefObject<HTMLElement>;
   refSectionWrapperContact: React.RefObject<HTMLElement>;
 };
 
-const CmpLayoutMain: FC<TPropsCmpLayoutMain> = ({
-  posTopScroll,
-  heightWindow,
+const CmpLayoutMain = ({
   refSectionWrapperProcess,
   refSectionWrapperContact,
-}) => {
+}: TPropsCmpLayoutMain) => {
+  const heightWindow = getHeightWindow();
   return (
     <>
       <CmpContentHero />
       <CmpLayoutBenefit />
       <CmpLayoutProcess
-        posTopScroll={posTopScroll}
         heightWindow={heightWindow}
         refSectionWrapper={refSectionWrapperProcess}
       />
-      <CmpLayoutComparison
-        posTopScroll={posTopScroll}
-        heightWindow={heightWindow}
-      />
+      <CmpLayoutComparison heightWindow={heightWindow} />
       <CmpLayoutBuiltToSpec />
       <CmpLayoutPricing />
       <CmpLayoutTeam />
@@ -44,4 +38,4 @@ const CmpLayoutMain: FC<TPropsCmpLayoutMain> = ({
   );
 };
 
-export default CmpLayoutMain;
+export default memo(CmpLayoutMain);

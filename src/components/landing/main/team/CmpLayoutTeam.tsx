@@ -1,5 +1,6 @@
-import { FC, useRef, useEffect, useState } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo, useRef, useEffect, useState, useLayoutEffect } from 'react';
+
+import { tw } from '../../../../utils';
 import { customRP, queryByMaxWidth } from '../../../../utils';
 import ImgBgGrainLatest from '../../../../assets/image/img-bg-grain-latest.png';
 import IconUnderlineLong from '../../../../assets/image/icon/icon-underline-long.svg';
@@ -101,7 +102,7 @@ const DivBlurCircle = tw.div`
 absolute inset-[auto_auto_-10%_-5%] -z-[1] block h-[440px] w-[440px] rounded-[500px] bg-[image:linear-gradient(334deg,#ff7448_18%,#ff4848_59%,#6248ff_86%)] opacity-[0.97] [filter:blur(64px)_blur(64px)] max-desktop:right-auto max-desktop:h-[320px] max-desktop:w-[320px] max-desktop:bg-[image:linear-gradient(132deg,#ff7448_31%,#ff4848_57%,#6248ff_79%)] max-desktop:opacity-[0.7] max-desktop:[filter:blur(68px)] max-tablet:-left-[20%] max-tablet:h-[280px] max-tablet:w-[280px] max-tablet:bg-[image:linear-gradient(132deg,#ff7448_29%,#ff4848_52%,#6248ff_75%)] max-tablet:opacity-[0.9] max-tablet:[filter:blur(64px)]
 `;
 
-const CmpLayoutTeam: FC = () => {
+const CmpLayoutTeam = () => {
   const isWithinMobile = useMediaQuery(queryByMaxWidth(EViewport.TABLET));
   const [positionScrollYLoopRoster, setPositionScrollYLoopRoster] = useState(0);
   const [customRPDivWrapperImageRoster, setCustomRPDivWrapperImageRoster] =
@@ -111,25 +112,25 @@ const CmpLayoutTeam: FC = () => {
   const [listObjTeam, setListObjTeam] = useState<IObjTeam[]>([]);
   const [listObjRoster, setListObjRoster] = useState<IObjRoster[]>([]);
   const [listCapability, setListCapability] = useState<string[]>([]);
-  useEffect(() => {
+  useLayoutEffect(() => {
     getListObjTeam().then((dataListObjTeam) => {
-      if (!!dataListObjTeam) {
+      if (dataListObjTeam) {
         setListObjTeam(dataListObjTeam);
       }
     });
     getListObjRoster().then((dataListObjRoster) => {
-      if (!!dataListObjRoster) {
+      if (dataListObjRoster) {
         setListObjRoster(dataListObjRoster);
       }
     });
     getListCapability().then((dataListCapability) => {
-      if (!!dataListCapability) {
+      if (dataListCapability) {
         setListCapability(dataListCapability);
       }
     });
   }, []);
   useEffect(() => {
-    if (!!refDivWrapperWidthFull.current) {
+    if (refDivWrapperWidthFull.current) {
       const observerResize = new ResizeObserver(() => {
         const heightNew =
           refDivWrapperWidthFull.current?.getBoundingClientRect().height;
@@ -144,7 +145,7 @@ const CmpLayoutTeam: FC = () => {
     }
   }, [refDivWrapperWidthFull.current]);
   useEffect(() => {
-    if (!!heightDivWrapperWidthFull) {
+    if (heightDivWrapperWidthFull) {
       const keyInterval = setInterval(() => {
         setPositionScrollYLoopRoster((valuePrev) => {
           const positionNew = valuePrev - 1;
@@ -240,4 +241,4 @@ const CmpLayoutTeam: FC = () => {
   );
 };
 
-export default CmpLayoutTeam;
+export default memo(CmpLayoutTeam);

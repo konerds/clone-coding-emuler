@@ -1,6 +1,7 @@
-import { FC } from 'react';
+import { memo } from 'react';
+
+import { tw } from '../../utils';
 import { Link } from 'react-router-dom';
-import tw from 'tailwind-styled-components';
 import { ReactComponent as IconFooterLogoPrimary } from '../../assets/image/icon/icon-logo-footer-primary.svg';
 import { ReactComponent as IconFooterLogoSecondary } from '../../assets/image/icon/icon-logo-footer-secondary.svg';
 
@@ -20,7 +21,7 @@ absolute inset-[0%]
 ${(p) => (p.$type === 'primary' ? 'z-0 text-white' : 'z-[1] text-black')}
 `;
 
-const CmpHeaderConfirmation: FC = () => {
+const CmpHeaderConfirmation = () => {
   return (
     <DivWrapper>
       <DivContainer>
@@ -40,4 +41,4 @@ const CmpHeaderConfirmation: FC = () => {
   );
 };
 
-export default CmpHeaderConfirmation;
+export default memo(CmpHeaderConfirmation);

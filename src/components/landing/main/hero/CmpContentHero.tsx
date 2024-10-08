@@ -1,5 +1,6 @@
-import { FC, useState } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo, useState } from 'react';
+
+import { tw } from '../../../../utils';
 import { customRP } from '../../../../utils';
 import ImgBgGrainLatest from '../../../../assets/image/img-bg-grain-latest.png';
 import ImgQuoteHeroMobile from '../../../../assets/image/img-quote-hero-mobile.svg';
@@ -73,18 +74,20 @@ const DivBlurCircle = tw.div`
 max-desktop:[-top-[10%]] max-desktop:[-right-[5%]] absolute inset-[-5%_auto_auto_-5%] -z-[1] block h-[440px] w-[440px] rounded-[500px] bg-[image:linear-gradient(132deg,#ff7448_27%,#ff4848_50%,#6248ff_79%)] opacity-[0.97] [filter:blur(64px)_blur(64px)] max-desktop:h-[400px] max-desktop:w-[400px] max-desktop:bg-[image:linear-gradient(285deg,#ff7448_29%,#ff4848_58%,#6248ff_80%)] max-desktop:opacity-[0.7] max-desktop:[filter:blur(68px)] max-tablet:h-[320px] max-tablet:w-[320px] max-tablet:opacity-[0.9] max-tablet:[filter:blur(64px)] max-mobile-landscape:-right-[20%] max-mobile-landscape:h-[280px] max-mobile-landscape:w-[280px]
 `;
 
-const CmpContentHero: FC = () => {
+const CmpContentHero = () => {
   const linkEmbedFigma =
     'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FQ5dHDQBsXPO21b03SHuq6Z%2FRelume-Website-Design%3Fnode-id%3D0%253A1';
   const [isVisibleEmbed, setIsVisibleEmbed] = useState(false);
+  const handleClickGetStarted = () => {
+    location.href = '#Get-Started';
+  };
+  const handleClickShowEmbed = () => {
+    setIsVisibleEmbed(true);
+  };
   return (
     <SectionWrapper style={customRPSectionWrapper}>
       <DivContainer>
-        <ImageQuoteHero
-          loading="lazy"
-          src={ImgQuoteHero}
-          alt="See for yourself!"
-        />
+        <ImageQuoteHero src={ImgQuoteHero} alt="See for yourself!" />
         <DivLayoutGrid>
           <DivWrapperContentHero>
             <H1HeadingHero>
@@ -98,9 +101,10 @@ const CmpContentHero: FC = () => {
               Relume can build your Figma, Sketch or Adobe XD website design
               pixel perfect on Webflow.
             </ParagraphContentHero>
-            <ButtonGetStarted>get started</ButtonGetStarted>
+            <ButtonGetStarted onClick={handleClickGetStarted}>
+              get started
+            </ButtonGetStarted>
             <ImageQuoteHeroMobile
-              loading="lazy"
               src={ImgQuoteHeroMobile}
               alt="See for yourself!"
             />
@@ -115,12 +119,7 @@ const CmpContentHero: FC = () => {
                   allowFullScreen
                 ></IframeFigma>
               ) : (
-                <ButtonShowEmbed
-                  type="button"
-                  onClick={(_) => {
-                    setIsVisibleEmbed(true);
-                  }}
-                >
+                <ButtonShowEmbed type="button" onClick={handleClickShowEmbed}>
                   Click to view
                 </ButtonShowEmbed>
               )}
@@ -133,4 +132,4 @@ const CmpContentHero: FC = () => {
   );
 };
 
-export default CmpContentHero;
+export default memo(CmpContentHero);

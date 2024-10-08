@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import { Routes, Route, Navigate } from 'react-router-dom';
 import PageLanding from '../pages/PageLanding';
 import PageNotFound from '../pages/PageNotFound';
@@ -7,7 +9,7 @@ const PATH_ROUTE_ROOT = '/';
 const PATH_ROUTE_PRIVACY_POLICY = 'privacy-policy';
 const PATH_ROUTE_NOT_FOUND = 'not-found';
 
-const RoutesApp = (): JSX.Element => {
+const RoutesApp = () => {
   return (
     <Routes>
       <Route path={PATH_ROUTE_ROOT} element={<PageLanding />} />
@@ -32,4 +34,4 @@ const RoutesApp = (): JSX.Element => {
   );
 };
 
-export default RoutesApp;
+export default memo(RoutesApp);

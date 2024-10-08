@@ -1,5 +1,6 @@
-import { FC } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo } from 'react';
+
+import { tw } from '../../../../utils';
 import { customRP, queryByMaxWidth } from '../../../../utils';
 import { useMediaQuery } from 'react-responsive';
 import ImageWithRelumeMobile from '../../../../assets/image/img-with-relume-mobile.png';
@@ -29,11 +30,11 @@ const ImgOverlay = tw.img`
 absolute inset-[0%] z-[1] mx-auto block max-w-[1000px] [transform-style:preserve-3d] max-desktop:mx-0 max-desktop:w-full max-desktop:min-w-full max-desktop:max-w-full max-tablet:hidden
 `;
 
-const CmpElContentTab: FC<TPropsCmpElContentTab> = ({
+const CmpElContentTab = ({
   isWithRelume,
   refImageWillBeLoaded,
   positionXImageOverlay,
-}) => {
+}: TPropsCmpElContentTab) => {
   const isWithinMobile = useMediaQuery(queryByMaxWidth(EViewport.TABLET));
   const customRPImgOverlay = (positionX: 'start' | 'end') => {
     return customRP({
@@ -58,7 +59,6 @@ const CmpElContentTab: FC<TPropsCmpElContentTab> = ({
               src={
                 isWithRelume ? ImageWithRelumeMobile : ImageWithoutRelumeMobile
               }
-              loading={isWithRelume ? 'lazy' : 'eager'}
               alt={isWithRelume ? 'with relume' : 'without relume'}
             />
           ) : isWithRelume ? (
@@ -67,19 +67,16 @@ const CmpElContentTab: FC<TPropsCmpElContentTab> = ({
                 ref={refImageWillBeLoaded}
                 src={ImageWithRelume1}
                 alt="with relume 1"
-                loading="lazy"
               />
               <ImgOverlay
                 style={customRPImgOverlay('end')}
                 src={ImageWithRelume2}
                 alt="with relume 2"
-                loading="lazy"
               />
               <ImgOverlay
                 style={customRPImgOverlay('start')}
                 src={ImageWithRelume3}
                 alt="with relume 3"
-                loading="lazy"
               />
             </>
           ) : (
@@ -87,7 +84,6 @@ const CmpElContentTab: FC<TPropsCmpElContentTab> = ({
               ref={refImageWillBeLoaded}
               src={ImageWithoutRelume}
               alt="without relume"
-              loading="eager"
             />
           )}
         </DivWrapperImage>
@@ -96,4 +92,4 @@ const CmpElContentTab: FC<TPropsCmpElContentTab> = ({
   );
 };
 
-export default CmpElContentTab;
+export default memo(CmpElContentTab);
