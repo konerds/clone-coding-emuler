@@ -1,5 +1,6 @@
-import { FC, useState } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo, useState } from 'react';
+
+import { tw } from '../../../../utils';
 import { IObjExBuiltToSpec } from '../../../../interface';
 import IconFigma from '../../../../assets/image/icon/icon-figma.svg';
 import IconWebflow from '../../../../assets/image/icon/icon-webflow.svg';
@@ -101,9 +102,13 @@ const ButtonShowEmbed = tw.button`
 absolute bottom-0 left-0 right-0 top-0 bg-[color:#d4eff0] text-[16px]
 `;
 
-const CmpElProjectSpec: FC<TPropsCmpElProjectSpec> = ({ objEx }) => {
+const CmpElProjectSpec = ({ objEx }: TPropsCmpElProjectSpec) => {
   const [isTypeFigma, setIsTypeFigma] = useState(true);
   const [isVisibleEmbed, setIsVisibleEmbed] = useState(false);
+  const handleClickTab = (flagBtn: boolean) => {
+    setIsVisibleEmbed(false);
+    setIsTypeFigma(flagBtn);
+  };
   return (
     <DivWrapperProjectSpec>
       <DivWrapperIntroduce>
@@ -129,15 +134,9 @@ const CmpElProjectSpec: FC<TPropsCmpElProjectSpec> = ({ objEx }) => {
                 key={idxBtn}
                 type="button"
                 $isSelected={flagBtn === isTypeFigma}
-                onClick={() => {
-                  setIsVisibleEmbed(false);
-                  setIsTypeFigma(flagBtn);
-                }}
+                onClick={() => handleClickTab(flagBtn)}
               >
-                <ImgIconTab
-                  src={flagBtn ? IconFigma : IconWebflow}
-                  loading="eager"
-                />
+                <ImgIconTab src={flagBtn ? IconFigma : IconWebflow} />
                 <DivNameTab>{flagBtn ? 'design' : 'live website'}</DivNameTab>
               </ButtonTab>
             );
@@ -170,9 +169,7 @@ const CmpElProjectSpec: FC<TPropsCmpElProjectSpec> = ({ objEx }) => {
               ) : (
                 <ButtonShowEmbed
                   type="button"
-                  onClick={(_) => {
-                    setIsVisibleEmbed(true);
-                  }}
+                  onClick={() => setIsVisibleEmbed(true)}
                 >
                   Click to view
                 </ButtonShowEmbed>
@@ -185,4 +182,4 @@ const CmpElProjectSpec: FC<TPropsCmpElProjectSpec> = ({ objEx }) => {
   );
 };
 
-export default CmpElProjectSpec;
+export default memo(CmpElProjectSpec);

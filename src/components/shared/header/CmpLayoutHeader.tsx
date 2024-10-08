@@ -1,5 +1,6 @@
-import { FC, useState, useEffect } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo, useState, useLayoutEffect } from 'react';
+
+import { tw } from '../../../utils';
 import { ReactComponent as IconLogoHeaderPrimary } from '../../../assets/image/icon/icon-logo-header-primary.svg';
 import { ReactComponent as IconLogoHeaderSecondary } from '../../../assets/image/icon/icon-logo-header-secondary.svg';
 import CmpElMenu from './CmpElMenu';
@@ -29,15 +30,15 @@ const DivWrapperListMenu = tw.div`
 mx-auto flex items-center justify-between
 `;
 
-const CmpLayoutHeader: FC = () => {
+const CmpLayoutHeader = () => {
   const { pathname } = useLocation();
   const isWithinTablet = useMediaQuery(queryByMaxWidth(EViewport.DESKTOP));
   const [listObjMenuHeader, setListObjMenuHeader] = useState<IObjMenuHeader[]>(
     [],
   );
-  useEffect(() => {
+  useLayoutEffect(() => {
     getListObjMenuHeader().then((dataListObjMenuHeader) => {
-      if (!!dataListObjMenuHeader) {
+      if (dataListObjMenuHeader) {
         setListObjMenuHeader(dataListObjMenuHeader);
       }
     });
@@ -68,4 +69,4 @@ const CmpLayoutHeader: FC = () => {
   );
 };
 
-export default CmpLayoutHeader;
+export default memo(CmpLayoutHeader);

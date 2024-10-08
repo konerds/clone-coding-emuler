@@ -1,19 +1,17 @@
-import { FC, useRef } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo, useRef } from 'react';
+
+import { tw } from '../utils';
 import CmpCTAFixed from '../components/shared/CmpCTAFixed';
 import CmpLayoutHeader from '../components/shared/header/CmpLayoutHeader';
 import CmpLayoutMain from '../components/landing/main/CmpLayoutMain';
 import CmpLayoutFooter from '../components/landing/footer/CmpLayoutFooter';
 import CmpLibraryCTA from '../components/landing/cta/CmpLibraryCTA';
-import { getHeightWindow, usePositionScrollWindow } from '../utils';
 
 const MainWrapperPage = tw.main`
 overflow-hidden [transform:translate(0px,0px)]
 `;
 
-const PageLanding: FC = () => {
-  const posTopScroll = usePositionScrollWindow('y');
-  const heightWindow = getHeightWindow();
+const PageLanding = () => {
   const refSectionWrapperProcess = useRef<HTMLElement>(null);
   const refSectionWrapperContact = useRef<HTMLElement>(null);
   return (
@@ -21,15 +19,12 @@ const PageLanding: FC = () => {
       <CmpCTAFixed
         textBtn="get started"
         href="#Get-Started"
-        posTopScroll={posTopScroll}
         refSectionWrapperProcess={refSectionWrapperProcess}
         refSectionWrapperContact={refSectionWrapperContact}
       />
       <MainWrapperPage>
         <CmpLayoutHeader />
         <CmpLayoutMain
-          posTopScroll={posTopScroll}
-          heightWindow={heightWindow}
           refSectionWrapperProcess={refSectionWrapperProcess}
           refSectionWrapperContact={refSectionWrapperContact}
         />
@@ -40,4 +35,4 @@ const PageLanding: FC = () => {
   );
 };
 
-export default PageLanding;
+export default memo(PageLanding);

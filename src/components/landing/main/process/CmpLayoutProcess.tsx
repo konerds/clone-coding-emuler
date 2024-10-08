@@ -1,5 +1,6 @@
-import { FC, useState, useEffect } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo, useState, useEffect, useLayoutEffect } from 'react';
+
+import { tw, usePositionScrollWindow } from '../../../../utils';
 import CmpElProcess from './CmpElProcess';
 import { EViewport, IObjProcessWork } from '../../../../interface';
 import { getListObjProcessWork } from '../../../../api';
@@ -47,16 +48,15 @@ relative
 `;
 
 type TPropsCmpLayoutProcess = {
-  posTopScroll: number;
   heightWindow: number;
   refSectionWrapper: React.RefObject<HTMLElement>;
 };
 
-const CmpLayoutProcess: FC<TPropsCmpLayoutProcess> = ({
-  posTopScroll,
+const CmpLayoutProcess = ({
   heightWindow,
   refSectionWrapper,
-}) => {
+}: TPropsCmpLayoutProcess) => {
+  const posTopScroll = usePositionScrollWindow();
   const isWithinTablet = useMediaQuery(queryByMaxWidth(EViewport.DESKTOP));
   const [customRPDivLineWhite, setCustomRPDivLineWhite] =
     useState<React.CSSProperties>({});
@@ -65,15 +65,15 @@ const CmpLayoutProcess: FC<TPropsCmpLayoutProcess> = ({
   >([]);
   const heightRefSectionWrapper = getHeightByRef(refSectionWrapper);
   const [percentageLineWhite, setPercentageLineWhite] = useState(0);
-  useEffect(() => {
+  useLayoutEffect(() => {
     getListObjProcessWork().then((dataListObjProcessWork) => {
-      if (!!dataListObjProcessWork) {
+      if (dataListObjProcessWork) {
         setListObjProcessWork(dataListObjProcessWork);
       }
     });
   }, []);
   useEffect(() => {
-    if (!isWithinTablet && !!refSectionWrapper.current) {
+    if (!isWithinTablet && refSectionWrapper.current) {
       const positionTopRelative =
         refSectionWrapper.current.getBoundingClientRect().top -
         heightWindow / 26;
@@ -122,8 +122,8 @@ const CmpLayoutProcess: FC<TPropsCmpLayoutProcess> = ({
                 return idxArr === 0
                   ? 0
                   : idxArr === lenListObjProcessWork - 1
-                  ? 8
-                  : 2;
+                    ? 8
+                    : 2;
               };
               const lenListObjProcessWork = listObjProcessWork.length;
               const listCollapse = Array.from({
@@ -143,8 +143,8 @@ const CmpLayoutProcess: FC<TPropsCmpLayoutProcess> = ({
                   ? percentageLineWhiteCalculated < 0.15
                     ? 0.15
                     : percentageLineWhiteCalculated > 1
-                    ? 1
-                    : percentageLineWhiteCalculated
+                      ? 1
+                      : percentageLineWhiteCalculated
                   : percentageLineWhiteCalculated;
               return (
                 <CmpElProcess
@@ -161,4 +161,4 @@ const CmpLayoutProcess: FC<TPropsCmpLayoutProcess> = ({
   );
 };
 
-export default CmpLayoutProcess;
+export default memo(CmpLayoutProcess);

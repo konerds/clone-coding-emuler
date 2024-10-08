@@ -1,5 +1,6 @@
-import { FC, useState, useRef, useEffect } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo, useState, useRef, useEffect } from 'react';
+
+import { tw, usePositionScrollWindow } from '../../../../utils';
 import { customRP, getHeightByRef } from '../../../../utils';
 import ImgBgGrainLatest from '../../../../assets/image/img-bg-grain-latest.png';
 import IconUnderline from '../../../../assets/image/icon/icon-underline.svg';
@@ -53,14 +54,11 @@ absolute inset-[30%_auto_auto_5%] flex h-[440px] w-[440px] items-center justify-
 `;
 
 type TPropsCmpLayoutComparison = {
-  posTopScroll: number;
   heightWindow: number;
 };
 
-const CmpLayoutComparison: FC<TPropsCmpLayoutComparison> = ({
-  posTopScroll,
-  heightWindow,
-}) => {
+const CmpLayoutComparison = ({ heightWindow }: TPropsCmpLayoutComparison) => {
+  const posTopScroll = usePositionScrollWindow();
   const [isWithRelume, setIsWithRelume] = useState(true);
   const refImageWillBeLoaded = useRef<HTMLImageElement>(null);
   const heightMinImageDefault = getHeightByRef(refImageWillBeLoaded);
@@ -78,7 +76,7 @@ const CmpLayoutComparison: FC<TPropsCmpLayoutComparison> = ({
   }, [heightMinImageDefault]);
   useEffect(() => {
     if (
-      !!refDivWrapperWithRelume.current &&
+      refDivWrapperWithRelume.current &&
       !!heightDivWrapperWithRelume &&
       heightWindow
     ) {
@@ -145,4 +143,4 @@ const CmpLayoutComparison: FC<TPropsCmpLayoutComparison> = ({
   );
 };
 
-export default CmpLayoutComparison;
+export default memo(CmpLayoutComparison);

@@ -1,5 +1,6 @@
-import { FC, useState, useEffect } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo, useState, useLayoutEffect } from 'react';
+
+import { tw } from '../../../../utils';
 import { customRP } from '../../../../utils';
 import ImgBgGrainLatest from '../../../../assets/image/img-bg-grain-latest.png';
 import CmpElFAQ from './CmpElFAQ';
@@ -45,11 +46,11 @@ const DivBlurCircle = tw.div`
 absolute inset-[auto_0%_-15%_auto] -z-[1] flex h-[440px] w-[440px] items-center justify-center rounded-[500px] bg-[image:linear-gradient(132deg,#ff7448_26%,#ff4848_51%,#6248ff_75%)] opacity-[0.97] [filter:blur(64px)_blur(64px)] max-desktop:bottom-[0%] max-desktop:h-[320px] max-desktop:w-[320px] max-desktop:opacity-[0.7] max-desktop:[filter:blur(68px)] max-tablet:h-[280px] max-tablet:w-[280px] max-tablet:opacity-[0.9] max-tablet:[filter:blur(64px)]
 `;
 
-const CmpLayoutFAQ: FC = () => {
+const CmpLayoutFAQ = () => {
   const [listObjFAQ, setListObjFAQ] = useState<IObjFAQ[]>([]);
-  useEffect(() => {
+  useLayoutEffect(() => {
     getListObjFAQ().then((dataListObjFAQ) => {
-      if (!!dataListObjFAQ) {
+      if (dataListObjFAQ) {
         setListObjFAQ(dataListObjFAQ);
       }
     });
@@ -76,4 +77,4 @@ const CmpLayoutFAQ: FC = () => {
   );
 };
 
-export default CmpLayoutFAQ;
+export default memo(CmpLayoutFAQ);

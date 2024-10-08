@@ -1,5 +1,6 @@
-import { FC } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo } from 'react';
+
+import { tw } from '../../utils';
 import IconCircleOutlined from '../../assets/image/icon/icon-circle-outlined.svg';
 
 const DivWrapper = tw.div`
@@ -31,31 +32,23 @@ text-[#ffffffa6]
 `;
 
 type TPropsCmpMainConfirmation = {
-  handlerOnRequestCloseModal: () => void;
+  handlerRequestCloseModal: () => void;
 };
 
-const CmpMainConfirmation: FC<TPropsCmpMainConfirmation> = ({
-  handlerOnRequestCloseModal,
-}) => {
+const CmpMainConfirmation = ({
+  handlerRequestCloseModal,
+}: TPropsCmpMainConfirmation) => {
   return (
     <DivWrapper>
       <DivContainer>
         <DivWrapperHeading>
-          <ImgIconCircleOutlined
-            src={IconCircleOutlined}
-            loading="lazy"
-            alt=""
-          />
+          <ImgIconCircleOutlined src={IconCircleOutlined} alt="" />
           <H3Heading>Thanks for enquiring</H3Heading>
         </DivWrapperHeading>
         <ParagraphHeadingSub>
           {`We'll be in touch shortly via email to organise a time to discuss the project in more detail. `}
         </ParagraphHeadingSub>
-        <ParagraphCloseWindow
-          onClick={() => {
-            handlerOnRequestCloseModal();
-          }}
-        >
+        <ParagraphCloseWindow onClick={handlerRequestCloseModal}>
           You can close this window.
         </ParagraphCloseWindow>
       </DivContainer>
@@ -63,4 +56,4 @@ const CmpMainConfirmation: FC<TPropsCmpMainConfirmation> = ({
   );
 };
 
-export default CmpMainConfirmation;
+export default memo(CmpMainConfirmation);

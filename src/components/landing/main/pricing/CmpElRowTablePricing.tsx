@@ -1,5 +1,6 @@
-import { FC, Fragment } from 'react';
-import tw from 'tailwind-styled-components';
+import { memo, Fragment } from 'react';
+
+import { tw } from '../../../../utils';
 import { IObjSupport } from '../../../../interface';
 import { capitalizeLetterFirst } from '../../../../utils';
 import IconTick from '../../../../assets/image/icon/icon-tick.svg';
@@ -17,7 +18,7 @@ mb-0 self-center text-center text-[16px] leading-[24px] text-white max-mobile-la
 `;
 
 const DivRowTablePricing = tw.div`
-grid gap-[16px] py-[16px] [grid-auto-columns:1fr] [grid-template-rows:auto] [border-bottom:1px_none_#ffffff26] [border-top:1px_solid_#ffffff26] [grid-template-columns:0.5fr_1.25fr] max-tablet:[grid-template-columns:1.25fr]
+grid gap-[16px] py-[16px] [border-bottom:1px_none_#ffffff26] [border-top:1px_solid_#ffffff26] [grid-auto-columns:1fr] [grid-template-columns:0.5fr_1.25fr] [grid-template-rows:auto] max-tablet:[grid-template-columns:1.25fr]
 `;
 
 const H6TextFeature = tw.h6`
@@ -28,7 +29,7 @@ const ImgIconTick = tw.img`
 justify-self-center
 `;
 
-const CmpElRowTablePricing: FC<TPropsCmpElRowTablePricing> = ({ objRow }) => {
+const CmpElRowTablePricing = ({ objRow }: TPropsCmpElRowTablePricing) => {
   return (
     <DivRowTablePricing>
       <H6TextFeature>{objRow.typeSupport.replaceAll('-', ' ')}</H6TextFeature>
@@ -42,7 +43,7 @@ const CmpElRowTablePricing: FC<TPropsCmpElRowTablePricing> = ({ objRow }) => {
                   {capitalizeLetterFirst(objSupport.support as string)}
                 </DivTextDataTablePricing>
               ) : typeofSupport === 'boolean' && objSupport.support ? (
-                <ImgIconTick src={IconTick} alt="Tick icon" loading="lazy" />
+                <ImgIconTick src={IconTick} alt="Tick icon" />
               ) : (
                 <div></div>
               )}
@@ -54,4 +55,4 @@ const CmpElRowTablePricing: FC<TPropsCmpElRowTablePricing> = ({ objRow }) => {
   );
 };
 
-export default CmpElRowTablePricing;
+export default memo(CmpElRowTablePricing);
