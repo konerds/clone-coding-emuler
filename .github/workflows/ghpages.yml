@@ -2,7 +2,7 @@ name: ghpages
 
 on:
   push:
-    branches: ['master']
+    branches: ['deploy']
 
 jobs:
   deploy:
@@ -17,32 +17,31 @@ jobs:
       - name: Use source code in repository
         uses: actions/checkout@v3
 
-      - name: Use node 18 runtime.
+      - name: Use node 22 runtime.
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 22
 
-      - name: Cache dependency in node_modules directory
+      - name: Cache dependency in yarn cache directory
         id: cache
         uses: actions/cache@v3
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          path: ~/.cache/yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-yarn-
 
-      - name: Check is cache hit
+      - name: Check if cache is hit
         if: steps.cache.outputs.cache-hit == 'true'
-        run: echo 'npm cache has been hit'
+        run: echo 'Yarn cache has been hit'
 
       - name: Install dependency
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       - name: Build
-        run: npm run build
+        run: yarn build
         env:
           CI: false
-          REACT_APP_IS_USE_PROXY: ${{ vars.REACT_APP_IS_USE_PROXY }}
           REACT_APP_URL_API_SERVER: ${{ vars.REACT_APP_URL_API_SERVER }}
 
       - name: Deploy
