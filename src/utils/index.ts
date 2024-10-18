@@ -1,50 +1,9 @@
-import { memo, useState, useEffect, createContext, useContext } from 'react';
+import { useState, useEffect, createContext, useContext } from 'react';
 
 import _tw from 'tailwind-styled-components';
 import { EViewport, IObjPricing, IObjSupport, TPricing } from '../interface';
 
-export const tw = {
-  iframe: <T extends object>(...args: Parameters<typeof _tw.iframe<T>>) =>
-    memo(_tw.iframe<T>(...args)),
-  main: <T extends object>(...args: Parameters<typeof _tw.main<T>>) =>
-    memo(_tw.main<T>(...args)),
-  header: <T extends object>(...args: Parameters<typeof _tw.header<T>>) =>
-    memo(_tw.header<T>(...args)),
-  section: <T extends object>(...args: Parameters<typeof _tw.section<T>>) =>
-    memo(_tw.section<T>(...args)),
-  div: <T extends object>(...args: Parameters<typeof _tw.div<T>>) =>
-    memo(_tw.div<T>(...args)),
-  span: <T extends object>(...args: Parameters<typeof _tw.span<T>>) =>
-    memo(_tw.span<T>(...args)),
-  p: <T extends object>(...args: Parameters<typeof _tw.p<T>>) =>
-    memo(_tw.p<T>(...args)),
-  button: <T extends object>(...args: Parameters<typeof _tw.button<T>>) =>
-    memo(_tw.button<T>(...args)),
-  a: <T extends object>(...args: Parameters<typeof _tw.a<T>>) =>
-    memo(_tw.a<T>(...args)),
-  img: <T extends object>(...args: Parameters<typeof _tw.img<T>>) =>
-    memo(_tw.img<T>(...args)),
-  h1: <T extends object>(...args: Parameters<typeof _tw.h1<T>>) =>
-    memo(_tw.h1<T>(...args)),
-  h2: <T extends object>(...args: Parameters<typeof _tw.h2<T>>) =>
-    memo(_tw.h2<T>(...args)),
-  h3: <T extends object>(...args: Parameters<typeof _tw.h3<T>>) =>
-    memo(_tw.h3<T>(...args)),
-  h4: <T extends object>(...args: Parameters<typeof _tw.h4<T>>) =>
-    memo(_tw.h4<T>(...args)),
-  h5: <T extends object>(...args: Parameters<typeof _tw.h5<T>>) =>
-    memo(_tw.h5<T>(...args)),
-  h6: <T extends object>(...args: Parameters<typeof _tw.h6<T>>) =>
-    memo(_tw.h6<T>(...args)),
-  form: <T extends object>(...args: Parameters<typeof _tw.form<T>>) =>
-    memo(_tw.form<T>(...args)),
-  label: <T extends object>(...args: Parameters<typeof _tw.label<T>>) =>
-    memo(_tw.label<T>(...args)),
-  input: <T extends object>(...args: Parameters<typeof _tw.input<T>>) =>
-    memo(_tw.input<T>(...args)),
-  textarea: <T extends object>(...args: Parameters<typeof _tw.textarea<T>>) =>
-    memo(_tw.textarea<T>(...args)),
-};
+export const tw = _tw;
 
 export const customRP = (obj: React.CSSProperties) => obj;
 
